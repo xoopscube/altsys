@@ -36,7 +36,12 @@ function list_blocks( $target_mid , $target_dirname )
 	$myts =& MyTextSanitizer::getInstance() ;
 
 	// main query
-	$db = Database::getInstance();
+	// for Cube 2.1
+	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
+        $db =& Database::getInstance() ;
+	} else {
+        $db =& XoopsDatabaseFactory::getDatabaseConnection();
+	}
 	if( $target_mid ) {
 		// normal
 		$sql = "SELECT bid,name,show_func,func_file,template FROM ".$db->prefix("newblocks")." WHERE mid='$target_mid'";
@@ -266,7 +271,12 @@ function list_blocks( $target_mid , $target_dirname )
 function list_groups( $target_mid , $target_dirname , $target_mname )
 {
 	// query for getting blocks
-	$db =& Database::getInstance();
+	// for Cube 2.1
+	if( defined( 'XOOPS_CUBE_LEGACY' ) ) {
+        $db =& Database::getInstance() ;
+	} else {
+        $db =& XoopsDatabaseFactory::getDatabaseConnection();
+	}
 	if( $target_mid ) {
 		// normal
 		$sql = "SELECT i.instanceid,i.title FROM ".$db->prefix("block_instance")." i LEFT JOIN ".$db->prefix("newblocks")." b ON i.bid=b.bid WHERE b.mid='$target_mid'" ;
@@ -408,7 +418,13 @@ function do_edit( $bid )
 	$bid = intval( $bid ) ;
 
 	if( $bid <= 0 ) {
-		$db =& Database::getInstance() ;
+        // for Cube 2.1
+        if (defined('XOOPS_CUBE_LEGACY')) {
+            $db =& Database::getInstance();
+        } else {
+            $db =& XoopsDatabaseFactory::getDatabaseConnection();
+        }
+
 		$result = $db->query( "SELECT bid FROM ".$db->prefix("newblocks")." WHERE show_func='b_system_custom_show'" ) ;
 		list( $blockbase_id ) = $db->fetchRow( $result ) ;
 
@@ -443,7 +459,13 @@ function form_edit( $bid , $mode = 'edit' )
 	if( ! $bi->getVar('instanceid') ) {
 		// create new custom block
 		$mode = 'new' ;
-		$db =& Database::getInstance() ;
+        // for Cube 2.1
+        if (defined('XOOPS_CUBE_LEGACY')) {
+            $db =& Database::getInstance();
+        } else {
+            $db =& XoopsDatabaseFactory::getDatabaseConnection();
+        }
+
 		$result = $db->query( "SELECT bid FROM ".$db->prefix("newblocks")." WHERE show_func='b_system_custom_show'" ) ;
 		list( $blockbase_id ) = $db->fetchRow( $result ) ;
 		$bi->setVar( 'bid' , $blockbase_id ) ;

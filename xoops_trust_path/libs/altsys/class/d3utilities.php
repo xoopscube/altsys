@@ -91,7 +91,12 @@ class D3Utilities {
 	// multiple update
 	function update()
 	{
-		$db =& Database::getInstance() ;
+        // for Cube 2.1
+        if (defined('XOOPS_CUBE_LEGACY')) {
+            $db =& Database::getInstance();
+        } else {
+            $db =& XoopsDatabaseFactory::getDatabaseConnection();
+        }
 
 		// search appropriate column for getting primary_key
 		foreach( $this->cols as $col ) {

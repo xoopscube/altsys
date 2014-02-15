@@ -16,11 +16,12 @@ function altsys_onupdate_base( $module , $mydirname )
 		$root =& XCube_Root::getSingleton();
 		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUpdate.' . ucfirst($mydirname) . '.Success', 'altsys_message_append_onupdate' ) ;
 		$msgs = array() ;
+        $db =& Database::getInstance() ;
 	} else {
 		if( ! is_array( $msgs ) ) $msgs = array() ;
+        $db =& XoopsDatabaseFactory::getDatabaseConnection();
 	}
 
-	$db =& Database::getInstance() ;
 	$mid = $module->getVar('mid') ;
 
 

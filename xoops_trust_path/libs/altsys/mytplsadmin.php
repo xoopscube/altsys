@@ -20,8 +20,13 @@ if( ! is_object( @$xoopsUser ) || ! $moduleperm_handler->checkRight( 'module_adm
 
 
 // initials
-$db =& Database::getInstance();
-$myts =& MyTextSanitizer::getInstance() ;
+// for Cube 2.1
+if (defined('XOOPS_CUBE_LEGACY')) {
+    $db =& Database::getInstance();
+} else {
+    $db =& XoopsDatabaseFactory::getDatabaseConnection();
+}
+$myts =& MyTextSanitizer::getInstance();
 
 // language file
 altsys_include_language_file( 'mytplsadmin' ) ;
