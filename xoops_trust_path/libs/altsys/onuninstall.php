@@ -16,11 +16,12 @@ function altsys_onuninstall_base( $module , $mydirname )
 		$root =& XCube_Root::getSingleton();
 		$root->mDelegateManager->add( 'Legacy.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success' , 'altsys_message_append_onuninstall' ) ;
 		$ret = array() ;
+        $db =& Database::getInstance();
 	} else {
 		if( ! is_array( $ret ) ) $ret = array() ;
+        $db =& XoopsDatabaseFactory::getDatabaseConnection();
 	}
 
-	$db =& Database::getInstance() ;
 	$mid = $module->getVar('mid') ;
 
 	// TABLES (loading mysql.sql)

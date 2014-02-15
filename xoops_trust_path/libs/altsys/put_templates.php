@@ -15,10 +15,15 @@ if( $xoopsModule->getVar('dirname') != 'altsys' ) die( 'this page can be called 
 
 
 // language file
-altsys_include_language_file( 'compilehookadmin' ) ;
+altsys_include_language_file('compilehookadmin');
 
 
-$db =& Database::getInstance() ;
+// for Cube 2.1
+if (defined('XOOPS_CUBE_LEGACY')) {
+    $db =& Database::getInstance();
+} else {
+    $db =& XoopsDatabaseFactory::getDatabaseConnection();
+}
 
 if( empty( $_FILES['tplset_archive']['tmp_name'] ) || ! is_uploaded_file( $_FILES['tplset_archive']['tmp_name'] ) ) die( _TPLSADMIN_ERR_NOTUPLOADED ) ;
 //fix for mb_http_output setting and for add any browsers

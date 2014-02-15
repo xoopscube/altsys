@@ -126,12 +126,19 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 		}
 	} else exit ;
 
-	// get block_arr
-	$db =& Database::getInstance() ;
-	$sql = "SELECT DISTINCT gperm_itemid FROM ".$db->prefix('group_permission')." WHERE gperm_name = 'block_read' AND gperm_modid = 1 AND gperm_groupid IN (".implode(',',$xoopsUser->getGroups()).")" ;
-	$result = $db->query($sql);
+// get block_arr
+// for Cube 2.1
+if (defined('XOOPS_CUBE_LEGACY')) {
+    $db =& Database::getInstance();
+} else {
+    $db =& XoopsDatabaseFactory::getDatabaseConnection();
+}
 
-	$blockids = array();
+$sql = "SELECT DISTINCT gperm_itemid FROM " . $db->prefix('group_permission')
+    . " WHERE gperm_name = 'block_read' AND gperm_modid = 1 AND gperm_groupid IN (" . implode(',', $xoopsUser->getGroups()) . ")";
+$result = $db->query($sql);
+
+$blockids = array();
 	while ( list( $blockid ) = $db->fetchRow( $result ) ) {
 		$blockids[] = intval( $blockid ) ;
 	}

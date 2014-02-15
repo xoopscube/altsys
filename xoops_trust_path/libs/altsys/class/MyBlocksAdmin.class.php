@@ -21,7 +21,12 @@ function MyBlocksAadmin()
 
 function construct()
 {
-	$this->db =& Database::getInstance() ;
+    // for Cube 2.1
+    if (defined('XOOPS_CUBE_LEGACY')) {
+        $this->db =& Database::getInstance();
+    } else {
+        $this->db =& XoopsDatabaseFactory::getDatabaseConnection();
+    }
 	$this->lang = @$GLOBALS['xoopsConfig']['language'] ;
 
 	$this->cachetime_options = array(
