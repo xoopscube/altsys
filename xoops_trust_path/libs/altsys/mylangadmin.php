@@ -302,7 +302,7 @@ $tpl->assign(array(
     'use_my_language' => strlen($langman->my_language) > 0,
     'mylang_file_name' => htmlspecialchars($mylang_unique_path, ENT_QUOTES),
     'cache_file_name' => htmlspecialchars($cache_file_name, ENT_QUOTES),
-    'cache_file_mtime' => intval($cache_file_mtime),
+     'cache_file_mtime' => (int)$cache_file_mtime,
     'timezone_offset' => xoops_getUserTimestamp(0),
     'notice' => $notice4disp,
     'already_read' => $already_read,

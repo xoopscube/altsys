@@ -184,7 +184,7 @@ if (is_array(@$_POST['del_do'])) {
                 $tplfile = $myts->stripSlashesGPC($tplfile_tmp) ;
                 $result = $db->query('SELECT tpl_id FROM ' . $db->prefix('tplfile') . " WHERE tpl_tplset='" . addslashes($tplset_from) . "' AND tpl_file='" . addslashes($tplfile) . "'") ;
                 while (list($tpl_id) = $db->fetchRow($result)) {
-                    $tpl_id = intval($tpl_id) ;
+                    $tpl_id = (int)$tpl_id;
                     $db->query('DELETE FROM ' . $db->prefix('tplfile') . " WHERE tpl_id=$tpl_id") ;
                     $db->query('DELETE FROM ' . $db->prefix('tplsource') . " WHERE tpl_id=$tpl_id") ;
                 }

@@ -33,7 +33,7 @@ public function renderCell4BlockOptions($block_data)
         $langman->read('admin.php', $this->target_dirname) ;
     }
 
-    $bid = intval($block_data['bid']) ;
+    $bid = (int)$block_data['bid'];
 
 //HACK by domifara
 //	$block = new XoopsBlock( $bid ) ;

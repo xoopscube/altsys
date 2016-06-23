@@ -27,7 +27,7 @@ class d3utilities
         $module_handler = xoops_gethandler('module') ;
         $module =& $module_handler->getByDirname($this->mydirname) ;
         if (! empty($module)) {
-            $this->mid = intval($module->getVar('mid')) ;
+            $this->mid = (int)$module->getVar('mid');
         }
         $this->page_name = $page_name ;
         $this->action_base_hiddens = $action_base_hiddens ;
@@ -45,21 +45,21 @@ class d3utilities
         switch ($col['type']) {
             case 'text' :
             case 'blob' :
-                $length = empty($col['length']) ? 65535 : intval($col['length']) ;
+                $length = empty($col['length']) ? 65535 : (int)$col['length'];
                 return "`{$col['name']}`='".addslashes(xoops_substr($value, 0, $length))."'" ;
             case 'char' :
             case 'varchar' :
             case 'string' :
-                $length = empty($col['length']) ? 255 : intval($col['length']) ;
+                $length = empty($col['length']) ? 255 : (int)$col['length'];
                 return "`{$col['name']}`='".addslashes(xoops_substr($value, 0, $length))."'" ;
             case 'int' :
             case 'integer' :
-                $value = intval($value) ;
+                $value = (int)$value;
                 if (! empty($col['max'])) {
-                    $value = min($value, intval($col['max'])) ;
+                    $value = min($value, (int)$col['max']) ;
                 }
                 if (! empty($col['min'])) {
-                    $value = max($value, intval($col['min'])) ;
+                    $value = max($value, (int)$col['min']) ;
                 }
                 return "`{$col['name']}`=$value" ;
         }
@@ -115,7 +115,7 @@ class d3utilities
 
         $ret = array() ;
         foreach (array_keys($_POST[$column4key]) as $id) {
-            $id = intval($id) ;    // primary_key should be 'integer'
+            $id = (int)$id;    // primary_key should be 'integer'
             $set4sql = '' ;
             foreach ($this->cols as $col) {
                 if (empty($col['list_edit'])) {
@@ -147,7 +147,7 @@ class d3utilities
 
         $ret = array() ;
         foreach (array_keys($_POST['admin_main_checkboxes']) as $id) {
-            $id = intval($id) ;    // primary_key should be 'integer'
+            $id = (int)$id;    // primary_key should be 'integer'
             $result = $db->query("SELECT * FROM $this->table WHERE $this->primary_key=$id") ;
             if ($db->getRowsNum($result) == 1) {
                 $ret[ $id ] = $db->fetchArray($result) ;
@@ -174,7 +174,7 @@ class d3utilities
         $db = XoopsDatabaseFactory::getDatabaseConnection() ;
 
         if (@$_GET['id']) {
-            $id = intval($_GET['id']) ;
+            $id = (int)$_GET['id'];
             $rs = $db->query("SELECT * FROM $this->table WHERE $this->primary_key=$id") ;
             if ($db->getRowsNum($rs) == 1) {
                 $row = $db->fetchArray($rs) ;
@@ -223,8 +223,8 @@ class d3utilities
                     break ;
                 case 'text' :
                 default :
-                    $size = empty($col['edit_size']) ? 32 : intval($col['edit_size']) ;
-                    $length = empty($col['length']) ? 255 : intval($col['length']) ;
+                    $size = empty($col['edit_size']) ? 32 : (int)$col['edit_size'];
+                    $length = empty($col['length']) ? 255 : (int)$col['length'];
                     $lines[ $col['name'] ] = "<input type='text' name='{$col['name']}' size='$size' maxlength='$length' value='".htmlspecialchars($col['default_value'], ENT_QUOTES)."' />" ;
                     break ;
                 case false :

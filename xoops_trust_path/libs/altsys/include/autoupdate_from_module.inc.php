@@ -20,7 +20,7 @@ foreach ($tplsadmin_autoupdate_dirnames as $dirname) {
         while (($file = readdir($handler)) !== false) {
             $file_path = $tplsadmin_autoupdate_path . '/' . $file ;
             if (is_file($file_path) && substr($file, -5) == '.html') {
-                $mtime = intval(@filemtime($file_path)) ;
+                $mtime = (int)(@filemtime($file_path));
                 list($count) = $xoopsDB->fetchRow($xoopsDB->query('SELECT COUNT(*) FROM ' . $xoopsDB->prefix('tplfile') . " WHERE tpl_tplset='" . addslashes($xoopsConfig['template_set']) . "' AND tpl_file='" . addslashes($file) . "' AND tpl_lastmodified >= $mtime")) ;
                 if ($count <= 0) {
                     include_once XOOPS_TRUST_PATH.'/libs/altsys/include/tpls_functions.php' ;
@@ -35,7 +35,7 @@ foreach ($tplsadmin_autoupdate_dirnames as $dirname) {
         while (($file = readdir($handler)) !== false) {
             $file_path = $tplsadmin_autoupdate_path . '/blocks/' . $file ;
             if (is_file($file_path) && substr($file, -5) == '.html') {
-                $mtime = intval(@filemtime($file_path)) ;
+                $mtime = (int)(@filemtime($file_path));
                 list($count) = $xoopsDB->fetchRow($xoopsDB->query('SELECT COUNT(*) FROM ' . $xoopsDB->prefix('tplfile') . " WHERE tpl_tplset='" . addslashes($xoopsConfig['template_set']) . "' AND tpl_file='" . addslashes($file) . "' AND tpl_lastmodified >= $mtime")) ;
                 if ($count <= 0) {
                     include_once XOOPS_TRUST_PATH.'/libs/altsys/include/tpls_functions.php' ;

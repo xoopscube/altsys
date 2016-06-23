@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/MyBlocksAdmin.class.php' ;
+require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX22 extends MyBlocksAdmin
 {
@@ -37,7 +37,7 @@ function list_blocks( $target_mid , $target_dirname )
     (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
     // main query
-    $db =& XoopsDatabaseFactory::getDatabaseConnection();
+    $db = XoopsDatabaseFactory::getDatabaseConnection();
     if( $target_mid ) {
         // normal
         $sql = "SELECT bid,name,show_func,func_file,template FROM ".$db->prefix("newblocks")." WHERE mid='$target_mid'";
@@ -331,7 +331,7 @@ function update_blockinstance($id, $bside, $bweight, $bvisible, $btitle, $bconte
             $page = explode('-', $mid);
             $mid = $page[0];
             $pageid = $page[1];
-            $GLOBALS['xoopsDB']->query("INSERT INTO ".$GLOBALS['xoopsDB']->prefix('block_module_link')." VALUES (".$instance->getVar('instanceid').", ".intval($mid).", ".intval($pageid).")");
+            $GLOBALS['xoopsDB']->query("INSERT INTO ".$GLOBALS['xoopsDB']->prefix('block_module_link')." VALUES (".$instance->getVar('instanceid').", ".(int)$mid.", ".(int)$pageid.")");
         }
         return _MD_A_MYBLOCKSADMIN_DBUPDATED;
     }
@@ -346,7 +346,7 @@ function do_order()
 
         // addblock
         foreach( $_POST['addblock'] as $bid => $val ) {
-            $this->update_blockinstance( 0, 0, 0, 0, '', null , null , 0, array(), array(), intval( $bid ) );
+            $this->update_blockinstance( 0, 0, 0, 0, '', null , null , 0, array(), array(), (int)$bid);
         }
 
     } else {
@@ -380,7 +380,7 @@ function form_delete( $bid )
 {
     global $target_dirname ;
 
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
     $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
@@ -392,7 +392,7 @@ function form_delete( $bid )
 
 function do_delete( $bid )
 {
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
     $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
@@ -406,7 +406,7 @@ function do_delete( $bid )
 
 function do_edit( $bid )
 {
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
     if( $bid <= 0 ) {
         $db = XoopsDatabaseFactory::getDatabaseConnection() ;
@@ -424,19 +424,19 @@ function do_edit( $bid )
         $bid = $instance->getVar('instanceid') ;
     }
 
-    $bcachetime = intval( @$_POST['bcachetime'] ) ;
+    $bcachetime = (int)( @$_POST['bcachetime'] ) ;
     $options = isset($_POST['options']) ? $_POST['options'] : array();
     $bcontent = isset($_POST['bcontent']) ? $_POST['bcontent'] : '';
     $bctype = isset($_POST['bctype']) ? $_POST['bctype'] : '';
-//	$bmodules = (isset($_POST['bmodules']) && is_array($_POST['bmodules'])) ? $_POST['bmodules'] : array(-1) ; // TODO
-    return $this->update_blockinstance( $bid , intval(@$_POST['bside']) , intval(@$_POST['bweight']) , intval(@$_POST['bvisible']) , @$_POST['btitle'] , $bcontent , $bctype , $bcachetime , -1 , $options ) ;
+//  $bmodules = (isset($_POST['bmodules']) && is_array($_POST['bmodules'])) ? $_POST['bmodules'] : array(-1) ; // TODO
+    return $this->update_blockinstance( $bid , (int)(@$_POST['bside']) , (int)(@$_POST['bweight']) , (int)(@$_POST['bvisible']) , @$_POST['btitle'] , $bcontent , $bctype , $bcachetime , -1 , $options ) ;
 }
 
 
 
 function form_edit( $bid , $mode = 'edit' )
 {
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
     $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
@@ -461,11 +461,11 @@ function form_edit( $bid , $mode = 'edit' )
 
 
     switch( $mode ) {
-//		case 'clone' :
-//			$form_title = _MD_A_MYBLOCKSADMIN_CLONEFORM ;
-//			$button_value = _MD_A_MYBLOCKSADMIN_BTN_CLONE ;
-//			$next_op = 'clone_ok' ;
-//			break ;
+//      case 'clone' :
+//          $form_title = _MD_A_MYBLOCKSADMIN_CLONEFORM ;
+//          $button_value = _MD_A_MYBLOCKSADMIN_BTN_CLONE ;
+//          $next_op = 'clone_ok' ;
+//          break ;
         case 'new' :
             $form_title = _MD_A_MYBLOCKSADMIN_NEWFORM ;
             $button_value = _MD_A_MYBLOCKSADMIN_BTN_NEW ;
@@ -485,16 +485,16 @@ function form_edit( $bid , $mode = 'edit' )
     $block = array(
         'bid' => $bid ,
         'form_action' => $action_base_url4disp ,
-//		'title' => $bi->getVar('name') ,
+//      'title' => $bi->getVar('name') ,
         'side' => $bi->getVar('side') ,
         'weight' => $bi->getVar('weight') ,
         'visible' => $bi->getVar('visible') ,
-//		'content' => $bi->getVar('content', 'N') ,
+//      'content' => $bi->getVar('content', 'N') ,
         'title' => $bi->getVar('title','E') ,
-//		'modules' => $modules ,
+//      'modules' => $modules ,
         'modules' => -1 ,
         'is_custom' => false ,
-//		'ctype' => $bi->getVar('c_type') ,
+//      'ctype' => $bi->getVar('c_type') ,
         'cachetime' => $bi->getVar('bcachetime') ,
         'edit_form' => $bi->getOptions() ,
         'template' => $blockbase->getVar('template') ,
@@ -505,7 +505,7 @@ function form_edit( $bid , $mode = 'edit' )
     ) ;
 
     echo '<a href="'.$action_base_url4disp.'">'. _MD_A_MYBLOCKSADMIN_BLOCKADMIN .'</a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;'.$form_title.'<br /><br />';
-    include dirname(__FILE__).'/myblockform.php' ;
+    include __DIR__.'/myblockform.php' ;
     $GLOBALS['xoopsGTicket']->addTicketXoopsFormElement( $form , __LINE__ , 1800 , 'myblocksadmin' ) ;
     $form->display();
 
