@@ -85,7 +85,7 @@ class MyXoopsGroupPermForm extends XoopsForm
     public function __construct($title, $modid, $permname, $permdesc)
     {
         //      $this->XoopsForm($title, 'groupperm_form', XOOPS_URL.'/modules/system/admin/groupperm.php', 'post'); GIJ
-        $this->XoopsForm($title, 'groupperm_form', '', 'post');
+        parent::__construct($title, 'groupperm_form', '', 'post');
         $this->_modid = (int)$modid;
         $this->_permName = $permname;
         $this->_permDesc = $permdesc;

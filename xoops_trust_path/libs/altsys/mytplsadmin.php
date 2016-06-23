@@ -6,9 +6,9 @@
 // ------------------------------------------------------------------------- //
 
 require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
-include_once __DIR__."/include/gtickets.php" ;
+include_once __DIR__ . '/include/gtickets.php';
 include_once __DIR__.'/include/altsys_functions.php' ;
-include_once __DIR__."/include/tpls_functions.php" ;
+include_once __DIR__ . '/include/tpls_functions.php';
 
 
 // only groups have 'module_admin' of 'altsys' can do that.

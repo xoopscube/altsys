@@ -6,7 +6,7 @@
 // ------------------------------------------------------------------------- //
 
 require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
-include_once __DIR__."/include/gtickets.php" ;
+include_once __DIR__ . '/include/gtickets.php';
 include_once __DIR__.'/include/altsys_functions.php' ;
 include_once __DIR__.'/include/lang_functions.php' ;
 include_once __DIR__.'/class/D3LanguageManager.class.php' ;

@@ -69,7 +69,7 @@ if ($op == 'showmod') {
     $modname = $module->getVar('name');
     $button_tray = new XoopsFormElementTray('');
     // if ($module->getInfo('adminindex')) {
-        //	$form->addElement(new XoopsFormHidden('redirect', XOOPS_URL.'/modules/'.$module->getVar('dirname').'/'.$module->getInfo('adminindex')));
+        //  $form->addElement(new XoopsFormHidden('redirect', XOOPS_URL.'/modules/'.$module->getVar('dirname').'/'.$module->getInfo('adminindex')));
     // }
     for ($i = 0; $i < $count; $i++) {
         $title_icon = ($config[$i]->getVar('conf_valuetype') === 'encrypt')? '<img src="'.XOOPS_MODULE_URL.'/legacy/admin/theme/icons/textfield_key.png" alt="Encrypted">' : ''; // support XCL 2.2.3 'encrypt' of 'conf_valuetype'
@@ -116,7 +116,7 @@ if ($op == 'showmod') {
             for ($j = 0; $j < $opcount; $j++) {
                 $optval = defined($options[$j]->getVar('confop_value')) ? constant($options[$j]->getVar('confop_value')) : $options[$j]->getVar('confop_value');
                 $optkey = defined($options[$j]->getVar('confop_name')) ? constant($options[$j]->getVar('confop_name')) : $options[$j]->getVar('confop_name');
-                
+
                 $ele->addOption($optval, $optkey.$addBr);
             }
             break;
@@ -159,9 +159,7 @@ if ($op == 'showmod') {
         $ele_tray->addElement($ele);
         $ele_tray->addElement($hidden);
         $form->addElement($ele_tray) ;
-        unset($ele_tray);
-        unset($ele);
-        unset($hidden);
+        unset($ele_tray, $ele, $hidden);
     }
     // $button_tray->addElement(new XoopsFormHidden('op', 'save'));
     $xoopsGTicket->addTicketXoopsFormElement($button_tray, __LINE__, 1800, 'mypreferences') ;
@@ -185,7 +183,7 @@ if ($op == 'showmod') {
 
 if ($op == 'save') {
     //if ( !admin_refcheck("/modules/$admin_mydirname/admin/") ) {
-    //	exit('Invalid referer');
+    //  exit('Invalid referer');
     //}
     if (! $xoopsGTicket->check(true, 'mypreferences')) {
         redirect_header(XOOPS_URL.'/', 3, $xoopsGTicket->getErrors());
@@ -248,7 +246,7 @@ if ($op == 'save') {
 
                         altsys_clear_templates_c() ;
 
-/*						for ($i = 0; $i < $dcount; $i++) {
+/*                      for ($i = 0; $i < $dcount; $i++) {
                             $found =& $tplfile_handler->find($newtplset, 'block', $dtemplates[$i]->getVar('tpl_refid'), null);
                             if (count($found) > 0) {
                                 // template for the new theme found, compile it

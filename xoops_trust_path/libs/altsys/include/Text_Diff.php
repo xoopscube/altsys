@@ -334,9 +334,7 @@ class Text_Diff_Engine_native
         $this->xchanged = $this->ychanged = array();
         $this->xv = $this->yv = array();
         $this->xind = $this->yind = array();
-        unset($this->seq);
-        unset($this->in_seq);
-        unset($this->lcs);
+        unset($this->seq, $this->in_seq, $this->lcs);
 
         // Skip leading common lines.
         for ($skip = 0; $skip < $n_from && $skip < $n_to; $skip++) {

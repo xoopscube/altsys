@@ -6,9 +6,9 @@
 // ------------------------------------------------------------------------- //
 
 require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
-include_once __DIR__."/include/gtickets.php" ;
+include_once __DIR__ . '/include/gtickets.php';
 include_once __DIR__.'/include/altsys_functions.php' ;
-include_once __DIR__."/include/tpls_functions.php" ;
+include_once __DIR__ . '/include/tpls_functions.php';
 include_once __DIR__.'/include/Text_Diff.php' ;
 include_once __DIR__.'/include/Text_Diff_Renderer.php' ;
 include_once __DIR__.'/include/Text_Diff_Renderer_unified.php' ;
@@ -156,8 +156,6 @@ if (! empty($_POST['do_create'])) {
     }
     $tpl_id = (int)$db->getInsertId();
     $sql = 'INSERT INTO ' . $db->prefix('tplsource') . " SET tpl_id=$tpl_id,tpl_source='" . addslashes($myts->stripSlashesGPC($_POST['tpl_source'])) . "'" ;
-    $tpl_id = (int)$db->getInsertId();
-    $sql = "INSERT INTO ".$db->prefix("tplsource")." SET tpl_id=$tpl_id,tpl_source='".addslashes($myts->stripSlashesGPC($_POST['tpl_source']))."'" ;
     if (! $db->query($sql)) {
         die('SQL Error'.__LINE__) ;
     }

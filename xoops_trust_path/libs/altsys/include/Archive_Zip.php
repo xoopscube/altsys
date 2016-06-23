@@ -135,7 +135,7 @@ class Archive_Zip
     * @access public
     */
 //HACK by domifara
-//	function Archive_Zip($p_zipname)
+//  function Archive_Zip($p_zipname)
     public function __construct($p_zipname)
     {
 
@@ -1216,9 +1216,7 @@ class Archive_Zip
         }
 
         // ----- Free memory for the recursive loop
-        unset($p_temp_list);
-          unset($p_hdir);
-          unset($p_hitem);
+        unset($p_temp_list, $p_hdir, $p_hitem);
       }
     }
 
@@ -1837,7 +1835,7 @@ class Archive_Zip
 
       // ----- Look for extract by index rule
       elseif (isset($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX])
-               && ($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX] != 0)) {
+              && ($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX] != 0)) {
 
           // ----- Look if the index is in the list
           for ($j=$j_start; ($j < count($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX])) && (!$v_extract); $j++) {
@@ -2526,7 +2524,7 @@ class Archive_Zip
     if (strlen($v_binary_data) != 18) {
         $this->_errorLog(ARCHIVE_ZIP_ERR_BAD_FORMAT,
                          'Invalid End of Central Dir Record size : '
-                       .strlen($v_binary_data));
+                         . strlen($v_binary_data));
         return Archive_Zip::errorCode();
     }
 
@@ -2676,7 +2674,7 @@ class Archive_Zip
 
       // ----- Look for extract by index rule
       elseif (isset($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX])
-               && ($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX] != 0)) {
+              && ($p_params[ARCHIVE_ZIP_PARAM_BY_INDEX] != 0)) {
 
           // ----- Look if the index is in the list
           for ($j=$j_start;

@@ -34,7 +34,7 @@ function b_altsys_admin_menu_show($options)
     (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
     $module_handler = xoops_gethandler('module');
-    $current_module = $module_handler->getByDirname($mydirname);
+    $current_module =& $module_handler->getByDirname($mydirname);
     $config_handler = xoops_gethandler('config');
     $current_configs = $config_handler->getConfigList($current_module->mid()) ;
     $moduleperm_handler = xoops_gethandler('groupperm');

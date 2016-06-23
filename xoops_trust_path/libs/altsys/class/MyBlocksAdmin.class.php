@@ -22,7 +22,7 @@ class MyBlocksAdmin
 
     public function construct()
     {
-        $this->db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+        $this->db = XoopsDatabaseFactory::getDatabaseConnection() ;
         $this->lang = @$GLOBALS['xoopsConfig']['language'] ;
 
         $this->cachetime_options = array(
