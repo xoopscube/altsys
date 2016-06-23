@@ -1,8 +1,16 @@
+[![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg?style=flat)](LICENSE)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/mambax7/altsys.svg?style=flat)](https://scrutinizer-ci.com/g/mambax7/altsys/?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d144581b7d3488e8530e6254e0fd81d)](https://www.codacy.com/app/mambax7/altsys)
+[![Code Climate](https://img.shields.io/codeclimate/github/xoopscube/altsys.svg?style=flat)](https://codeclimate.com/github/xoopscube/altsys)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4596e0af-49a6-4bde-8937-be5bb562e1d5/mini.png)](https://insight.sensiolabs.com/projects/4596e0af-49a6-4bde-8937-be5bb562e1d5)
+[![Latest Pre-Release](https://img.shields.io/github/tag/XoopsModules25x/tag.svg?style=flat)](https://github.com/xoopscube/altsys/tags/)
+[![Latest Version](https://img.shields.io/github/release/XoopsModules25x/tag.svg?style=flat)](https://github.com/xoopscube/altsys/releases/)
+
 [mlimg]
 [xlang:en]
 == ALTSYS == alternative system module & library
 
-[b]SUMMARY:[/b]
+**SUMMARY:**
 
 The unified module of blocksadmin, tplsadmin, etc around the system.
 
@@ -11,7 +19,7 @@ I'm appreciated your bug reports :-)
 I'll maintain this module instead of blocksadmin, tplsadmin, avaman etc.
 
 
-[b]INSTALL:[/b]
+**INSTALL:**
 
 - set XOOPS_TRUST_PATH into mainfile.php
 - copy xoops_trus_path/libs/ in the archive into XOOPS_TRUST_PATH/
@@ -19,13 +27,13 @@ I'll maintain this module instead of blocksadmin, tplsadmin, avaman etc.
 - install it
 
 
-[b]UPDATE[/b]
+**UPDATE**
 from 0.2x/0.3x:
  - remove XOOPS_ROOT_PATH/modules/altsys/ once
  - upload/overwrite both XOOPS_ROOT_PATH/modules/altsys and XOOPS_TRUST_PATH/libs/altsys
 
 
-[b]FEATURES[/b]
+**FEATURES**
 
 - easy block administration 
 - easy permission adminstration
@@ -40,7 +48,7 @@ from 0.2x/0.3x:
 - modifying operations/developments of any versions of core (X2,XCL2.1,ImpressCMS etc.) efficient
 
 
-[b]DB template auto-updating feature[/b]
+**DB template auto-updating feature**
 
 This feature make your customizing/developping DB templates much efficient.
 Altsys supports three types of auto-updating into the DB.
@@ -48,41 +56,41 @@ Altsys supports three types of auto-updating into the DB.
 (1) auto-updating template under the theme.
 This feature is useful for developper of site/theme.
 Insert a line just after including common.php of mainfile.php.
-[code]
+```php
 		include XOOPS_ROOT_PATH."/include/common.php";
 		[color=ff0000]
 		include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_theme.inc.php" ;
 		[/color]
-[/code]
+```
 Then, just modifying the templates of /themes/(your_theme)/templates/* will be updated into the DB
 
 (2) auto-updating template under the module
 This feature is useful for developper of modules.
 Insert two lines just after including common.php of mainfile.php.
-[code]
+```php
 		include XOOPS_ROOT_PATH."/include/common.php";
 		[color=ff0000]
 		$tplsadmin_autoupdate_dirnames = array( '(your_module)' ) ;
 		include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_module.inc.php" ;
 		[/color]
-[/code]
+```
 Then, just modifying the templates of /modules/(your_module)/templates/* will be updated into the DB.
 You can specify modules multiply. eg) array( 'piCal' , 'tinyd0' )
 
 (3) auto-updating template under XOOPS_TRUST_PATH
 This feature is useful for developper of D3 modules.
 Insert two lines just after including common.php of mainfile.php.
-[code]
+```php
 		include XOOPS_ROOT_PATH."/include/common.php";
 		[color=ff0000]
 		$tplsadmin_autoupdate_mydirnames = array( 'pico' , 'd3forum' ) ;
 		include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_d3module.inc.php" ;
 		[/color]
-[/code]
+```
 Then, just modifying the templates of XOOPS_TRUST_PATH/modules/pico/templates/* and XOOPS_TRUST_PATH/modules/d3forum/templates/* will be updated into the DB.
 
 
-[b]admin in theme[/b]
+**admin in theme**
 
 You can display admin side in the theme for XOOPS.
 This must be useful for accessibility or mobile.
@@ -91,20 +99,20 @@ You have to make some patch for enabling this feature.
 
 (1) XOOPS2.0.x
 Insert a line just after including common.php of mainfile.php.
-[code]
+```php
 		include XOOPS_TRUST_PATH.'/libs/altsys/include/admin_in_theme.inc.php' ;
-[/code]
+```
 
 (2) XOOPS Cube Legacy 2.1
 Insert some lines into settings/site_custom.ini.php (If this file does not exist, make it newly)
-[code]
+```php
 [RenderSystems]
 Legacy_AdminRenderSystem=Legacy_AltsysAdminRenderSystem
 
 [Legacy_AltsysAdminRenderSystem]
 path=/modules/altsys/include
 class=Legacy_AltsysAdminRenderSystem
-[/code]
+```
 
 (3) XOOPS 2.2 and ORETEKI
 Not supported yet
@@ -116,7 +124,7 @@ If you disable "admin in theme", set blank here.
 If you want to diplaying a block into the admin, Specify "ALTSYS" as the target explicitly.
 
 
-[b]Admin menu hack[/b]
+**Admin menu hack**
 
 Even if you turn "admin in theme" disabled, you can modify the adminmenu in the left side of admin area. (for 2.0.x)
 
@@ -125,7 +133,7 @@ This is not a core hack but a cache hack.
 If your admin area is broken, just remove cache/adminmenu.
 
 
-[b]Language constants override system[/b]
+**Language constants override system**
 
 mylangadmin offers you to override the language constants of each modules.
 
@@ -189,37 +197,37 @@ DBテンプレートをローカルで編集する際には、ファイルを更
 (1)テーマ内テンプレート自動更新機能
 サイトやテーマ開発者にとって便利な機能です。
 mainfile.phpのcommon.php読込行の直後に、以下のように１行挿入します。
-[code]
+```php
 		include XOOPS_ROOT_PATH."/include/common.php";
 		[color=ff0000]
 		include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_theme.inc.php" ;
 		[/color]
-[/code]
+```
 これにより、選択されたテーマ内のtemplates/フォルダ内に置かれたテンプレートを自動的に読み込むようになります。
 
 (2)モジュール内テンプレート自動更新機能
 モジュール開発者にとって便利な機能です。
 mainfile.phpのcommon.php読込行の直後に、以下のように２行挿入します。
-[code]
+```php
 		include XOOPS_ROOT_PATH."/include/common.php";
 		[color=ff0000]
 		$tplsadmin_autoupdate_dirnames = array( 'piCal' ) ;
 		include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_module.inc.php" ;
 		[/color]
-[/code]
+```
 このように記述することで、piCalモジュールのテンプレートの元ファイルを編集するだけで、即時にデータベースに反映されます。includeする前に、$tplsadmin_autoupdate_dirnamesに配列をセットしておくことが重要です。
 もちろん複数のモジュールを同時指定することも可能です。array( 'piCal' , 'tinyd0' ) のように指定します。
 
 (3)TRUST_PATH内テンプレート自動更新機能
 D3モジュール開発者にとって便利な機能です。
 mainfile.phpのcommon.php読込行の直後に、以下のように２行挿入します。
-[code]
+```php
 		include XOOPS_ROOT_PATH."/include/common.php";
 		[color=ff0000]
 		$tplsadmin_autoupdate_mydirnames = array( 'pico' , 'd3forum' ) ;
 		include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_d3module.inc.php" ;
 		[/color]
-[/code]
+```
 このように記述することで、picoモジュールやd3forumのテンプレートの元ファイルを編集するだけで、即時にデータベースに反映されます。includeする前に、$tplsadmin_autoupdate_mydirnamesに配列をセットしておくことが重要です。
 
 (1)～(3)のいずれも、併用が可能です。
@@ -233,21 +241,21 @@ mainfile.phpのcommon.php読込行の直後に、以下のように２行挿入�
 
 (1) XOOPS2.0.x
 mainfile.php のcommon.php読込行の直後に、以下の１行を挿入します。
-[code]
+```php
 		include XOOPS_TRUST_PATH.'/libs/altsys/include/admin_in_theme.inc.php' ;
-[/code]
+```
 無効化するには、この１行を削除してください。
 
 (2) XOOPS Cube Legacy 2.1
 settings/site_custom.ini.php に以下の行を挿入します。（このファイルがなければ作る）
-[code]
+```php
 [RenderSystems]
 Legacy_AdminRenderSystem=Legacy_AltsysAdminRenderSystem
 
 [Legacy_AltsysAdminRenderSystem]
 path=/modules/altsys/include
 class=Legacy_AltsysAdminRenderSystem
-[/code]
+```
 無効化するには、これらの行を削除してください。
 
 管理画面テーマは、altsysの一般設定で指定します。
