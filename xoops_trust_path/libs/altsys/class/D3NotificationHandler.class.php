@@ -85,9 +85,9 @@ public static function &getInstance($conn = null)
             }
         }
         $criteria = new CriteriaCompo();
-        $criteria->add(new Criteria('not_modid', intval($mid)));
+        $criteria->add(new Criteria('not_modid', (int)$mid));
         $criteria->add(new Criteria('not_category', $category));
-        $criteria->add(new Criteria('not_itemid', intval($item_id)));
+        $criteria->add(new Criteria('not_itemid', (int)$item_id));
         $criteria->add(new Criteria('not_event', $event));
         $mode_criteria = new CriteriaCompo();
         $mode_criteria->add(new Criteria('not_mode', XOOPS_NOTIFICATION_MODE_SENDALWAYS), 'OR');

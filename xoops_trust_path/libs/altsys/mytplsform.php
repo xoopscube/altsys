@@ -154,8 +154,13 @@ if (! empty($_POST['do_create'])) {
     if (! $db->query($sql)) {
         die('SQL Error'.__LINE__) ;
     }
+<<<<<<< HEAD
     $tpl_id = intval($db->getInsertId()) ;
     $sql = 'INSERT INTO ' . $db->prefix('tplsource') . " SET tpl_id=$tpl_id,tpl_source='" . addslashes($myts->stripSlashesGPC($_POST['tpl_source'])) . "'" ;
+=======
+    $tpl_id = (int)$db->getInsertId();
+    $sql = "INSERT INTO ".$db->prefix("tplsource")." SET tpl_id=$tpl_id,tpl_source='".addslashes($myts->stripSlashesGPC($_POST['tpl_source']))."'" ;
+>>>>>>> feature/intval
     if (! $db->query($sql)) {
         die('SQL Error'.__LINE__) ;
     }

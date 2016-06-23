@@ -41,7 +41,7 @@ public static function &getInstance()
 // link blocks - modules - pages
 public function renderCell4BlockModuleLink($block_data)
 {
-    $bid = intval($block_data['bid']) ;
+    $bid = (int)$block_data['bid'];
 
     // get selected targets
     if (is_array(@$block_data['bmodule'])) {
@@ -52,7 +52,7 @@ public function renderCell4BlockModuleLink($block_data)
         $result = $this->db->query('SELECT module_id,page_id FROM ' . $this->db->prefix('block_module_link') . " WHERE block_id='$bid'") ;
         $selected_pages = array();
         while (list($mid, $pid) = $this->db->fetchRow($result)) {
-            $selected_pages[] = intval($mid) . '-' . intval($pid) ;
+            $selected_pages[] = (int)$mid . '-' . (int)$pid;
         }
     }
 
@@ -94,9 +94,9 @@ public function renderCell4BlockPosition($block_data)
 // private
 public function renderRadio4BlockPosition($target_side, $block_data)
 {
-    $bid = intval($block_data['bid']) ;
-    $visible = intval($block_data['visible']) ;
-    $current_side = $visible ? intval($block_data['side']) : -1 ;
+    $bid = (int)$block_data['bid'];
+    $visible = (int)$block_data['visible'];
+    $current_side = $visible ? (int)$block_data['side'] : -1 ;
 
     $label4disp = htmlspecialchars($this->block_positions[ $target_side ], ENT_QUOTES) ;
 
@@ -115,9 +115,9 @@ public function renderRadio4BlockPosition($target_side, $block_data)
 // private
 public function renderRadio4BlockPositions($block_data, $skip_sides = array())
 {
-    $bid = intval($block_data['bid']) ;
-    $visible = intval($block_data['visible']) ;
-    $current_side = $visible ? intval($block_data['side']) : -1 ;
+    $bid = (int)$block_data['bid'];
+    $visible = (int)$block_data['visible'];
+    $current_side = $visible ? (int)$block_data['side'] : -1 ;
 
     $ret = '' ;
     foreach ($this->block_positions as $target_side => $label) {
@@ -145,15 +145,20 @@ public function renderRadio4BlockPositions($block_data, $skip_sides = array())
 // virtual
 public function updateBlockModuleLink($bid, $bmodules)
 {
+<<<<<<< HEAD
     $bid = intval($bid) ;
     $table = $this->db->prefix('block_module_link') ;
+=======
+    $bid = (int)$bid;
+    $table = $this->db->prefix("block_module_link") ;
+>>>>>>> feature/intval
 
     $sql = "DELETE FROM `$table` WHERE `block_id`=$bid" ;
     $this->db->query($sql) ;
     foreach ($bmodules as $mid) {
         $regs = explode('-', $mid) ;
-        $module_id = intval(@$regs[0]) ;
-        $page_id = intval(@$regs[1]) ;
+        $module_id = (int)(@$regs[0]);
+        $page_id = (int)(@$regs[1]);
         $sql = "INSERT INTO `$table` (`block_id`,`module_id`,`page_id`) VALUES ($bid,$module_id,$page_id)" ;
         $this->db->query($sql) ;
     }

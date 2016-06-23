@@ -34,7 +34,7 @@ function list_blocks( $target_mid , $target_dirname )
 {
     global $xoopsGTicket ;
 
-    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::GetInstance() ;
 
     // main query
     $db =& XoopsDatabaseFactory::getDatabaseConnection();
@@ -78,7 +78,7 @@ function list_blocks( $target_mid , $target_dirname )
     $crit = new Criteria("bid", "(".implode(",",array_keys($block_arr)).")", "IN");
     $criteria = new CriteriaCompo($crit);
     $criteria->setSort('visible DESC, side ASC, weight');
-    $instance_handler =& xoops_gethandler('blockinstance');
+    $instance_handler = xoops_gethandler('blockinstance');
     $instances =& $instance_handler->getObjects($criteria, true, true);
 
     //Get modules and pages for visible in
@@ -267,7 +267,7 @@ function list_blocks( $target_mid , $target_dirname )
 function list_groups( $target_mid , $target_dirname , $target_mname )
 {
     // query for getting blocks
-    $db =& XoopsDatabaseFactory::getDatabaseConnection();
+    $db = XoopsDatabaseFactory::getDatabaseConnection();
     if( $target_mid ) {
         // normal
         $sql = "SELECT i.instanceid,i.title FROM ".$db->prefix("block_instance")." i LEFT JOIN ".$db->prefix("newblocks")." b ON i.bid=b.bid WHERE b.mid='$target_mid'" ;
@@ -302,8 +302,8 @@ function update_blockinstance($id, $bside, $bweight, $bvisible, $btitle, $bconte
 {
     global $xoopsDB ;
 
-    $instance_handler =& xoops_gethandler('blockinstance');
-    $block_handler =& xoops_gethandler('block') ;
+    $instance_handler = xoops_gethandler('blockinstance');
+    $block_handler = xoops_gethandler('block') ;
     if ($id > 0) {
         // update
         $instance =& $instance_handler->get($id);
@@ -331,7 +331,7 @@ function update_blockinstance($id, $bside, $bweight, $bvisible, $btitle, $bconte
             $page = explode('-', $mid);
             $mid = $page[0];
             $pageid = $page[1];
-            $GLOBALS['xoopsDB']->query("INSERT INTO ".$GLOBALS['xoopsDB']->prefix('block_module_link')." VALUES (".$instance->getVar('instanceid').", ".intval($mid).", ".intval($pageid).")");
+            $GLOBALS['xoopsDB']->query("INSERT INTO ".$GLOBALS['xoopsDB']->prefix('block_module_link')." VALUES (".$instance->getVar('instanceid').", ".(int)$mid.", ".(int)$pageid.")");
         }
         return _MD_A_MYBLOCKSADMIN_DBUPDATED;
     }
@@ -346,7 +346,7 @@ function do_order()
 
         // addblock
         foreach( $_POST['addblock'] as $bid => $val ) {
-            $this->update_blockinstance( 0, 0, 0, 0, '', null , null , 0, array(), array(), intval( $bid ) );
+            $this->update_blockinstance( 0, 0, 0, 0, '', null , null , 0, array(), array(), (int)$bid);
         }
 
     } else {
@@ -380,9 +380,9 @@ function form_delete( $bid )
 {
     global $target_dirname ;
 
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
-    $bi_handler =& xoops_gethandler('blockinstance') ;
+    $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
     if( ! is_object( $bi ) ) die( 'Invalid instanceid' ) ;
 
@@ -392,9 +392,9 @@ function form_delete( $bid )
 
 function do_delete( $bid )
 {
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
-    $bi_handler =& xoops_gethandler('blockinstance') ;
+    $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
     if( ! is_object( $bi ) ) die( 'Invalid instanceid' ) ;
 
@@ -406,17 +406,17 @@ function do_delete( $bid )
 
 function do_edit( $bid )
 {
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
     if( $bid <= 0 ) {
-        $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+        $db = XoopsDatabaseFactory::getDatabaseConnection() ;
         $result = $db->query( "SELECT bid FROM ".$db->prefix("newblocks")." WHERE show_func='b_system_custom_show'" ) ;
         list( $blockbase_id ) = $db->fetchRow( $result ) ;
 
-        $bi_handler =& xoops_gethandler('blockinstance') ;
+        $bi_handler = xoops_gethandler('blockinstance') ;
         $instance =& $bi_handler->create();
         $instance->setVar( 'bid' , $blockbase_id ) ;
-        $block_handler =& xoops_gethandler('block') ;
+        $block_handler = xoops_gethandler('block') ;
         $blockbase = $block_handler->get( $blockbase_id ) ;
         $instance->setVar('options', $blockbase->getVar("options") );
         $instance->setVar('title', $blockbase->getVar("name") );
@@ -424,48 +424,48 @@ function do_edit( $bid )
         $bid = $instance->getVar('instanceid') ;
     }
 
-    $bcachetime = intval( @$_POST['bcachetime'] ) ;
+    $bcachetime = (int)( @$_POST['bcachetime'] ) ;
     $options = isset($_POST['options']) ? $_POST['options'] : array();
     $bcontent = isset($_POST['bcontent']) ? $_POST['bcontent'] : '';
     $bctype = isset($_POST['bctype']) ? $_POST['bctype'] : '';
-//	$bmodules = (isset($_POST['bmodules']) && is_array($_POST['bmodules'])) ? $_POST['bmodules'] : array(-1) ; // TODO
-    return $this->update_blockinstance( $bid , intval(@$_POST['bside']) , intval(@$_POST['bweight']) , intval(@$_POST['bvisible']) , @$_POST['btitle'] , $bcontent , $bctype , $bcachetime , -1 , $options ) ;
+//  $bmodules = (isset($_POST['bmodules']) && is_array($_POST['bmodules'])) ? $_POST['bmodules'] : array(-1) ; // TODO
+    return $this->update_blockinstance( $bid , (int)(@$_POST['bside']) , (int)(@$_POST['bweight']) , (int)(@$_POST['bvisible']) , @$_POST['btitle'] , $bcontent , $bctype , $bcachetime , -1 , $options ) ;
 }
 
 
 
 function form_edit( $bid , $mode = 'edit' )
 {
-    $bid = intval( $bid ) ;
+    $bid = (int)$bid;
 
-    $bi_handler =& xoops_gethandler('blockinstance') ;
+    $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
 
     if( ! $bi->getVar('instanceid') ) {
         // create new custom block
         $mode = 'new' ;
-        $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+        $db = XoopsDatabaseFactory::getDatabaseConnection() ;
         $result = $db->query( "SELECT bid FROM ".$db->prefix("newblocks")." WHERE show_func='b_system_custom_show'" ) ;
         list( $blockbase_id ) = $db->fetchRow( $result ) ;
         $bi->setVar( 'bid' , $blockbase_id ) ;
         $bi->setVar( 'options' , array( '' , 'S' ) ) ;
     }
 
-    $block_handler =& xoops_gethandler( 'block' ) ;
+    $block_handler = xoops_gethandler( 'block' ) ;
     $blockbase =& $block_handler->get( $bi->getVar('bid') ) ;
     $bi->setBlock( $blockbase ) ;
-    $module_handler =& xoops_gethandler( 'module' ) ;
-    $module =& $module_handler->get( $blockbase->getVar('mid') ) ;
+    $module_handler = xoops_gethandler( 'module' ) ;
+    $module = $module_handler->get( $blockbase->getVar('mid') ) ;
 
     $action_base_url4disp = "?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=".($blockbase->getVar('show_func')=='b_system_custom_show'?"__CustomBlocks__":$module->getVar('dirname'))."&amp;bid=$bid" ;
 
 
     switch( $mode ) {
-//		case 'clone' :
-//			$form_title = _MD_A_MYBLOCKSADMIN_CLONEFORM ;
-//			$button_value = _MD_A_MYBLOCKSADMIN_BTN_CLONE ;
-//			$next_op = 'clone_ok' ;
-//			break ;
+//      case 'clone' :
+//          $form_title = _MD_A_MYBLOCKSADMIN_CLONEFORM ;
+//          $button_value = _MD_A_MYBLOCKSADMIN_BTN_CLONE ;
+//          $next_op = 'clone_ok' ;
+//          break ;
         case 'new' :
             $form_title = _MD_A_MYBLOCKSADMIN_NEWFORM ;
             $button_value = _MD_A_MYBLOCKSADMIN_BTN_NEW ;
@@ -485,16 +485,16 @@ function form_edit( $bid , $mode = 'edit' )
     $block = array(
         'bid' => $bid ,
         'form_action' => $action_base_url4disp ,
-//		'title' => $bi->getVar('name') ,
+//      'title' => $bi->getVar('name') ,
         'side' => $bi->getVar('side') ,
         'weight' => $bi->getVar('weight') ,
         'visible' => $bi->getVar('visible') ,
-//		'content' => $bi->getVar('content', 'N') ,
+//      'content' => $bi->getVar('content', 'N') ,
         'title' => $bi->getVar('title','E') ,
-//		'modules' => $modules ,
+//      'modules' => $modules ,
         'modules' => -1 ,
         'is_custom' => false ,
-//		'ctype' => $bi->getVar('c_type') ,
+//      'ctype' => $bi->getVar('c_type') ,
         'cachetime' => $bi->getVar('bcachetime') ,
         'edit_form' => $bi->getOptions() ,
         'template' => $blockbase->getVar('template') ,
@@ -521,7 +521,7 @@ function get_modules_pages_list()
     $module_list[_AM_SYSTEMLEVEL]["0-0"] = _AM_ALLPAGES;
     $criteria = new CriteriaCompo(new Criteria('hasmain', 1));
     $criteria->add(new Criteria('isactive', 1));
-    $module_handler =& xoops_gethandler('module');
+    $module_handler = xoops_gethandler('module');
     $module_main =& $module_handler->getObjects($criteria, true, true);
     if (count($module_main) > 0) {
         foreach (array_keys($module_main) as $mid) {

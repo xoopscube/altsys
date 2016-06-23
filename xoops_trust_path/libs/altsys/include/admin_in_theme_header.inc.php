@@ -70,7 +70,11 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
         if (is_object(@$xoopsModule)) {
             if ($xoopsModule->getVar('mid') == 1 && @$_GET['fct'] == 'preferences' && @$_GET['op'] == 'showmod' && ! empty($_GET['mod'])) {
                 $module_handler =& xoops_gethandler('module') ;
+<<<<<<< HEAD
                 $target_module = $module_handler->get(intval($_GET['mod'])) ;
+=======
+                $target_module = $module_handler->get((int)$_GET['mod']) ;
+>>>>>>> feature/intval
             } else {
                 $target_module =& $xoopsModule ;
             }
@@ -135,13 +139,14 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 
     $blockids = array();
     while (list($blockid) = $db->fetchRow($result)) {
-        $blockids[] = intval($blockid) ;
+        $blockids[] = (int)$blockid;
     }
 
     global $block_arr , $i ; // for piCal :-)
     $block_arr = array() ;
     if (!empty($blockids)) {
-        $sql = 'SELECT b.* FROM '.$db->prefix('newblocks').' b, '.$db->prefix('block_module_link').' m WHERE m.block_id=b.bid AND b.isactive=1 AND b.visible=1 AND m.module_id='.intval($altsysModuleId).' AND b.bid IN ('.implode(',', $blockids).') ORDER BY b.weight,b.bid' ;
+        $sql = 'SELECT b.* FROM '.$db->prefix('newblocks').' b, '.$db->prefix('block_module_link').' m WHERE m.block_id=b.bid AND b.isactive=1 AND b.visible=1 AND m.module_id=' . (int)$altsysModuleId
+               . ' AND b.bid IN (' . implode(',', $blockids) . ') ORDER BY b.weight,b.bid' ;
         $result = $db->query($sql);
         while ($myrow = $db->fetchArray($result)) {
 

@@ -23,8 +23,13 @@ function b_altsys_admin_menu_show($options)
     if (is_object(@$GLOBALS['xoopsModule'])) {
         $mid_selected = $GLOBALS['xoopsModule']->getVar('mid') ;
         // for system->preferences
+<<<<<<< HEAD
         if ($mid_selected == 1 && @$_GET['fct'] == 'preferences' && @$_GET['op'] == 'showmod' && ! empty($_GET['mod'])) {
             $mid_selected = intval($_GET['mod']) ;
+=======
+        if ($mid_selected == 1 && @$_GET["fct"] == "preferences" && @$_GET["op"] == "showmod" && ! empty($_GET["mod"])) {
+            $mid_selected = (int)$_GET['mod'];
+>>>>>>> feature/intval
         }
     } else {
         $mid_selected = 0 ;
@@ -49,7 +54,7 @@ function b_altsys_admin_menu_show($options)
     ) ;
 
     foreach ($modules as $mod) {
-        $mid = intval($mod->getVar('mid')) ;
+        $mid = (int)$mod->getVar('mid');
         $dirname = $mod->getVar('dirname') ;
         $modinfo = $mod->getInfo() ;
         $submenus4assign = array() ;

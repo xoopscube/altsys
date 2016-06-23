@@ -33,9 +33,9 @@ public static function &getInstance()
 // visible and side
 public function renderCell4BlockPosition($block_data)
 {
-    $bid = intval($block_data['bid']) ;
-    $side = intval($block_data['side']) ;
-    $visible = intval($block_data['visible']) ;
+    $bid = (int)$block_data['bid'];
+    $side = (int)$block_data['side'];
+    $visible = (int)$block_data['visible'];
 
     $sseln = $ssel0 = $ssel1 = $ssel3 = $ssel4 = $ssel5 = $ssel7 = $ssel8 = $ssel9 = '';
     $scoln = $scol0 = $scol1 = $scol3 = $scol4 = $scol5 = $scol7 = $scol8 = $scol9 = 'unselected';
@@ -152,7 +152,7 @@ public function renderCell4BlockPosition($block_data)
 
     public function form_edit($bid, $mode = 'edit')
     {
-        $bid = intval($bid) ;
+        $bid = (int)$bid;
 
 //HACK by domifara
     $block = new XoopsBlock($bid) ;
@@ -213,10 +213,10 @@ public function renderCell4BlockPosition($block_data)
         'bid' => $bid ,
         'name' => $block->getVar('name', 'n') ,
         'title' => $block->getVar('title', 'n') ,
-        'weight' => intval($block->getVar('weight')) ,
-        'bcachetime' => intval($block->getVar('bcachetime')) ,
-        'side' => intval($block->getVar('side')) ,
-        'visible' => intval($block->getVar('visible')) ,
+            'weight' => (int)$block->getVar('weight'),
+            'bcachetime' => (int)$block->getVar('bcachetime'),
+            'side' => (int)$block->getVar('side'),
+            'visible' => (int)$block->getVar('visible'),
         'template' => $block_template ,
         'template_tplset' => $block_template_tplset ,
         'options' => $block->getVar('options') ,
@@ -282,11 +282,11 @@ public function renderCell4BlockPosition($block_data)
     }
     public function fetchRequest4Block($bid)
     {
-        $bid = intval($bid) ;
+        $bid = (int)$bid;
         (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
 
         if (@$_POST['extra_sides'][$bid] > 0) {
-            $_POST['sides'][$bid] = intval($_POST['extra_sides'][$bid]) ;
+            $_POST['sides'][$bid] = (int)$_POST['extra_sides'][$bid];
         }
 
         if (@$_POST['sides'][$bid] < 0) {
@@ -298,13 +298,13 @@ public function renderCell4BlockPosition($block_data)
 
         return array(
         'bid' => $bid ,
-        'side' => intval(@$_POST['sides'][$bid]) ,
-        'weight' => intval(@$_POST['weights'][$bid]) ,
+            'side' => (int)(@$_POST['sides'][$bid]),
+            'weight' => (int)(@$_POST['weights'][$bid]),
         'visible' => $visible ,
         'title' => $myts->stripSlashesGPC(@$_POST['titles'][$bid]) ,
         'content' => $myts->stripSlashesGPC(@$_POST['textarea_content']) ,
         'ctype' => preg_replace('/[^A-Z]/', '', @$_POST['ctypes'][$bid]) ,
-        'bcachetime' => intval(@$_POST['bcachetimes'][$bid]) ,
+            'bcachetime' => (int)(@$_POST['bcachetimes'][$bid]),
         'bmodule' => is_array(@$_POST['bmodules'][$bid]) ? $_POST['bmodules'][$bid] : array( 0 ) ,
         'bgroup' => is_array(@$_POST['bgroups'][$bid]) ? $_POST['bgroups'][$bid] : array() ,
         'options' => is_array(@$_POST['options'][$bid]) ? $_POST['options'][$bid] : array()
@@ -313,7 +313,7 @@ public function renderCell4BlockPosition($block_data)
 
     public function previewContent($block_data)
     {
-        $bid = intval($block_data['bid']) ;
+        $bid = (int)$block_data['bid'];
 
         if (! $block_data['is_custom']) {
             return '' ;

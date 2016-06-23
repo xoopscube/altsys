@@ -45,7 +45,7 @@ function altsys_adminmenu_insert_mymenu_x20(&$module)
     if (! preg_match('/popUpL(\d+)/', $xoops_admin_menu_ft[$mid], $regs)) {
         return ;
     }
-    $popup_no = intval($regs[1]) ;
+    $popup_no = (int)$regs[1];
 
     // replace
     $search  = '<img src=\''.XOOPS_URL.'/images/pointer.gif\' width=\'8\' height=\'8\' alt=\'\' />&nbsp;<a href=\''.XOOPS_URL.'/modules/system/admin.php?fct=preferences&amp;op=showmod&amp;mod='.$mid.'\'' ;
@@ -79,7 +79,7 @@ function altsys_adminmenu_insert_mymenu_x20(&$module)
     $xoops_admin_menu_dv = preg_replace('#'.preg_quote($anchor).'#', $anchor.$insert, $xoops_admin_menu_dv) ;
 
     // write back
-    altsys_adminmenu_save_x20(array( 'xoops_admin_menu_js' => $xoops_admin_menu_js, 'xoops_admin_menu_ml' => $xoops_admin_menu_ml, 'xoops_admin_menu_sd' => $xoops_admin_menu_sd, 'xoops_admin_menu_ft' => $xoops_admin_menu_ft, 'xoops_admin_menu_dv' => $xoops_admin_menu_dv, 'altsys_adminmenu_ft_hacked' => intval(@$altsys_adminmenu_ft_hacked), 'altsys_adminmenu_dv_updated' => true )) ;
+    altsys_adminmenu_save_x20(array( 'xoops_admin_menu_js' => $xoops_admin_menu_js, 'xoops_admin_menu_ml' => $xoops_admin_menu_ml, 'xoops_admin_menu_sd' => $xoops_admin_menu_sd, 'xoops_admin_menu_ft' => $xoops_admin_menu_ft, 'xoops_admin_menu_dv' => $xoops_admin_menu_dv, 'altsys_adminmenu_ft_hacked' => (int)(@$altsys_adminmenu_ft_hacked), 'altsys_adminmenu_dv_updated' => true )) ;
 }
 
 //
@@ -307,7 +307,7 @@ function altsys_adminmenu_save_x20($xoops_admin_vars)
 
 if( is_object( @$GLOBALS["xoopsModule"] ) && empty( $not_inside_cp_functions ) ) {
 	$mid_tmp = $GLOBALS["xoopsModule"]->getVar("mid") ;
-	if( $mid_tmp == 1 && @$_GET["fct"] == "preferences" && @$_GET["op"] == "showmod" && ! empty( $_GET["mod"] ) ) $mid_tmp = intval( $_GET["mod"] ) ;
+	if( $mid_tmp == 1 && @$_GET["fct"] == "preferences" && @$_GET["op"] == "showmod" && ! empty( $_GET["mod"] ) ) $mid_tmp = (int)$_GET["mod"];
 	$xoops_admin_menu_ft[ $mid_tmp ] = str_replace( array( "background-color:#CCC;" , "display:none;" ) , array( "background-color:#AAA;" , "display:block;" ) , $xoops_admin_menu_ft[ $mid_tmp ] ) ;
 	if( $GLOBALS["xoopsModule"]->getInfo("version") > $GLOBALS["xoopsModule"]->getVar("version") / 100.0 + 0.0001 ) {
 		$xoops_admin_menu_ft[ $mid_tmp ] = str_replace( "class=\"version\" style=\"\"" , "class=\"version\" style=\"color:red;\"" , $xoops_admin_menu_ft[ $mid_tmp ] ) ;
