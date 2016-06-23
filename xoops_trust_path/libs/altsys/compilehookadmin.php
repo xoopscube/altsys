@@ -5,9 +5,9 @@
 //                       GIJOE <http://www.peak.ne.jp/>                      //
 // ------------------------------------------------------------------------- //
 
-require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
-include_once dirname(__FILE__).'/include/gtickets.php' ;
-include_once dirname(__FILE__).'/include/altsys_functions.php' ;
+require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
+include_once __DIR__.'/include/gtickets.php' ;
+include_once __DIR__.'/include/altsys_functions.php' ;
 
 
 // this page can be called only from altsys

@@ -1,6 +1,6 @@
 <?php
 
-include_once dirname(__FILE__).'/include/altsys_functions.php' ;
+include_once __DIR__.'/include/altsys_functions.php' ;
 
 // language file (modinfo.php)
 altsys_include_language_file('modinfo') ;
@@ -105,5 +105,5 @@ $modversion['onUninstall'] = 'include/onuninstall.php' ;
 
 // keep block's options
 if (! defined('XOOPS_CUBE_LEGACY') && substr(XOOPS_VERSION, 6, 3) < 2.1 && ! empty($_POST['fct']) && ! empty($_POST['op']) && $_POST['fct'] == 'modulesadmin' && $_POST['op'] == 'update_ok' && $_POST['dirname'] == $modversion['dirname']) {
-    include dirname(__FILE__).'/include/x20_keepblockoptions.inc.php' ;
+    include __DIR__.'/include/x20_keepblockoptions.inc.php' ;
 }

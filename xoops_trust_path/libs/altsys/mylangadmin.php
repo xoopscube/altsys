@@ -5,11 +5,11 @@
 //                       GIJOE <http://www.peak.ne.jp/>                      //
 // ------------------------------------------------------------------------- //
 
-require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
-include_once dirname(__FILE__)."/include/gtickets.php" ;
-include_once dirname(__FILE__).'/include/altsys_functions.php' ;
-include_once dirname(__FILE__).'/include/lang_functions.php' ;
-include_once dirname(__FILE__).'/class/D3LanguageManager.class.php' ;
+require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
+include_once __DIR__."/include/gtickets.php" ;
+include_once __DIR__.'/include/altsys_functions.php' ;
+include_once __DIR__.'/include/lang_functions.php' ;
+include_once __DIR__.'/class/D3LanguageManager.class.php' ;
 
 
 // only groups have 'module_admin' of 'altsys' can do that.

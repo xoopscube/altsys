@@ -19,7 +19,7 @@ class d3utilities
     {
         $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
 
-        $this->dirname = basename(dirname(dirname(__FILE__))) ;
+        $this->dirname = basename(dirname(__DIR__)) ;
         $this->mydirname = $mydirname ;
         $this->table = $db->prefix($mydirname ? $mydirname . '_' . $table_body : $table_body) ;
         $this->primary_key = $primary_key ;
