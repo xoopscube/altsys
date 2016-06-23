@@ -21,7 +21,7 @@ if (! function_exists('altsys_oninstall_base')) {
         }
     }
 
-        $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+        $db = XoopsDatabaseFactory::getDatabaseConnection() ;
         $mid = $module->getVar('mid') ;
 
     /*************** BEGIN ALTSYS SPECIFIC PART ******************/

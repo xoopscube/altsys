@@ -25,7 +25,7 @@ if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin'
 //$xoops_system_path = XOOPS_ROOT_PATH . '/modules/system' ;
 
 // initials
-$db =& XoopsDatabaseFactory::getDatabaseConnection();
+$db = XoopsDatabaseFactory::getDatabaseConnection();
 (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
 
 // language file

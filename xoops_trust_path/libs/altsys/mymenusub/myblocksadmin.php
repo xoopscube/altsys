@@ -5,7 +5,7 @@ if (! defined('XOOPS_ROOT_PATH')) {
 }
 
 $core_type = altsys_get_core_type() ;
-$db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+$db = XoopsDatabaseFactory::getDatabaseConnection() ;
 
 $current_dirname = preg_replace('/[^0-9a-zA-Z_-]/', '', @$_GET['dirname']) ;
 if ($current_dirname == '__CustomBlocks__') {

@@ -129,7 +129,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
     }
 
     // get block_arr
-    $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+    $db = XoopsDatabaseFactory::getDatabaseConnection() ;
     $sql = "SELECT DISTINCT gperm_itemid FROM ".$db->prefix('group_permission')." WHERE gperm_name = 'block_read' AND gperm_modid = 1 AND gperm_groupid IN (".implode(',', $xoopsUser->getGroups()).")" ;
     $result = $db->query($sql);
 

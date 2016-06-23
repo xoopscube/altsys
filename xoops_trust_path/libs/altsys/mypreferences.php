@@ -16,7 +16,7 @@ if (! is_object($xoopsUser) || ! is_object($xoopsModule) || ! $xoopsUser->isAdmi
 
 
 // initials
-$db =& XoopsDatabaseFactory::getDatabaseConnection();
+$db = XoopsDatabaseFactory::getDatabaseConnection();
 (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
 
 // language file

@@ -21,7 +21,7 @@ if (! function_exists('altsys_onuninstall_base')) {
         }
     }
 
-        $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+        $db = XoopsDatabaseFactory::getDatabaseConnection() ;
         $mid = $module->getVar('mid') ;
 
     // TABLES (loading mysql.sql)
