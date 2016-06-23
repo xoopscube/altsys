@@ -19,7 +19,7 @@ $modversion['dirname'] = "altsys";
 // Admin things
 $modversion['hasAdmin'] = 1;
 // for XOOPS
-if (!defined('XOOPS_CUBE_LEGACY')) {
+if (altsys_get_core_type() == ALTSYS_CORE_TYPE_X25) {
     $modversion['system_menu'] = 1;
 }
 $modversion['adminindex'] = "admin/index.php" ;
