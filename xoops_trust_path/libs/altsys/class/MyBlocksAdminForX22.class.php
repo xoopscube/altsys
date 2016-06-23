@@ -37,7 +37,7 @@ function list_blocks( $target_mid , $target_dirname )
     (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
 
     // main query
-    $db = XoopsDatabaseFactory::getDatabaseConnection();
+    $db =& XoopsDatabaseFactory::getDatabaseConnection();
     if( $target_mid ) {
         // normal
         $sql = "SELECT bid,name,show_func,func_file,template FROM ".$db->prefix("newblocks")." WHERE mid='$target_mid'";

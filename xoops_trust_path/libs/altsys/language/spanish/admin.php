@@ -1,3 +1,3 @@
 <?php
 
-define('_MD_A_DBUPDATED', 'La base de datos se actualizó con éxito') ;
+define('_MD_A_DBUPDATED', 'La base de datos se actualizÃ³ con Ã©xito') ;

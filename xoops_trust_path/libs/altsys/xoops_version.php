@@ -9,17 +9,17 @@ $modversion['name'] = _MI_ALTSYS_MODULENAME ;
 $modversion['version'] = '0.82' ;
 $modversion['detailed_version'] = '0.82.5' ;
 $modversion['description'] = _MI_ALTSYS_MODULEDESC ;
-$modversion['credits'] = "PEAK Corp.";
-$modversion['author'] = "GIJ=CHECKMATE<br />PEAK Corp.(http://www.peak.ne.jp/), XOOPS X Distribution(https://github.com/XoopsX)" ;
-$modversion['license'] = "GPL see LICENSE";
+$modversion['credits'] = 'PEAK Corp.';
+$modversion['author'] = 'GIJ=CHECKMATE<br />PEAK Corp.(http://www.peak.ne.jp/), XOOPS X Distribution(https://github.com/XoopsX)';
+$modversion['license'] = 'GPL see LICENSE';
 $modversion['official'] = 0;
-$modversion['image'] = "images/module_icon.png";
-$modversion['dirname'] = "altsys";
+$modversion['image'] = 'images/module_icon.png';
+$modversion['dirname'] = 'altsys';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
-$modversion['adminindex'] = "admin/index.php" ;
-$modversion['adminmenu'] = "admin/admin_menu.php";
+$modversion['adminindex'] = 'admin/index.php';
+$modversion['adminmenu'] = 'admin/admin_menu.php';
 
 // All Templates can't be touched by modulesadmin.
 $modversion['templates'] = array() ;

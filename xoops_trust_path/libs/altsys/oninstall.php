@@ -26,14 +26,14 @@ if (! function_exists('altsys_oninstall_base')) {
 
     /*************** BEGIN ALTSYS SPECIFIC PART ******************/
     // set weight=0
-    $db->queryF("UPDATE ".$db->prefix("modules")." SET weight=0 WHERE mid=$mid") ;
+    $db->queryF('UPDATE ' . $db->prefix('modules') . " SET weight=0 WHERE mid=$mid") ;
     /*************** END ALTSYS SPECIFIC PART ******************/
 
     // TABLES (loading mysql.sql)
     $sql_file_path = __DIR__.'/sql/mysql.sql' ;
         $prefix_mod = $db->prefix() . '_' . $mydirname ;
         if (file_exists($sql_file_path)) {
-            $ret[] = "SQL file found at <b>".htmlspecialchars($sql_file_path)."</b>.<br /> Creating tables...";
+            $ret[] = 'SQL file found at <b>' . htmlspecialchars($sql_file_path) . '</b>.<br /> Creating tables...';
 
             if (file_exists(XOOPS_ROOT_PATH.'/class/database/oldsqlutility.php')) {
                 include_once XOOPS_ROOT_PATH.'/class/database/oldsqlutility.php' ;
@@ -49,7 +49,7 @@ if (! function_exists('altsys_oninstall_base')) {
             foreach ($pieces as $piece) {
                 $prefixed_query = $sqlutil->prefixQuery($piece, $prefix_mod) ;
                 if (! $prefixed_query) {
-                    $ret[] = "Invalid SQL <b>".htmlspecialchars($piece)."</b><br />";
+                    $ret[] = 'Invalid SQL <b>' . htmlspecialchars($piece) . '</b><br />';
                     return false ;
                 }
                 if (! $db->query($prefixed_query[0])) {

@@ -19,5 +19,5 @@ $controllers = array(
     'mytplsadmin',
     'mytplsform',
     'put_templates',
-    'mylangadmin',
+    'mylangadmin'
 ) ;

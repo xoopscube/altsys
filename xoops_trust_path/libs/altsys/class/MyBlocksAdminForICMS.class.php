@@ -17,7 +17,7 @@ class MyBlocksAdminForICMS extends MyBlocksAdmin
         parent::construct() ;
 
         @include_once XOOPS_ROOT_PATH.'/modules/system/language/'.$this->lang.'/admin/blocksadmin.php' ;
-        $result = $this->db->query("SELECT id,pname,title FROM ".$this->db->prefix("block_positions")) ;
+        $result = $this->db->query('SELECT id,pname,title FROM ' . $this->db->prefix('block_positions')) ;
         while (list($id, $pname, $title) = $this->db->fetchRow($result)) {
             $this->block_positions[ $id ] = defined($title) ? constant($title) : $title ;
         }
@@ -49,7 +49,7 @@ public function renderCell4BlockModuleLink($block_data)
         $selected_pages = $block_data['bmodule'] ;
     } else {
         // origined from the table of `block_module_link`
-        $result = $this->db->query("SELECT module_id,page_id FROM ".$this->db->prefix('block_module_link')." WHERE block_id='$bid'") ;
+        $result = $this->db->query('SELECT module_id,page_id FROM ' . $this->db->prefix('block_module_link') . " WHERE block_id='$bid'") ;
         $selected_pages = array();
         while (list($mid, $pid) = $this->db->fetchRow($result)) {
             $selected_pages[] = intval($mid) . '-' . intval($pid) ;
@@ -59,8 +59,8 @@ public function renderCell4BlockModuleLink($block_data)
     $page_handler =& xoops_gethandler('page');
     $ret = "
 				<select name='bmodules[$bid][]' size='5' multiple='multiple'>
-					".$page_handler->getPageSelOptions($selected_pages)."
-				</select>" ;
+					".$page_handler->getPageSelOptions($selected_pages) . '
+				</select>';
 
     return $ret ;
 }
@@ -73,21 +73,21 @@ public function renderCell4BlockPosition($block_data)
     return "
 	<table>
 		<tr>
-			<td rowspan='2'>".$this->renderRadio4BlockPosition(1, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(3, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(4, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(5, $block_data)."</td>
-			<td rowspan='2'>".$this->renderRadio4BlockPosition(2, $block_data)."</td>
+			<td rowspan='2'>".$this->renderRadio4BlockPosition(1, $block_data) . '</td>
+			<td>' . $this->renderRadio4BlockPosition(3, $block_data) . '</td>
+			<td>' . $this->renderRadio4BlockPosition(4, $block_data) . '</td>
+			<td>' . $this->renderRadio4BlockPosition(5, $block_data) . "</td>
+			<td rowspan='2'>".$this->renderRadio4BlockPosition(2, $block_data) . '</td>
 		</tr>
 		<tr>
-			<td>".$this->renderRadio4BlockPosition(6, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(7, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(8, $block_data)."</td>
+			<td>' . $this->renderRadio4BlockPosition(6, $block_data) . '</td>
+			<td>' . $this->renderRadio4BlockPosition(7, $block_data) . '</td>
+			<td>' . $this->renderRadio4BlockPosition(8, $block_data) . "</td>
 		</tr>
 		<tr>
-			<td colspan='5'>".$this->renderRadio4BlockPositions($block_data, array(1, 2, 3, 4, 5, 6, 7, 8))."</td>
+			<td colspan='5'>".$this->renderRadio4BlockPositions($block_data, array(1, 2, 3, 4, 5, 6, 7, 8)) . '</td>
 		</tr>
-	</table>" ;
+	</table>';
 }
 
 
@@ -102,10 +102,10 @@ public function renderRadio4BlockPosition($target_side, $block_data)
 
     if ($current_side == $target_side) {
         $checked = "checked='checked'" ;
-        $divstyle = $target_side == -1 ? "disabled" : "selected" ;
+        $divstyle = $target_side == -1 ? 'disabled' : 'selected';
     } else {
-        $checked = "" ;
-        $divstyle = "unselected" ;
+        $checked = '';
+        $divstyle = 'unselected';
     }
 
     return "<div class='blockposition $divstyle' title='$label4disp'><input type='radio' name='sides[$bid]' value='$target_side' class='blockposition' $checked /></div>" ;
@@ -129,10 +129,10 @@ public function renderRadio4BlockPositions($block_data, $skip_sides = array())
 
         if ($current_side == $target_side) {
             $checked = "checked='checked'" ;
-            $divstyle = $target_side == -1 ? "disabled" : "selected" ;
+            $divstyle = $target_side == -1 ? 'disabled' : 'selected';
         } else {
-            $checked = "" ;
-            $divstyle = "unselected" ;
+            $checked = '';
+            $divstyle = 'unselected';
         }
 
         $ret .= "<div style='clear:both;'><div class='blockposition $divstyle' title='$label4disp'><input type='radio' name='sides[$bid]' id='sides_{$bid}_{$target_side}' value='$target_side' class='blockposition' $checked /></div><label for='sides_{$bid}_{$target_side}'>$label4disp</label></label></div>" ;
@@ -146,7 +146,7 @@ public function renderRadio4BlockPositions($block_data, $skip_sides = array())
 public function updateBlockModuleLink($bid, $bmodules)
 {
     $bid = intval($bid) ;
-    $table = $this->db->prefix("block_module_link") ;
+    $table = $this->db->prefix('block_module_link') ;
 
     $sql = "DELETE FROM `$table` WHERE `block_id`=$bid" ;
     $this->db->query($sql) ;

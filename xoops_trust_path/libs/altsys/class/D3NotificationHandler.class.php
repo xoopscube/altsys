@@ -30,7 +30,7 @@ public static function &getInstance($conn = null)
         "$mydirpath/language/$language/mail_template/" ,
         "$mytrustdirpath/language/$language/mail_template/" ,
         "$mydirpath/language/english/mail_template/" ,
-        "$mytrustdirpath/language/english/mail_template/" ,
+        "$mytrustdirpath/language/english/mail_template/"
     ) ;
 
         $mail_template_dir = "$mytrustdirpath/language/english/mail_template/" ;

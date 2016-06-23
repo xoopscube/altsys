@@ -49,7 +49,7 @@ if (! empty($target_module) && is_object($target_module)) {
     $target_mid = $target_module->getVar('mid') ;
     $target_dirname = $target_module->getVar('dirname') ;
     $target_dirname4sql = addslashes($target_dirname) ;
-    $target_mname = $target_module->getVar('name') . "&nbsp;" . sprintf("(%2.2f)", $target_module->getVar('version') / 100.0) ;
+    $target_mname = $target_module->getVar('name') . '&nbsp;' . sprintf('(%2.2f)', $target_module->getVar('version') / 100.0) ;
     //$query4redirect = '?dirname='.urlencode(strip_tags($_GET['dirname'])) ;
 } else {
     // not specified by dirname (for 3rd party modules as mylangadmin)
@@ -100,7 +100,7 @@ if ($dh) {
             continue ;
         }
         if (is_dir("$base_dir/$file")) {
-            list($count) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("altsys_language_constants")." WHERE mid=$target_mid AND language='".addslashes($file)."'")) ;
+            list($count) = $db->fetchRow($db->query('SELECT COUNT(*) FROM ' . $db->prefix('altsys_language_constants') . " WHERE mid=$target_mid AND language='" . addslashes($file) . "'")) ;
             $languages[] = $file ;
             $languages4disp[] = $file . " ($count)" ;
         }
@@ -152,7 +152,7 @@ list($langfile_names, $constpref, $already_read) = altsys_mylangadmin_get_consta
 // get user_values should be overridden
 $langfile_constants = array() ;
 foreach ($langfile_names as $name) {
-    list($value) = $db->fetchRow($db->query("SELECT value FROM ".$db->prefix("altsys_language_constants")." WHERE mid=$target_mid AND language='$target_lang4sql' AND name='".addslashes($name)."'")) ;
+    list($value) = $db->fetchRow($db->query('SELECT value FROM ' . $db->prefix('altsys_language_constants') . " WHERE mid=$target_mid AND language='$target_lang4sql' AND name='" . addslashes($name) . "'")) ;
     $langfile_constants[ $name ] = $value ;
 }
 
@@ -194,11 +194,11 @@ if (! empty($_POST['do_update'])) {
     $overrides_counter = 0 ;
     foreach (array_reverse($langfile_names) as $name) {
         $user_value = $myts->stripSlashesGPC(@$_POST[$name]) ;
-        $db->query("DELETE FROM ".$db->prefix("altsys_language_constants")." WHERE mid=$target_mid AND language='$target_lang4sql' AND name='".addslashes($name)."'") ;
+        $db->query('DELETE FROM ' . $db->prefix('altsys_language_constants') . " WHERE mid=$target_mid AND language='$target_lang4sql' AND name='" . addslashes($name) . "'") ;
         if ($user_value !== '') {
             $overrides_counter ++ ;
             // Update table
-            $db->query("INSERT INTO ".$db->prefix("altsys_language_constants")." (mid,language,name,value) VALUES ($target_mid,'$target_lang4sql','".addslashes($name)."','".addslashes($user_value)."')") ;
+            $db->query('INSERT INTO ' . $db->prefix('altsys_language_constants') . " (mid,language,name,value) VALUES ($target_mid,'$target_lang4sql','" . addslashes($name) . "','" . addslashes($user_value) . "')") ;
             // rewrite script for cache
             // comment-out the line of define()
             if (empty($constpref)) {
@@ -306,7 +306,7 @@ $tpl->assign(array(
     'timezone_offset' => xoops_getUserTimestamp(0),
     'notice' => $notice4disp,
     'already_read' => $already_read,
-    'gticket_hidden' => $xoopsGTicket->getTicketHtml(__LINE__, 1800, 'altsys'),
+    'gticket_hidden' => $xoopsGTicket->getTicketHtml(__LINE__, 1800, 'altsys')
 )) ;
 $tpl->display('db:altsys_main_mylangadmin.html') ;
 

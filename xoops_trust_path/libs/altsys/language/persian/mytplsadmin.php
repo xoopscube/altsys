@@ -26,11 +26,11 @@ define('_MYTPLSADMIN_CNF_COPY_SELECTED_TEMPLATES', 'تمام الگو‌های �
 define('_MYTPLSADMIN_TH_NAME', 'نام الگو') ;
 define('_MYTPLSADMIN_TH_TYPE', 'نوع') ;
 define('_MYTPLSADMIN_TH_FILE', 'پرونده‌ی پایگاه') ;
-define('_MYTPLSADMIN_ERR_NOTPLFILE', "هیچ الگوی چک نشده") ;
-define('_MYTPLSADMIN_ERR_INVALIDTPLSET', "جایگاه مقصد باید دقیقا مانند جایگاه پرونده درون بسته باشد در غیر این صورت هیچ الگویی مجاز شناخته نخواهد شد") ;
-define('_MYTPLSADMIN_ERR_CANTREMOVEDEFAULT', "شما میتوانید الگو پیش فرض را پاک کنید.") ;
-define('_MYTPLSADMIN_ERR_DUPLICATEDSETNAME', "نام مجموعه قبلا وجود داشته.") ;
-define('_MYTPLSADMIN_ERR_INVALIDSETNAME', "خطا: نام مجموعه پیشتر تعیین شده است.") ;
+define('_MYTPLSADMIN_ERR_NOTPLFILE', 'هیچ الگوی چک نشده') ;
+define('_MYTPLSADMIN_ERR_INVALIDTPLSET', 'جایگاه مقصد باید دقیقا مانند جایگاه پرونده درون بسته باشد در غیر این صورت هیچ الگویی مجاز شناخته نخواهد شد') ;
+define('_MYTPLSADMIN_ERR_CANTREMOVEDEFAULT', 'شما میتوانید الگو پیش فرض را پاک کنید.') ;
+define('_MYTPLSADMIN_ERR_DUPLICATEDSETNAME', 'نام مجموعه قبلا وجود داشته.') ;
+define('_MYTPLSADMIN_ERR_INVALIDSETNAME', 'خطا: نام مجموعه پیشتر تعیین شده است.') ;
 
 define('_MYTPLSADMIN_H3_MODULE', 'ماژول') ;
 define('_MYTPLSADMIN_BTN_NEWTPLSET', 'ساختن') ;
