@@ -72,9 +72,9 @@ public static function &getInstance()
 public function checkPermission()
 {
     // only groups have 'module_admin' of 'altsys' can do that.
-    $module_handler =& xoops_gethandler('module') ;
+    $module_handler = xoops_gethandler('module') ;
     $module =& $module_handler->getByDirname('altsys') ;
-    $moduleperm_handler =& xoops_gethandler('groupperm') ;
+    $moduleperm_handler = xoops_gethandler('groupperm') ;
     if (! is_object(@$GLOBALS['xoopsUser']) || ! $moduleperm_handler->checkRight('module_admin', $module->getVar('mid'), $GLOBALS['xoopsUser']->getGroups())) {
         die('only admin of altsys can access this area') ;
     }
@@ -86,7 +86,7 @@ public function checkPermission()
         // altsys "module" MODE
     if ($xoopsModule->getVar('dirname') == 'altsys') {
         // set target_module if specified by $_GET['dirname']
-        $module_handler =& xoops_gethandler('module');
+        $module_handler = xoops_gethandler('module');
         if (! empty($_GET['dirname'])) {
             $dirname = preg_replace('/[^0-9a-zA-Z_-]/', '', $_GET['dirname']) ;
             $target_module =& $module_handler->getByDirname($dirname) ;
@@ -184,7 +184,7 @@ public function renderCell4BlockOptions($block_data)
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $block =& $handler->create(false) ;
         $block->load($bid) ;
     } else {
@@ -217,7 +217,7 @@ public function renderCell4BlockModuleLink($block_data)
     }
 
     // get all targets
-    $module_handler =& xoops_gethandler('module');
+    $module_handler = xoops_gethandler('module');
     $criteria = new CriteriaCompo(new Criteria('hasmain', 1));
     $criteria->add(new Criteria('isactive', 1));
     $module_list = $module_handler->getList($criteria);
@@ -266,7 +266,7 @@ public function renderCell4BlockReadGroupPerm($block_data)
     }
 
     // get all targets
-    $group_handler =& xoops_gethandler('group');
+    $group_handler = xoops_gethandler('group');
     $groups = $group_handler->getObjects() ;
 
     // build options
@@ -377,7 +377,7 @@ public function list_blocks()
     $block_arr = array() ;
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');//add
+        $handler = xoops_gethandler('block');//add
     }
     while ($myrow = $this->db->fetchArray($result)) {
 
@@ -457,7 +457,7 @@ public function list_blocks()
         $block_arr = array() ;
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');//add
+        $handler = xoops_gethandler('block');//add
     }
         while ($myrow = $this->db->fetchArray($result)) {
             //HACK by domifara
@@ -494,7 +494,7 @@ public function list_blocks()
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $block =& $handler->create(false) ;
         $block->load($bid) ;
     } else {
@@ -617,7 +617,7 @@ public function updateBlockReadGroupPerm($bid, $req_gids)
     public function fetchRequest4Block($bid)
     {
         $bid = intval($bid) ;
-        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
         if (@$_POST['extra_sides'][$bid] > 0) {
             $_POST['sides'][$bid] = intval($_POST['extra_sides'][$bid]) ;
@@ -652,7 +652,7 @@ public function updateBlockReadGroupPerm($bid, $req_gids)
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $block =& $handler->create(false) ;
         $block->load($bid) ;
     } else {
@@ -686,7 +686,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 //HACK by domifara
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $block =& $handler->create(false) ;
         $block->load($bid) ;
     } else {
@@ -716,7 +716,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $block =& $handler->create(false) ;
         $block->load($bid) ;
     } else {
@@ -795,7 +795,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $new_block =& $handler->create(false) ;
     } else {
         $new_block = new XoopsBlock() ;
@@ -835,7 +835,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $block =& $handler->create(false) ;
         $block->load($bid) ;
     } else {
@@ -884,7 +884,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 
         if (! $is_custom && $block_template) {
             // find template of the block
-        $tplfile_handler =& xoops_gethandler('tplfile');
+        $tplfile_handler = xoops_gethandler('tplfile');
             $found_templates = $tplfile_handler->find($GLOBALS['xoopsConfig']['template_set'], 'block', null, null, $block_template) ;
             $block_template_tplset = count($found_templates) > 0 ? $GLOBALS['xoopsConfig']['template_set'] : 'default' ;
         }
@@ -976,7 +976,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 //TODO : need no hook block at this
     $block = new XoopsBlock($bid) ;
 /*
-    $handler =& xoops_gethandler('block');
+    $handler = xoops_gethandler('block');
     $block =& $handler->create(false) ;
     $block->load($bid) ;
 */

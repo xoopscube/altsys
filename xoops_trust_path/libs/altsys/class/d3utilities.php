@@ -24,7 +24,7 @@ class d3utilities
         $this->table = $db->prefix($mydirname ? $mydirname . '_' . $table_body : $table_body) ;
         $this->primary_key = $primary_key ;
         $this->cols = $cols ;
-        $module_handler =& xoops_gethandler('module') ;
+        $module_handler = xoops_gethandler('module') ;
         $module =& $module_handler->getByDirname($this->mydirname) ;
         if (! empty($module)) {
             $this->mid = intval($module->getVar('mid')) ;

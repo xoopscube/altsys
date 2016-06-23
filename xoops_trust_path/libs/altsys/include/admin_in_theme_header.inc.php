@@ -42,7 +42,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
     }
     $xoopsTpl->assign(array('xoops_theme' => $xoopsConfig['theme_set'], 'xoops_imageurl' => XOOPS_THEME_URL.'/'.$xoopsConfig['theme_set'].'/', 'xoops_themecss'=> xoops_getcss($xoopsConfig['theme_set']), 'xoops_requesturi' => htmlspecialchars($GLOBALS['xoopsRequestUri'], ENT_QUOTES), 'xoops_sitename' => htmlspecialchars($xoopsConfig['sitename'], ENT_QUOTES), 'xoops_slogan' => htmlspecialchars($xoopsConfig['slogan'], ENT_QUOTES)));
     // Meta tags
-    $config_handler =& xoops_gethandler('config');
+    $config_handler = xoops_gethandler('config');
     $criteria = new CriteriaCompo(new Criteria('conf_modid', 0));
     $criteria->add(new Criteria('conf_catid', XOOPS_CONF_METAFOOTER));
     $config = $config_handler->getConfigs($criteria, true);
@@ -57,7 +57,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 
 //HACK by domifara
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $handler =& xoops_gethandler('block');
+        $handler = xoops_gethandler('block');
         $xoopsblock =& $handler->create(false) ;
     } else {
         $xoopsblock = new XoopsBlock();
@@ -69,7 +69,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
         $xoopsTpl->assign(array('xoops_isuser' => true, 'xoops_userid' => $xoopsUser->getVar('uid'), 'xoops_uname' => $xoopsUser->getVar('uname'), 'xoops_isadmin' => $xoopsUserIsAdmin));
         if (is_object(@$xoopsModule)) {
             if ($xoopsModule->getVar('mid') == 1 && @$_GET['fct'] == 'preferences' && @$_GET['op'] == 'showmod' && ! empty($_GET['mod'])) {
-                $module_handler =& xoops_gethandler('module') ;
+                $module_handler = xoops_gethandler('module') ;
                 $target_module = $module_handler->get(intval($_GET['mod'])) ;
             } else {
                 $target_module =& $xoopsModule ;
