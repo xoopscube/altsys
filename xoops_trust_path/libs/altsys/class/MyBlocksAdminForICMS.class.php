@@ -56,7 +56,7 @@ public function renderCell4BlockModuleLink($block_data)
         }
     }
 
-    $page_handler =& xoops_gethandler('page');
+    $page_handler = xoops_gethandler('page');
     $ret = "
 				<select name='bmodules[$bid][]' size='5' multiple='multiple'>
 					".$page_handler->getPageSelOptions($selected_pages)."

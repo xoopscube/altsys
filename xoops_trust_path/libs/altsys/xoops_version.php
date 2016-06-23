@@ -1,25 +1,29 @@
 <?php
 
-include_once dirname(__FILE__).'/include/altsys_functions.php' ;
+include_once __DIR__.'/include/altsys_functions.php' ;
 
 // language file (modinfo.php)
 altsys_include_language_file('modinfo') ;
 
 $modversion['name'] = _MI_ALTSYS_MODULENAME ;
-$modversion['version'] = '0.82' ;
-$modversion['detailed_version'] = '0.82.5' ;
+$modversion['version'] = '0.83' ;
+$modversion['detailed_version'] = '0.83.0' ;
 $modversion['description'] = _MI_ALTSYS_MODULEDESC ;
-$modversion['credits'] = "PEAK Corp.";
-$modversion['author'] = "GIJ=CHECKMATE<br />PEAK Corp.(http://www.peak.ne.jp/), XOOPS X Distribution(https://github.com/XoopsX)" ;
-$modversion['license'] = "GPL see LICENSE";
+$modversion['credits'] = 'PEAK Corp.';
+$modversion['author'] = 'GIJ=CHECKMATE<br />PEAK Corp.(http://www.peak.ne.jp/), XOOPS X Distribution(https://github.com/XoopsX)';
+$modversion['license'] = 'GPL see LICENSE';
 $modversion['official'] = 0;
-$modversion['image'] = "images/module_icon.png";
-$modversion['dirname'] = "altsys";
+$modversion['image'] = 'images/module_icon.png';
+$modversion['dirname'] = 'altsys';
 
 // Admin things
 $modversion['hasAdmin'] = 1;
-$modversion['adminindex'] = "admin/index.php" ;
-$modversion['adminmenu'] = "admin/admin_menu.php";
+// for XOOPS
+if (altsys_get_core_type() == ALTSYS_CORE_TYPE_X25) {
+    $modversion['system_menu'] = 1;
+}
+$modversion['adminindex'] = 'admin/index.php';
+$modversion['adminmenu'] = 'admin/admin_menu.php';
 
 // All Templates can't be touched by modulesadmin.
 $modversion['templates'] = array() ;
@@ -105,5 +109,5 @@ $modversion['onUninstall'] = 'include/onuninstall.php' ;
 
 // keep block's options
 if (! defined('XOOPS_CUBE_LEGACY') && substr(XOOPS_VERSION, 6, 3) < 2.1 && ! empty($_POST['fct']) && ! empty($_POST['op']) && $_POST['fct'] == 'modulesadmin' && $_POST['op'] == 'update_ok' && $_POST['dirname'] == $modversion['dirname']) {
-    include dirname(__FILE__).'/include/x20_keepblockoptions.inc.php' ;
+    include __DIR__.'/include/x20_keepblockoptions.inc.php' ;
 }

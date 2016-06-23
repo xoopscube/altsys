@@ -34,7 +34,7 @@ function list_blocks( $target_mid , $target_dirname )
 {
     global $xoopsGTicket ;
 
-    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
     // main query
     $db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -78,7 +78,7 @@ function list_blocks( $target_mid , $target_dirname )
     $crit = new Criteria("bid", "(".implode(",",array_keys($block_arr)).")", "IN");
     $criteria = new CriteriaCompo($crit);
     $criteria->setSort('visible DESC, side ASC, weight');
-    $instance_handler =& xoops_gethandler('blockinstance');
+    $instance_handler = xoops_gethandler('blockinstance');
     $instances =& $instance_handler->getObjects($criteria, true, true);
 
     //Get modules and pages for visible in
@@ -302,8 +302,8 @@ function update_blockinstance($id, $bside, $bweight, $bvisible, $btitle, $bconte
 {
     global $xoopsDB ;
 
-    $instance_handler =& xoops_gethandler('blockinstance');
-    $block_handler =& xoops_gethandler('block') ;
+    $instance_handler = xoops_gethandler('blockinstance');
+    $block_handler = xoops_gethandler('block') ;
     if ($id > 0) {
         // update
         $instance =& $instance_handler->get($id);
@@ -382,7 +382,7 @@ function form_delete( $bid )
 
     $bid = intval( $bid ) ;
 
-    $bi_handler =& xoops_gethandler('blockinstance') ;
+    $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
     if( ! is_object( $bi ) ) die( 'Invalid instanceid' ) ;
 
@@ -394,7 +394,7 @@ function do_delete( $bid )
 {
     $bid = intval( $bid ) ;
 
-    $bi_handler =& xoops_gethandler('blockinstance') ;
+    $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
     if( ! is_object( $bi ) ) die( 'Invalid instanceid' ) ;
 
@@ -413,10 +413,10 @@ function do_edit( $bid )
         $result = $db->query( "SELECT bid FROM ".$db->prefix("newblocks")." WHERE show_func='b_system_custom_show'" ) ;
         list( $blockbase_id ) = $db->fetchRow( $result ) ;
 
-        $bi_handler =& xoops_gethandler('blockinstance') ;
+        $bi_handler = xoops_gethandler('blockinstance') ;
         $instance =& $bi_handler->create();
         $instance->setVar( 'bid' , $blockbase_id ) ;
-        $block_handler =& xoops_gethandler('block') ;
+        $block_handler = xoops_gethandler('block') ;
         $blockbase = $block_handler->get( $blockbase_id ) ;
         $instance->setVar('options', $blockbase->getVar("options") );
         $instance->setVar('title', $blockbase->getVar("name") );
@@ -438,7 +438,7 @@ function form_edit( $bid , $mode = 'edit' )
 {
     $bid = intval( $bid ) ;
 
-    $bi_handler =& xoops_gethandler('blockinstance') ;
+    $bi_handler = xoops_gethandler('blockinstance') ;
     $bi =& $bi_handler->get( $bid ) ;
 
     if( ! $bi->getVar('instanceid') ) {
@@ -451,11 +451,11 @@ function form_edit( $bid , $mode = 'edit' )
         $bi->setVar( 'options' , array( '' , 'S' ) ) ;
     }
 
-    $block_handler =& xoops_gethandler( 'block' ) ;
+    $block_handler = xoops_gethandler( 'block' ) ;
     $blockbase =& $block_handler->get( $bi->getVar('bid') ) ;
     $bi->setBlock( $blockbase ) ;
-    $module_handler =& xoops_gethandler( 'module' ) ;
-    $module =& $module_handler->get( $blockbase->getVar('mid') ) ;
+    $module_handler = xoops_gethandler( 'module' ) ;
+    $module = $module_handler->get( $blockbase->getVar('mid') ) ;
 
     $action_base_url4disp = "?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=".($blockbase->getVar('show_func')=='b_system_custom_show'?"__CustomBlocks__":$module->getVar('dirname'))."&amp;bid=$bid" ;
 
@@ -521,7 +521,7 @@ function get_modules_pages_list()
     $module_list[_AM_SYSTEMLEVEL]["0-0"] = _AM_ALLPAGES;
     $criteria = new CriteriaCompo(new Criteria('hasmain', 1));
     $criteria->add(new Criteria('isactive', 1));
-    $module_handler =& xoops_gethandler('module');
+    $module_handler = xoops_gethandler('module');
     $module_main =& $module_handler->getObjects($criteria, true, true);
     if (count($module_main) > 0) {
         foreach (array_keys($module_main) as $mid) {

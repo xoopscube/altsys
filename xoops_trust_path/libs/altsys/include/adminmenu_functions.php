@@ -137,11 +137,11 @@ function altsys_adminmenu_hack_ft_2col_x20()
     $replace_fmt = ' alt="%s" /></a>' ;
 
     $is_left = true ;
-    $module_handler =& xoops_gethandler('module') ;
+    $module_handler = xoops_gethandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
     $last_mid = $mids[ sizeof($mids) - 1 ] ;
     foreach ($mids as $mid) {
-        $module =& $module_handler->get($mid) ;
+        $module = $module_handler->get($mid) ;
         $new_menu_ft = preg_replace('#'.preg_quote($search).'#', sprintf($replace_fmt, $module->getVar('name')), $xoops_admin_menu_ft[$mid]) ;
         if ($is_left) {
             if ($mid == $last_mid) {
@@ -192,10 +192,10 @@ function altsys_adminmenu_hack_ft_noimg_x20()
         }
     }
 
-    $module_handler =& xoops_gethandler('module') ;
+    $module_handler = xoops_gethandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
     foreach ($mids as $mid) {
-        $module =& $module_handler->get($mid) ;
+        $module = $module_handler->get($mid) ;
         $xoops_admin_menu_ft[$mid] = preg_replace('/\<img src\=.*$/', $module->getVar('name').'</a>', $xoops_admin_menu_ft[$mid]) ;
         $xoops_admin_menu_ft[$mid] = '<div style="text-align:'._GLOBAL_LEFT.';background-color:#CCC;" title="'.$module->getVar('dirname').'">'.$xoops_admin_menu_ft[$mid].'</div>' ;
         $xoops_admin_menu_ml[$mid] = str_replace(',105);', ',45);', $xoops_admin_menu_ml[$mid]) ;
@@ -236,10 +236,10 @@ function altsys_adminmenu_hack_ft_xcsty_x20()
         }
     }
 
-    $module_handler =& xoops_gethandler('module') ;
+    $module_handler = xoops_gethandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
     foreach ($mids as $mid) {
-        $module =& $module_handler->get($mid) ;
+        $module = $module_handler->get($mid) ;
         $submenuitems = array() ;
         if (preg_match('/popUpL\d+/', $xoops_admin_menu_ft[$mid], $regs)) {
             $popup = $regs[0] ;
