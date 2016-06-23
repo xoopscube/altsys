@@ -20,7 +20,7 @@ if ($xoopsModule->getVar('dirname') != 'altsys') {
 altsys_include_language_file('compilehookadmin') ;
 
 
-$db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+$db = XoopsDatabaseFactory::getDatabaseConnection() ;
 
 if (empty($_FILES['tplset_archive']['tmp_name']) || ! is_uploaded_file($_FILES['tplset_archive']['tmp_name'])) {
     die(_TPLSADMIN_ERR_NOTUPLOADED) ;

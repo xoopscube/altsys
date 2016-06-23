@@ -68,7 +68,7 @@ function altsys_adminmenu_insert_mymenu_x20(&$module)
     }
 
     // insert tplsadmin
-    $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
+    $db = XoopsDatabaseFactory::getDatabaseConnection() ;
     list($count) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("tplfile")." WHERE tpl_module='$dirname'")) ;
     if ($count > 0) {
         $tplsadmin_title = defined('_MD_A_MYMENU_MYTPLSADMIN') ? _MD_A_MYMENU_MYTPLSADMIN : 'tplsadmin' ;

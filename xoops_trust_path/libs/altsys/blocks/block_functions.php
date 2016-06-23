@@ -30,7 +30,7 @@ function b_altsys_admin_menu_show($options)
         $mid_selected = 0 ;
     }
 
-    $db =& XoopsDatabaseFactory::getDatabaseConnection();
+    $db = XoopsDatabaseFactory::getDatabaseConnection();
     (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 
     $module_handler =& xoops_gethandler('module');
