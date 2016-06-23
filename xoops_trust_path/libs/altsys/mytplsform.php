@@ -5,13 +5,13 @@
 //                       GIJOE <http://www.peak.ne.jp/>                      //
 // ------------------------------------------------------------------------- //
 
-require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
-include_once dirname(__FILE__)."/include/gtickets.php" ;
-include_once dirname(__FILE__).'/include/altsys_functions.php' ;
-include_once dirname(__FILE__)."/include/tpls_functions.php" ;
-include_once dirname(__FILE__).'/include/Text_Diff.php' ;
-include_once dirname(__FILE__).'/include/Text_Diff_Renderer.php' ;
-include_once dirname(__FILE__).'/include/Text_Diff_Renderer_unified.php' ;
+require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
+include_once __DIR__."/include/gtickets.php" ;
+include_once __DIR__.'/include/altsys_functions.php' ;
+include_once __DIR__."/include/tpls_functions.php" ;
+include_once __DIR__.'/include/Text_Diff.php' ;
+include_once __DIR__.'/include/Text_Diff_Renderer.php' ;
+include_once __DIR__.'/include/Text_Diff_Renderer_unified.php' ;
 
 
 // only groups have 'module_admin' of 'altsys' can do that.

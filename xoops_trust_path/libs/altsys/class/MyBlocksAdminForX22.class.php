@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/MyBlocksAdmin.class.php' ;
+require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX22 extends MyBlocksAdmin
 {
@@ -505,7 +505,7 @@ function form_edit( $bid , $mode = 'edit' )
     ) ;
 
     echo '<a href="'.$action_base_url4disp.'">'. _MD_A_MYBLOCKSADMIN_BLOCKADMIN .'</a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;'.$form_title.'<br /><br />';
-    include dirname(__FILE__).'/myblockform.php' ;
+    include __DIR__.'/myblockform.php' ;
     $GLOBALS['xoopsGTicket']->addTicketXoopsFormElement( $form , __LINE__ , 1800 , 'myblocksadmin' ) ;
     $form->display();
 

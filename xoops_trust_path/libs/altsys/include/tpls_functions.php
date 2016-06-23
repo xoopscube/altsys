@@ -1,7 +1,7 @@
 <?php
 
 include_once XOOPS_ROOT_PATH.'/class/template.php';
-include_once dirname(__FILE__).'/altsys_functions.php' ;
+include_once __DIR__.'/altsys_functions.php' ;
 
 function tplsadmin_import_data($tplset, $tpl_file, $tpl_source, $lastmodified = 0)
 {

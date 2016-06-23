@@ -8,8 +8,8 @@ if (! defined('XOOPS_MODULE_URL')) {
 }
 
  
-require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
-require_once dirname(__FILE__).'/include/altsys_functions.php' ;
+require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
+require_once __DIR__.'/include/altsys_functions.php' ;
 
 
 if (empty($xoopsModule)) {
@@ -25,7 +25,7 @@ $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php', $GLOBAL
 
 // get page
 $page = preg_replace('/[^a-zA-Z0-9_-]/', '', @$_GET['page']) ;
-require dirname(__FILE__).'/controllers.php' ;
+require __DIR__.'/controllers.php' ;
 if (! in_array($page, $controllers)) {
     $_GET['page'] = $page = 'myblocksadmin' ;
     $_SERVER['REQUEST_URI'] = '/admin/index.php?mode=admin&lib=altsys&page=myblocksadmin' ;
@@ -43,7 +43,7 @@ if (empty($_GET['dirname'])) {
 altsys_include_language_file($page) ;
 
 // branch to each pages
-$mytrustdirpath = dirname(__FILE__) ;
+$mytrustdirpath = __DIR__ ;
 if (file_exists(XOOPS_TRUST_PATH.'/libs/altsys/'.$page.'.php')) {
     include XOOPS_TRUST_PATH.'/libs/altsys/'.$page.'.php' ;
 } else {

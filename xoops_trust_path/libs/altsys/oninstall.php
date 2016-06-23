@@ -30,7 +30,7 @@ if (! function_exists('altsys_oninstall_base')) {
     /*************** END ALTSYS SPECIFIC PART ******************/
 
     // TABLES (loading mysql.sql)
-    $sql_file_path = dirname(__FILE__).'/sql/mysql.sql' ;
+    $sql_file_path = __DIR__.'/sql/mysql.sql' ;
         $prefix_mod = $db->prefix() . '_' . $mydirname ;
         if (file_exists($sql_file_path)) {
             $ret[] = "SQL file found at <b>".htmlspecialchars($sql_file_path)."</b>.<br /> Creating tables...";
@@ -69,7 +69,7 @@ if (! function_exists('altsys_oninstall_base')) {
 
     // TEMPLATES
     $tplfile_handler =& xoops_gethandler('tplfile') ;
-        $tpl_path = dirname(__FILE__).'/templates' ;
+        $tpl_path = __DIR__.'/templates' ;
         if ($handler = @opendir($tpl_path . '/')) {
             while (($file = readdir($handler)) !== false) {
                 if (substr($file, 0, 1) == '.') {

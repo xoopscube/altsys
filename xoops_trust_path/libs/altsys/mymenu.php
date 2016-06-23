@@ -20,7 +20,7 @@ if (! isset($module) || ! is_object($module)) {
 // language files (modinfo.php)
 altsys_include_language_file('modinfo') ;
 
-include dirname(__FILE__).'/admin_menu.php' ;
+include __DIR__.'/admin_menu.php' ;
 
 $adminmenu = array_merge($adminmenu, $adminmenu4altsys) ;
 
@@ -67,6 +67,6 @@ $tpl->display('db:altsys_inc_mymenu.html') ;
 
 // submenu
 $page = preg_replace('/[^0-9a-zA-Z_-]/', '', @$_GET['page']) ;
-if (file_exists(dirname(__FILE__).'/mymenusub/'.$page.'.php')) {
-    include dirname(__FILE__).'/mymenusub/'.$page.'.php' ;
+if (file_exists(__DIR__.'/mymenusub/'.$page.'.php')) {
+    include __DIR__.'/mymenusub/'.$page.'.php' ;
 }
