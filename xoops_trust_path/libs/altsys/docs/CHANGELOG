@@ -1,9 +1,28 @@
 [xlang:en]
 
-v0.83 Beta 1 (2016-06-23)
+0.83 Beta 1 (2016-06-23)
+============================
 - PHP7, XOOPS 2.5.8 (mamba)
+- intval to (int) (mamba)
+- added /docs (mamba)
+- code cosmetics (mamba)
+- __DIR__ (mamba)
+- XoopsDatabaseFactory (mamba)
+- Unnecessary double quotes (mamba)
+- Unnecessary parentheses (mamba)
+- Unnecessary last comma in array definition (mamba)
+- Unnecessary semicolon (mamba)
+- Callable name case mismatched in a call (mamba)
+- Type unsafe comparison (mamba)
+- Unnecessary semicolon (mamba)
+- Missing semicolon (mamba)
+- Alias functions usage (mamba)
+- Deprecated constructor style (mamba)
+- Reference mismatch (mamba)
 
-v0.82.5 (2016-03-03)
+
+0.82.5 (2016-03-03)
+======================
 - code style to PSR-2 (nao-pon)
 
 v0.71 (2008-12-21)
