@@ -26,7 +26,7 @@ class MyBlocksAdminForX20S extends MyBlocksAdmin
         5 => _AM_CBCENTER ,
         7 => _AM_CBBOTTOMLEFT ,
         8 => _AM_CBBOTTOMRIGHT ,
-        9 => _AM_CBBOTTOM ,
+        9 => _AM_CBBOTTOM
     ) ;
     }
 
@@ -50,21 +50,21 @@ public function renderCell4BlockPosition($block_data)
     return "
 	<table style='width:80px;'>
 		<tr>
-			<td rowspan='2'>".$this->renderRadio4BlockPosition(0, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(3, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(5, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(4, $block_data)."</td>
-			<td rowspan='2'>".$this->renderRadio4BlockPosition(1, $block_data)."</td>
+            <td rowspan='2'>".$this->renderRadio4BlockPosition(0, $block_data) . '</td>
+            <td>' . $this->renderRadio4BlockPosition(3, $block_data) . '</td>
+            <td>' . $this->renderRadio4BlockPosition(5, $block_data) . '</td>
+            <td>' . $this->renderRadio4BlockPosition(4, $block_data) . "</td>
+            <td rowspan='2'>".$this->renderRadio4BlockPosition(1, $block_data) . '</td>
 		</tr>
 		<tr>
-			<td>".$this->renderRadio4BlockPosition(7, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(9, $block_data)."</td>
-			<td>".$this->renderRadio4BlockPosition(8, $block_data)."</td>
+            <td>' . $this->renderRadio4BlockPosition(7, $block_data) . '</td>
+            <td>' . $this->renderRadio4BlockPosition(9, $block_data) . '</td>
+            <td>' . $this->renderRadio4BlockPosition(8, $block_data) . "</td>
 		</tr>
 		<tr>
-			<td colspan='5'>".$this->renderRadio4BlockPosition(-1, $block_data)._NONE."</td>
+            <td colspan='5'>".$this->renderRadio4BlockPosition(-1, $block_data)._NONE . '</td>
 		</tr>
-	</table>" ;
+    </table>';
 }
 
 
@@ -79,10 +79,10 @@ public function renderRadio4BlockPosition($target_side, $block_data)
 
     if ($current_side == $target_side) {
         $checked = "checked='checked'" ;
-        $divstyle = $target_side == -1 ? "disabled" : "selected" ;
+        $divstyle = $target_side == -1 ? 'disabled' : 'selected';
     } else {
-        $checked = "" ;
-        $divstyle = "unselected" ;
+        $checked = '';
+        $divstyle = 'unselected';
     }
 
     return "<div class='blockposition $divstyle' title='$label4disp'><input type='radio' name='sides[$bid]' value='$target_side' class='blockposition' $checked /></div>" ;

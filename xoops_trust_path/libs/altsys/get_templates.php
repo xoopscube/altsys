@@ -49,7 +49,7 @@ if (! preg_match('/^[0-9A-Za-z_-]{1,16}$/', $tplset)) {
             break;
         }
     }
-$trs = $xoopsDB->query("SELECT distinct tpl_file,tpl_source,tpl_lastmodified FROM ".$xoopsDB->prefix("tplfile")." NATURAL LEFT JOIN ".$xoopsDB->prefix("tplsource")." WHERE tpl_tplset='".addslashes($tplset)."' ORDER BY tpl_file") ;
+$trs = $xoopsDB->query('SELECT distinct tpl_file,tpl_source,tpl_lastmodified FROM ' . $xoopsDB->prefix('tplfile') . ' NATURAL LEFT JOIN ' . $xoopsDB->prefix('tplsource') . " WHERE tpl_tplset='" . addslashes($tplset) . "' ORDER BY tpl_file") ;
 if ($xoopsDB->getRowsNum($trs) <= 0) {
     die(_TPLSADMIN_ERR_INVALIDTPLSET) ;
 }

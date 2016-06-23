@@ -17,11 +17,11 @@ define('_MYTPLSADMIN_CNF_COPY_SELECTED_TEMPLATES', 'All of checked templates in 
 define('_MYTPLSADMIN_TH_NAME', 'Template Name') ;
 define('_MYTPLSADMIN_TH_TYPE', 'Typ') ;
 define('_MYTPLSADMIN_TH_FILE', 'Basis Datei') ;
-define('_MYTPLSADMIN_ERR_NOTPLFILE', "No template is checked.") ;
-define('_MYTPLSADMIN_ERR_INVALIDTPLSET', "Destination set is same as source set, or no valid tplset is specified.") ;
+define('_MYTPLSADMIN_ERR_NOTPLFILE', 'No template is checked.') ;
+define('_MYTPLSADMIN_ERR_INVALIDTPLSET', 'Destination set is same as source set, or no valid tplset is specified.') ;
 define('_MYTPLSADMIN_ERR_CANTREMOVEDEFAULT', "You can't remove 'default' template.") ;
-define('_MYTPLSADMIN_ERR_DUPLICATEDSETNAME', "The set name already exists.") ;
-define('_MYTPLSADMIN_ERR_INVALIDSETNAME', "a wrong set name is specified.") ;
+define('_MYTPLSADMIN_ERR_DUPLICATEDSETNAME', 'The set name already exists.') ;
+define('_MYTPLSADMIN_ERR_INVALIDSETNAME', 'a wrong set name is specified.') ;
 
 define('_MYTPLSADMIN_H3_MODULE', 'Module') ;
 define('_MYTPLSADMIN_BTN_NEWTPLSET', 'jetzt erstellen') ;

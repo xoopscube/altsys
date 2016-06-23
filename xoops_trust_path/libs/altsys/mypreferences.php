@@ -67,7 +67,7 @@ if ($op == 'showmod') {
     }
 
     $modname = $module->getVar('name');
-    $button_tray = new XoopsFormElementTray("");
+    $button_tray = new XoopsFormElementTray('');
     // if ($module->getInfo('adminindex')) {
         //	$form->addElement(new XoopsFormHidden('redirect', XOOPS_URL.'/modules/'.$module->getVar('dirname').'/'.$module->getInfo('adminindex')));
     // }

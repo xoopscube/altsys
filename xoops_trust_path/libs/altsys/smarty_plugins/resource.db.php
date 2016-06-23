@@ -60,14 +60,14 @@ function smarty_resource_db_tplinfo($tpl_name)
     
     $tplfile_handler =& xoops_gethandler('tplfile');
     // If we're not using the "default" template set, then get the templates from the DB
-    if ($tplset != "default") {
+    if ($tplset != 'default') {
         $tplobj = $tplfile_handler->find($tplset, null, null, null, $tpl_name, true);
         if (count($tplobj)) {
             return $cache[$tpl_name] = $tplobj[0];
         }
     }
     // If we'using the default tplset, get the template from the filesystem
-    $tplobj = $tplfile_handler->find("default", null, null, null, $tpl_name, true);
+    $tplobj = $tplfile_handler->find('default', null, null, null, $tpl_name, true);
 
     if (!count($tplobj)) {
         return $cache[$tpl_name] = false;

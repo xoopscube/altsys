@@ -57,13 +57,13 @@ if (strtolower(substr($orig_filename4check, -4)) == '.zip') {
     // tar.gz
     require_once XOOPS_ROOT_PATH.'/class/class.tar.php' ;
     $tar = new tar() ;
-    $tar->openTar($_FILES['tplset_archive']['tmp_name']) ;
+    $tar->openTAR($_FILES['tplset_archive']['tmp_name']) ;
     $files = array() ;
     foreach ($tar->files as $id => $info) {
         $files[] = array(
             'filename' => $info['name'] ,
             'mtime' => $info['time'] ,
-            'content' => $info['file'] ,
+            'content' => $info['file']
         ) ;
     }
     if (empty($files)) {

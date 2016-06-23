@@ -61,7 +61,7 @@ foreach (array_keys($adminmenu) as $i) {
 require_once XOOPS_TRUST_PATH.'/libs/altsys/class/D3Tpl.class.php' ;
 $tpl = new D3Tpl() ;
 $tpl->assign(array(
-    'adminmenu' => $adminmenu,
+    'adminmenu' => $adminmenu
 )) ;
 $tpl->display('db:altsys_inc_mymenu.html') ;
 

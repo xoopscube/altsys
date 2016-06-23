@@ -13,7 +13,7 @@ function myDeleteByModule($DB, $gperm_modid, $gperm_name = null, $gperm_itemid =
             $criteria->add(new Criteria('gperm_itemid', intval($gperm_itemid)));
         }
     }
-    $sql = "DELETE FROM ".$DB->prefix('group_permission').' '.$criteria->renderWhere();
+    $sql = 'DELETE FROM ' . $DB->prefix('group_permission') . ' ' . $criteria->renderWhere();
     if (!$result = $DB->query($sql)) {
         return false;
     }
@@ -54,7 +54,7 @@ if ($modid == 1) {
 $member_handler =& xoops_gethandler('member');
 $group_list = $member_handler->getGroupList();
 if (!empty($_POST['perms']) && is_array($_POST['perms'])) {
-    $gperm_handler = xoops_gethandler('groupperm');
+    $gperm_handler =& xoops_gethandler('groupperm');
     foreach ($_POST['perms'] as $perm_name => $perm_data) {
         foreach ($perm_data['itemname' ] as $item_id => $item_name) {
             // checking code
@@ -66,7 +66,7 @@ if (!empty($_POST['perms']) && is_array($_POST['perms'])) {
                     continue ;
                 }
                 foreach ($perm_data['groups'] as $group_id => $item_ids) {
-                    //				foreach ($item_ids as $item_id => $selected) {
+                    //              foreach ($item_ids as $item_id => $selected) {
                     $selected = isset($item_ids[ $item_id ]) ? $item_ids[ $item_id ] : 0 ;
                     if ($selected == 1) {
                         // make sure that all parent ids are selected as well
@@ -111,4 +111,4 @@ if ($module->getVar('hasadmin')) {
 $msg[] = '<br /><br /><a href="'.$backlink.'">'._BACK.'</a>';
 xoops_cp_header();
 xoops_result($msg);
-xoops_cp_footer();  GIJ */;
+xoops_cp_footer();  GIJ */

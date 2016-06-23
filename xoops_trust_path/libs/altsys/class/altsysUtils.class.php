@@ -54,7 +54,7 @@ class altsysUtils
             $php523 = version_compare(PHP_VERSION, '5.2.3', '>=');
         }
         if (is_null($encoding)) {
-            $encoding = (defined('_CHARSET'))? _CHARSET : '';
+            $encoding = defined('_CHARSET') ? _CHARSET : '';
         }
         if ($php523) {
             return htmlspecialchars($str, $flags, $encoding, $double_encode);

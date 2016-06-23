@@ -29,7 +29,7 @@ $compile_hooks = array(
         'dt' => _TPLSADMIN_DT_ENCLOSEBYCOMMENT ,
         'dd' => _TPLSADMIN_DD_ENCLOSEBYCOMMENT ,
         'conf_msg' => _TPLSADMIN_CNF_ENCLOSEBYCOMMENT ,
-        'skip_theme' => true ,
+        'skip_theme' => true
     ) ,
 
     'enclosebybordereddiv' => array(
@@ -39,7 +39,7 @@ $compile_hooks = array(
         'dt' => _TPLSADMIN_DT_ENCLOSEBYBORDEREDDIV ,
         'dd' => _TPLSADMIN_DD_ENCLOSEBYBORDEREDDIV ,
         'conf_msg' => _TPLSADMIN_CNF_ENCLOSEBYBORDEREDDIV ,
-        'skip_theme' => true ,
+        'skip_theme' => true
     ) ,
 
     'hooksavevars' => array(
@@ -49,7 +49,7 @@ $compile_hooks = array(
         'dt' => _TPLSADMIN_DT_HOOKSAVEVARS ,
         'dd' => _TPLSADMIN_DD_HOOKSAVEVARS ,
         'conf_msg' => _TPLSADMIN_CNF_HOOKSAVEVARS ,
-        'skip_theme' => false ,
+        'skip_theme' => false
     ) ,
 
     'removehooks' => array(
@@ -59,8 +59,8 @@ $compile_hooks = array(
         'dt' => _TPLSADMIN_DT_REMOVEHOOKS ,
         'dd' => _TPLSADMIN_DD_REMOVEHOOKS ,
         'conf_msg' => _TPLSADMIN_CNF_REMOVEHOOKS ,
-        'skip_theme' => false ,
-    ) ,
+        'skip_theme' => false
+    )
 
 ) ;
 
@@ -203,7 +203,7 @@ if ($handler = opendir(XOOPS_COMPILE_PATH . '/')) {
 }
 
 // get tplsets
-$sql = "SELECT tplset_name,COUNT(distinct tpl_file) FROM ".$xoopsDB->prefix("tplset")." LEFT JOIN ".$xoopsDB->prefix("tplfile")." ON tplset_name=tpl_tplset GROUP BY tpl_tplset ORDER BY tpl_tplset='default' DESC,tpl_tplset" ;
+$sql = 'SELECT tplset_name,COUNT(distinct tpl_file) FROM ' . $xoopsDB->prefix('tplset') . ' LEFT JOIN ' . $xoopsDB->prefix('tplfile') . " ON tplset_name=tpl_tplset GROUP BY tpl_tplset ORDER BY tpl_tplset='default' DESC,tpl_tplset" ;
 $srs = $xoopsDB->query($sql);
 $tplset_options = "<option value=''>----</option>\n" ;
 while (list($tplset, $tpl_count) = $xoopsDB->fetchRow($srs)) {
@@ -271,10 +271,10 @@ echo "
 		<p>
 			<dl>
 				<dt>
-					"._TPLSADMIN_DT_GETTPLSVARSINFO_DW."
+                    "._TPLSADMIN_DT_GETTPLSVARSINFO_DW . '
 				</dt>
 				<dd>
-					"._TPLSADMIN_DD_GETTPLSVARSINFO_DW."
+                    ' . _TPLSADMIN_DD_GETTPLSVARSINFO_DW . "
 					<br />
 					<input type='submit' name='as_dw_extension_zip' value='zip' />
 					<input type='submit' name='as_dw_extension_tgz' value='tar.gz' />
@@ -287,10 +287,10 @@ echo "
 		<p>
 			<dl>
 				<dt>
-					"._TPLSADMIN_DT_GETTEMPLATES."
+                    "._TPLSADMIN_DT_GETTEMPLATES . '
 				</dt>
 				<dd>
-					"._TPLSADMIN_DD_GETTEMPLATES."
+                    ' . _TPLSADMIN_DD_GETTEMPLATES . "
 					<br />
 					<select name='tplset'>$tplset_options</select>
 					<input type='submit' name='download_zip' value='zip' />
@@ -304,10 +304,10 @@ echo "
 		<p>
 			<dl>
 				<dt>
-					"._TPLSADMIN_DT_PUTTEMPLATES."
+                    "._TPLSADMIN_DT_PUTTEMPLATES . '
 				</dt>
 				<dd>
-					"._TPLSADMIN_DD_PUTTEMPLATES."
+                    ' . _TPLSADMIN_DD_PUTTEMPLATES . "
 					<br />
 					<select name='tplset'>$tplset_options</select>
 					<input type='file' name='tplset_archive' size='60' />
