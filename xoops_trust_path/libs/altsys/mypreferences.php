@@ -17,7 +17,7 @@ if (! is_object($xoopsUser) || ! is_object($xoopsModule) || ! $xoopsUser->isAdmi
 
 // initials
 $db =& XoopsDatabaseFactory::getDatabaseConnection();
-(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
 // language file
 altsys_include_language_file('mypreferences') ;
@@ -26,17 +26,17 @@ altsys_include_language_file('mypreferences') ;
 $op = empty($_GET['op']) ? 'showmod' : preg_replace('/[^a-zA-Z0-9_-]/', '', $_GET['op']) ;
 
 if ($op == 'showmod') {
-    $config_handler =& xoops_gethandler('config');
+    $config_handler = xoops_gethandler('config');
     $mod = $xoopsModule->mid() ;
-    $config =& $config_handler->getConfigs(new Criteria('conf_modid', $mod));
+    $config = $config_handler->getConfigs(new Criteria('conf_modid', $mod));
     $count = count($config);
     if ($count < 1) {
         die('no configs') ;
     }
     include_once XOOPS_ROOT_PATH.'/class/xoopsformloader.php';
     $form = new XoopsThemeForm(_MD_A_MYPREFERENCES_FORMTITLE, 'pref_form', 'index.php?mode=admin&lib=altsys&page=mypreferences&op=save');
-    $module_handler =& xoops_gethandler('module');
-    $module =& $module_handler->get($mod);
+    $module_handler = xoops_gethandler('module');
+    $module = $module_handler->get($mod);
 
     // language
     $language = empty($xoopsConfig['language']) ? 'english' : $xoopsConfig['language'] ;
@@ -77,7 +77,7 @@ if ($op == 'showmod') {
         $title = '' ; // GIJ
         switch ($config[$i]->getVar('conf_formtype')) {
         case 'textarea':
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             if ($config[$i]->getVar('conf_valuetype') == 'array') {
                 // this is exceptional.. only when value type is arrayneed a smarter way for this
                 $ele = ($config[$i]->getVar('conf_value') != '') ? new XoopsFormTextArea($title, $config[$i]->getVar('conf_name'), $myts->htmlspecialchars(implode('|', $config[$i]->getConfValueForOutput())), 5, 50) : new XoopsFormTextArea($title, $config[$i]->getVar('conf_name'), '', 5, 50);
@@ -94,7 +94,7 @@ if ($op == 'showmod') {
                 $ele = new XoopsFormRadio($title, $config[$i]->getVar('conf_name'), $config[$i]->getConfValueForOutput());
                 $addBr = '<br />';
             }
-            $options =& $config_handler->getConfigOptions(new Criteria('conf_id', $config[$i]->getVar('conf_id')));
+            $options = $config_handler->getConfigOptions(new Criteria('conf_id', $config[$i]->getVar('conf_id')));
             $opcount = count($options);
             for ($j = 0; $j < $opcount; $j++) {
                 $optval = defined($options[$j]->getVar('confop_value')) ? constant($options[$j]->getVar('confop_value')) : $options[$j]->getVar('confop_value');
@@ -111,7 +111,7 @@ if ($op == 'showmod') {
                 $ele = new XoopsFormCheckBox($title, $config[$i]->getVar('conf_name'), $config[$i]->getConfValueForOutput());
                 $addBr = '<br />';
             }
-            $options =& $config_handler->getConfigOptions(new Criteria('conf_id', $config[$i]->getVar('conf_id')));
+            $options = $config_handler->getConfigOptions(new Criteria('conf_id', $config[$i]->getVar('conf_id')));
             $opcount = count($options);
             for ($j = 0; $j < $opcount; $j++) {
                 $optval = defined($options[$j]->getVar('confop_value')) ? constant($options[$j]->getVar('confop_value')) : $options[$j]->getVar('confop_value');
@@ -145,12 +145,12 @@ if ($op == 'showmod') {
             $ele = new XoopsFormSelectUser($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 5, true);
             break;
         case 'password':
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             $ele = new XoopsFormPassword($title, $config[$i]->getVar('conf_name'), 50, 255, $myts->htmlspecialchars($config[$i]->getConfValueForOutput()));
             break;
         case 'textbox':
         default:
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             $ele = new XoopsFormText($title, $config[$i]->getVar('conf_name'), 50, 255, $myts->htmlspecialchars($config[$i]->getConfValueForOutput()));
             break;
         }
@@ -210,7 +210,7 @@ if ($op == 'save') {
     $lang_updated = false;
     if ($count > 0) {
         for ($i = 0; $i < $count; $i++) {
-            $config =& $config_handler->getConfig($conf_ids[$i]);
+            $config = $config_handler->getConfig($conf_ids[$i]);
             $new_value =& $_POST[$config->getVar('conf_name')];
             if (is_array($new_value) || $new_value != $config->getVar('conf_value')) {
                 // if language has been changed
@@ -223,7 +223,7 @@ if ($op == 'save') {
 
                 // if default theme has been changed
                 if (!$theme_updated && $config->getVar('conf_catid') == XOOPS_CONF && $config->getVar('conf_name') == 'theme_set') {
-                    $member_handler =& xoops_gethandler('member');
+                    $member_handler = xoops_gethandler('member');
                     $member_handler->updateUsersByField('theme', $_POST[$config->getVar('conf_name')]);
                     $theme_updated = true;
                 }
@@ -239,7 +239,7 @@ if ($op == 'save') {
 
                         // generate compiled files for the new theme
                         // block files only for now..
-                        $tplfile_handler =& xoops_gethandler('tplfile');
+                        $tplfile_handler = xoops_gethandler('tplfile');
                         $dtemplates =& $tplfile_handler->find('default', 'block');
                         $dcount = count($dtemplates);
 
@@ -260,7 +260,7 @@ if ($op == 'save') {
                         }*/
 
                         // generate image cache files from image binary data, save them under cache/
-                        $image_handler =& xoops_gethandler('imagesetimg');
+                        $image_handler = xoops_gethandler('imagesetimg');
                         $imagefiles =& $image_handler->getObjects(new Criteria('tplset_name', $newtplset), true);
                         foreach (array_keys($imagefiles) as $i) {
                             if (!$fp = fopen(XOOPS_CACHE_PATH.'/'.$newtplset.'_'.$imagefiles[$i]->getVar('imgsetimg_file'), 'wb')) {
@@ -275,10 +275,10 @@ if ($op == 'save') {
 
                 // add read permission for the start module to all groups
                 if (!$startmod_updated    && $new_value != '--' && $config->getVar('conf_catid') == XOOPS_CONF && $config->getVar('conf_name') == 'startpage') {
-                    $member_handler =& xoops_gethandler('member');
+                    $member_handler = xoops_gethandler('member');
                     $groups =& $member_handler->getGroupList();
-                    $moduleperm_handler =& xoops_gethandler('groupperm');
-                    $module_handler =& xoops_gethandler('module');
+                    $moduleperm_handler = xoops_gethandler('groupperm');
+                    $module_handler = xoops_gethandler('module');
                     $module =& $module_handler->getByDirname($new_value);
                     foreach ($groups as $groupid => $groupname) {
                         if (!$moduleperm_handler->checkRight('module_read', $module->getVar('mid'), $groupid)) {

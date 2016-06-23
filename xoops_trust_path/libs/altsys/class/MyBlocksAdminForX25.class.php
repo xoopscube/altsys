@@ -199,7 +199,7 @@ public function renderCell4BlockPosition($block_data)
 
         if (! $is_custom && $block_template) {
             // find template of the block
-        $tplfile_handler =& xoops_gethandler('tplfile');
+        $tplfile_handler = xoops_gethandler('tplfile');
             $found_templates = $tplfile_handler->find($GLOBALS['xoopsConfig']['template_set'], 'block', null, null, $block_template) ;
             $block_template_tplset = count($found_templates) > 0 ? $GLOBALS['xoopsConfig']['template_set'] : 'default' ;
         }
@@ -283,7 +283,7 @@ public function renderCell4BlockPosition($block_data)
     public function fetchRequest4Block($bid)
     {
         $bid = intval($bid) ;
-        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
         if (@$_POST['extra_sides'][$bid] > 0) {
             $_POST['sides'][$bid] = intval($_POST['extra_sides'][$bid]) ;
@@ -348,11 +348,11 @@ public function renderCell4BlockPosition($block_data)
             ob_end_clean();
             $ret = str_replace('{X_SITEURL}', XOOPS_URL . '/', $content);
         } elseif ($c_type == 'S') {
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             $content = str_replace('{X_SITEURL}', XOOPS_URL . '/', $block->getVar('content', 'N'));
             $ret = $myts->displayTarea($content, 1, 1);
         } else {
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             $content = str_replace('{X_SITEURL}', XOOPS_URL . '/', $block->getVar('content', 'N'));
             $ret = $myts->displayTarea($content, 1, 0);
         }

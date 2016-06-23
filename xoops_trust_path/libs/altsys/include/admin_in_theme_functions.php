@@ -95,9 +95,9 @@ function altsys_admin_in_theme_in_last($contents = null)
     include XOOPS_CACHE_PATH.'/adminmenu.php' ;
 
     // admin permissions
-    $moduleperm_handler =& xoops_gethandler('groupperm');
+    $moduleperm_handler = xoops_gethandler('groupperm');
     $admin_mids = $moduleperm_handler->getItemIds('module_admin', $xoopsUser->getGroups());
-    $module_handler =& xoops_gethandler('module');
+    $module_handler = xoops_gethandler('module');
     $modules = $module_handler->getObjects(new Criteria('mid', "(".implode(',', $admin_mids).")", 'IN'), true);
     $admin_mids = array_keys($modules);
 
