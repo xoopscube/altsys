@@ -155,12 +155,12 @@ class d3utilities
                 $db->queryF("DELETE FROM $this->table WHERE $this->primary_key=$id") ;
                 if ($delete_comments) {
                     // remove comments
-                    $db->queryF("DELETE FROM ".$db->prefix("xoopscomments")." WHERE com_modid=$this->mid AND com_itemid=$id") ;
+                    $db->queryF('DELETE FROM ' . $db->prefix('xoopscomments') . " WHERE com_modid=$this->mid AND com_itemid=$id") ;
                 }
 
                 if ($delete_notifications) {
                     // remove notifications
-                    $db->queryF("DELETE FROM ".$db->prefix("xoopsnotifications")." WHERE not_modid=$this->mid AND not_itemid=$id") ;
+                    $db->queryF('DELETE FROM ' . $db->prefix('xoopsnotifications') . " WHERE not_modid=$this->mid AND not_itemid=$id") ;
                 }
             }
         }
@@ -265,7 +265,7 @@ class d3utilities
     {
         $ret = "<select name='".htmlspecialchars($name, ENT_QUOTES)."'>\n" ;
         foreach ($options as $key => $val) {
-            $selected = $val == $current_value ? "selected='selected'" : "" ;
+            $selected = $val == $current_value ? "selected='selected'" : '';
             $ret .= "<option value='".htmlspecialchars($key, ENT_QUOTES)."' $selected>".htmlspecialchars($val, ENT_QUOTES)."</option>\n" ;
         }
         $ret .= "</select>\n" ;

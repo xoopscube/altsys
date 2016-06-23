@@ -4,9 +4,9 @@ define('_MI_ALTSYS_MODULENAME', 'ALTSYS') ;
 define('_MI_ALTSYS_MODULEDESC', 'Managing system easily') ;
 
 // menus
-define('_MI_ALTSYS_MENU_CUSTOMBLOCKS', 'eigene Blöcke') ;
+define('_MI_ALTSYS_MENU_CUSTOMBLOCKS', 'eigene BlÃ¶cke') ;
 define('_MI_ALTSYS_MENU_NEWCUSTOMBLOCK', 'neuen Block erstellen') ;
-define('_MI_ALTSYS_MENU_MYBLOCKSADMIN', 'Modul-Blöcke') ;
+define('_MI_ALTSYS_MENU_MYBLOCKSADMIN', 'Modul-BlÃ¶cke') ;
 define('_MI_ALTSYS_MENU_MYTPLSADMIN', 'Templates') ;
 define('_MI_ALTSYS_MENU_COMPILEHOOKADMIN', 'erweiterte Templates') ;
 define('_MI_ALTSYS_MENU_MYLANGADMIN', 'Sprachen') ;

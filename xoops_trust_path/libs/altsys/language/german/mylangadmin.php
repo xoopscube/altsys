@@ -19,8 +19,8 @@ define('_MYLANGADMIN_DT_CACHESTATUS', 'Cache Status') ;
 define('_MYLANGADMIN_CREATED', 'Created') ;
 define('_MYLANGADMIN_NOTCREATED', 'Has not created yet') ;
 
-define('_MYLANGADMIN_ERR_MODNOLANGUAGE', 'Das gew‰hlte Modul hat keinen Sprachordner') ;
-define('_MYLANGADMIN_ERR_MODLANGINCOMPATIBLE', 'Das gew‰hlte Modul ist inkompatibel mit der XOOPS Sprachstruktur') ;
+define('_MYLANGADMIN_ERR_MODNOLANGUAGE', 'Das gew√§hlte Modul hat keinen Sprachordner') ;
+define('_MYLANGADMIN_ERR_MODLANGINCOMPATIBLE', 'Das gew√§hlte Modul ist inkompatibel mit der XOOPS Sprachstruktur') ;
 define('_MYLANGADMIN_ERR_MODEMPTYLANGDIR', 'Selected module does not have overridable language file') ;
 
 define('_MYLANGADMIN_MSG_D3LANGMANENABLED', 'The overriding system is enabled now.') ;

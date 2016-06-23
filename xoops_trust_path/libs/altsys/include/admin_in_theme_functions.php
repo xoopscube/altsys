@@ -23,7 +23,7 @@ function altsys_admin_in_theme($s)
     }
 
     // outputs before cp_header()
-    @list($former_outputs, $tmp_s) = explode("<!DOCTYPE", $s, 2) ;
+    @list($former_outputs, $tmp_s) = explode('<!DOCTYPE', $s, 2) ;
     if (empty($tmp_s)) {
         $tmp_s = $s ;
     }
@@ -147,7 +147,7 @@ function altsys_admin_in_theme_in_last($contents = null)
         'xoops_breadcrumbs' => $xoops_breadcrumbs,
         'xoops_slogan' => htmlspecialchars($xoopsConfig['slogan'], ENT_QUOTES),
         'xoops_contents' => $xoops_admin_contents, //. '<div id="adminmenu_layers">' . $xoops_admin_menu_dv . '</div>' ,
-        'xoops_module_header' => $xoops_module_header,
+        'xoops_module_header' => $xoops_module_header
     )) ;
 
     // rendering

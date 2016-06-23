@@ -7,34 +7,34 @@ if (! defined('XOOPS_ROOT_PATH')) {
 $adminmenu = array(
     array(
         'title' => _MI_ALTSYS_MENU_CUSTOMBLOCKS ,
-        'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__' ,
+        'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__'
     ) ,
     array(
         'title' => _MI_ALTSYS_MENU_NEWCUSTOMBLOCK ,
         'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__&op=edit' ,
-        'show' => false ,
+        'show' => false
     ) ,
     array(
         'title' => _MI_ALTSYS_MENU_MYBLOCKSADMIN ,
-        'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin' ,
+        'link' => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin'
     ) ,
     array(
         'title' => _MI_ALTSYS_MENU_MYTPLSADMIN ,
-        'link' => 'admin/index.php?mode=admin&lib=altsys&page=mytplsadmin' ,
+        'link' => 'admin/index.php?mode=admin&lib=altsys&page=mytplsadmin'
     ) ,
     array(
         'title' => _MI_ALTSYS_MENU_COMPILEHOOKADMIN ,
-        'link' => 'admin/index.php?mode=admin&lib=altsys&page=compilehookadmin' ,
+        'link' => 'admin/index.php?mode=admin&lib=altsys&page=compilehookadmin'
     ) ,
     array(
         'title' => _MI_ALTSYS_MENU_MYLANGADMIN ,
-        'link' => 'admin/index.php?mode=admin&lib=altsys&page=mylangadmin' ,
+        'link' => 'admin/index.php?mode=admin&lib=altsys&page=mylangadmin'
     ) ,
-/*	array(
+/*  array(
         'title' => _MI_ALTSYS_MENU_MYAVATAR ,
         'link' => 'index.php?mode=admin&lib=altsys&page=myavatar' ,
     ) ,*/
-/*	array(
+/*  array(
         'title' => _MI_ALTSYS_MENU_MYSMILEY ,
         'link' => 'index.php?mode=admin&lib=altsys&page=mysmiley' ,
     ) ,*/
@@ -43,6 +43,6 @@ $adminmenu = array(
 $adminmenu4altsys = array(
     array(
         'title' => 'ALTSYS '._PREFERENCES ,
-        'link' => 'admin/index.php?mode=admin&lib=altsys&page=mypreferences' ,
-    ) ,
+        'link' => 'admin/index.php?mode=admin&lib=altsys&page=mypreferences'
+    )
 ) ;
