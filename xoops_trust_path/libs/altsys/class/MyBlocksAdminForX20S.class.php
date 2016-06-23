@@ -71,9 +71,9 @@ public function renderCell4BlockPosition($block_data)
 // private
 public function renderRadio4BlockPosition($target_side, $block_data)
 {
-    $bid = intval($block_data['bid']) ;
-    $visible = intval($block_data['visible']) ;
-    $current_side = $visible ? intval($block_data['side']) : -1 ;
+    $bid = (int)$block_data['bid'];
+    $visible = (int)$block_data['visible'];
+    $current_side = $visible ? (int)$block_data['side'] : -1 ;
 
     $label4disp = htmlspecialchars($this->block_positions[ $target_side ], ENT_QUOTES) ;
 

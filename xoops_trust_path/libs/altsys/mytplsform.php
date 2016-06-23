@@ -154,7 +154,7 @@ if (! empty($_POST['do_create'])) {
     if (! $db->query($sql)) {
         die('SQL Error'.__LINE__) ;
     }
-    $tpl_id = intval($db->getInsertId()) ;
+    $tpl_id = (int)$db->getInsertId();
     $sql = "INSERT INTO ".$db->prefix("tplsource")." SET tpl_id=$tpl_id,tpl_source='".addslashes($myts->stripSlashesGPC($_POST['tpl_source']))."'" ;
     if (! $db->query($sql)) {
         die('SQL Error'.__LINE__) ;
