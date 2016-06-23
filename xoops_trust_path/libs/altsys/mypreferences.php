@@ -5,9 +5,9 @@
 //                     GIJOE <http://www.peak.ne.jp/>                        //
 // ------------------------------------------------------------------------- //
 
-require_once dirname(__FILE__).'/class/AltsysBreadcrumbs.class.php' ;
-include_once dirname(__FILE__).'/include/gtickets.php' ;
-include_once dirname(__FILE__).'/include/altsys_functions.php' ;
+require_once __DIR__.'/class/AltsysBreadcrumbs.class.php' ;
+include_once __DIR__.'/include/gtickets.php' ;
+include_once __DIR__.'/include/altsys_functions.php' ;
 
 // check access right (needs module_admin of this module)
 if (! is_object($xoopsUser) || ! is_object($xoopsModule) || ! $xoopsUser->isAdmin($xoopsModule->mid())) {
@@ -132,7 +132,7 @@ if ($op == 'showmod') {
             $ele = new XoopsFormSelectGroup($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput(), 5, true);
             break;
         case 'group_checkbox':
-            include_once dirname(__FILE__).'/include/formcheckboxgroup.php';
+            include_once __DIR__.'/include/formcheckboxgroup.php';
             $ele = new AltsysFormCheckboxGroup($title, $config[$i]->getVar('conf_name'), false, $config[$i]->getConfValueForOutput());
             break;
         // RMV-NOTIFY: added 'user' and 'user_multi'

@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__FILE__)).'/include/altsys_functions.php' ;
+require_once dirname(__DIR__).'/include/altsys_functions.php' ;
 
 function b_altsys_admin_menu_show($options)
 {

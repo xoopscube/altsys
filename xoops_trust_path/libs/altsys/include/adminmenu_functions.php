@@ -1,5 +1,5 @@
 <?php
-require_once dirname(dirname(__FILE__)).'/class/altsysUtils.class.php' ;
+require_once dirname(__DIR__).'/class/altsysUtils.class.php' ;
 
 define('ALTSYS_ADMINMENU_FILE', XOOPS_CACHE_PATH.'/adminmenu.php') ;
 define('ALTSYS_ADMINMENU_HACK_NONE', 0) ;

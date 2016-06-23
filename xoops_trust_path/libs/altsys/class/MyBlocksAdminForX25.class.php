@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/MyBlocksAdmin.class.php' ;
+require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX25 extends MyBlocksAdmin
 {

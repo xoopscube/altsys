@@ -1038,7 +1038,7 @@ public function do_deleteBlockReadGroupPerm($bid)
         $msg = $this->do_edit($bid) ;
         } elseif (! empty($_POST['submit'])) {
             // update module_admin,module_read,block_read
-        include dirname(dirname(__FILE__)).'/include/mygroupperm.php' ;
+        include dirname(__DIR__).'/include/mygroupperm.php' ;
             $msg = _MD_A_MYBLOCKSADMIN_PERMUPDATED ;
         }
 

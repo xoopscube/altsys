@@ -70,10 +70,10 @@ function altsys_admin_in_theme_in_last($contents = null)
     }
 
     // language files
-    if (file_exists(dirname(dirname(__FILE__)).'/language/'.$xoopsConfig['language'].'/admin_in_theme.php')) {
-        include_once dirname(dirname(__FILE__)).'/language/'.$xoopsConfig['language'].'/admin_in_theme.php' ;
+    if (file_exists(dirname(__DIR__).'/language/'.$xoopsConfig['language'].'/admin_in_theme.php')) {
+        include_once dirname(__DIR__).'/language/'.$xoopsConfig['language'].'/admin_in_theme.php' ;
     } else {
-        include_once dirname(dirname(__FILE__)).'/language/english/admin_in_theme.php' ;
+        include_once dirname(__DIR__).'/language/english/admin_in_theme.php' ;
     }
 
     // set the theme
@@ -89,7 +89,7 @@ function altsys_admin_in_theme_in_last($contents = null)
     }
     error_reporting($original_error_level) ;
 
-    include dirname(__FILE__).'/admin_in_theme_header.inc.php' ;
+    include __DIR__.'/admin_in_theme_header.inc.php' ;
 
 /*	// include adminmenu
     include XOOPS_CACHE_PATH.'/adminmenu.php' ;
