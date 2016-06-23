@@ -68,9 +68,9 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
     if (is_object($xoopsUser)) {
         $xoopsTpl->assign(array('xoops_isuser' => true, 'xoops_userid' => $xoopsUser->getVar('uid'), 'xoops_uname' => $xoopsUser->getVar('uname'), 'xoops_isadmin' => $xoopsUserIsAdmin));
         if (is_object(@$xoopsModule)) {
-            if ($xoopsModule->getVar('mid') == 1 && @$_GET["fct"] == "preferences" && @$_GET["op"] == "showmod" && ! empty($_GET["mod"])) {
+            if ($xoopsModule->getVar('mid') == 1 && @$_GET['fct'] == 'preferences' && @$_GET['op'] == 'showmod' && ! empty($_GET['mod'])) {
                 $module_handler =& xoops_gethandler('module') ;
-                $target_module = $module_handler->get(intval($_GET["mod"])) ;
+                $target_module = $module_handler->get(intval($_GET['mod'])) ;
             } else {
                 $target_module =& $xoopsModule ;
             }
@@ -81,7 +81,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
             // xoops_breadcrumbs
             $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
             if ($breadcrumbsObj->hasPaths()) {
-                $xoops_breadcrumbs = $breadcrumbsObj->getXoopsbreadcrumbs() ;
+                $xoops_breadcrumbs = $breadcrumbsObj->getXoopsBreadcrumbs() ;
             } else {
                 $mod_url = XOOPS_URL.'/modules/'.$target_module->getVar('dirname') ;
                 $mod_path = XOOPS_ROOT_PATH.'/modules/'.$target_module->getVar('dirname') ;
@@ -90,13 +90,13 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
                 if (! empty($modinfo['hasMain'])) {
                     $xoops_breadcrumbs[] = array(
                         'url' => $mod_url.'/' ,
-                        'name' => sprintf(_MD_A_AINTHEME_FMT_PUBLICTOP, $target_module->getVar('name')) ,
+                        'name' => sprintf(_MD_A_AINTHEME_FMT_PUBLICTOP, $target_module->getVar('name'))
                     ) ;
                 }
                 if (! empty($modinfo['adminindex'])) {
                     $xoops_breadcrumbs[] = array(
                         'url' => $mod_url.'/'.$modinfo['adminindex'] ,
-                        'name' => sprintf(_MD_A_AINTHEME_FMT_ADMINTOP, $target_module->getVar('name')) ,
+                        'name' => sprintf(_MD_A_AINTHEME_FMT_ADMINTOP, $target_module->getVar('name'))
                     ) ;
                 }
                 if (! empty($GLOBALS['altsysAdminPageTitle'])) {
@@ -120,7 +120,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
             $xoops_breadcrumbs = array(
                 array(
                     'url' => XOOPS_URL.'/admin.php' ,
-                    'name' => _CPHOME ,
+                    'name' => _CPHOME
                 )
             ) ;
         }
@@ -130,7 +130,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
 
     // get block_arr
     $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
-    $sql = "SELECT DISTINCT gperm_itemid FROM ".$db->prefix('group_permission')." WHERE gperm_name = 'block_read' AND gperm_modid = 1 AND gperm_groupid IN (".implode(',', $xoopsUser->getGroups()).")" ;
+    $sql = 'SELECT DISTINCT gperm_itemid FROM ' . $db->prefix('group_permission') . " WHERE gperm_name = 'block_read' AND gperm_modid = 1 AND gperm_groupid IN (" . implode(',', $xoopsUser->getGroups()) . ')';
     $result = $db->query($sql);
 
     $blockids = array();
@@ -245,7 +245,7 @@ include_once XOOPS_ROOT_PATH.'/class/xoopsblock.php';
         require_once XOOPS_ROOT_PATH.'/modules/altsys/blocks/blocks.php' ;
         $admin_menu_block = array( b_altsys_admin_menu_show(array( 'altsys' )) ) ;
         $admin_menu_block[0]['title'] = 'Admin Menu' ;
-        $lblocks = $xoopsTpl->get_template_vars('xoops_lblocks') ;
+        $lblocks =& $xoopsTpl->get_template_vars('xoops_lblocks') ;
         if (! is_array($lblocks)) {
             $lblocks = array() ;
         }

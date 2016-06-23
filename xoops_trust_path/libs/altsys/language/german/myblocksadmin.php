@@ -4,8 +4,8 @@
 // Appended by Xoops Language Checker -GIJOE- in 2008-12-13 18:32:09
 define('_MD_A_MYBLOCKSADMIN_NOTICE4COMMONFCK', 'If you want to use WYSIWYG editor, install common/fckeditor');
 
-define('_MD_A_MYBLOCKSADMIN_PERMUPDATED', 'Berechtigungen erfolgreich übernommen') ;
-define('_MD_A_MYBLOCKSADMIN_BLOCKADMIN', 'Administration der Blöcke') ;
+define('_MD_A_MYBLOCKSADMIN_PERMUPDATED', 'Berechtigungen erfolgreich Ã¼bernommen') ;
+define('_MD_A_MYBLOCKSADMIN_BLOCKADMIN', 'Administration der BlÃ¶cke') ;
 define('_MD_A_MYBLOCKSADMIN_NAME', 'Name') ;
 define('_MD_A_MYBLOCKSADMIN_TITLE', 'Titel') ;
 define('_MD_A_MYBLOCKSADMIN_SIDE', 'Ausrichtung') ;
@@ -18,7 +18,7 @@ define('_MD_A_MYBLOCKSADMIN_VISIBLE', 'Sichtbar') ;
 define('_MD_A_MYBLOCKSADMIN_WEIGHT', 'Gewichtung') ;
 define('_MD_A_MYBLOCKSADMIN_VISIBLEIN', 'Sichtbar in') ;
 define('_MD_A_MYBLOCKSADMIN_CONTENT', 'Content') ;
-define('_MD_A_MYBLOCKSADMIN_CAPT_USABLETAGS', 'Nützliche Tags') ;
+define('_MD_A_MYBLOCKSADMIN_CAPT_USABLETAGS', 'NÃ¼tzliche Tags') ;
 define('_MD_A_MYBLOCKSADMIN_FMT_TAGRULE', '%s will be replaced into %s in the view') ;
 define('_MD_A_MYBLOCKSADMIN_CTYPE', 'Blocktyp') ;
 define('_MD_A_MYBLOCKSADMIN_EDITTPL', 'Template bearbeiten') ;
@@ -32,7 +32,7 @@ define('_MD_A_MYBLOCKSADMIN_PERMFORM', 'Berechtigungen') ;
 define('_MD_A_MYBLOCKSADMIN_PERM_MADMIN', 'module admin') ;
 define('_MD_A_MYBLOCKSADMIN_PERM_MREAD', 'module read') ;
 define('_MD_A_MYBLOCKSADMIN_DBUPDATED', 'Datenbank wurde erfolgreich aktualisiert') ;
-define('_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK', '%s soll gelöscht werden. Ist das wiklich OK?') ;
+define('_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK', '%s soll gelÃ¶scht werden. Ist das wiklich OK?') ;
 
 
 define('_MD_A_MYBLOCKSADMIN_CLONEFORM', 'Clone the block') ;

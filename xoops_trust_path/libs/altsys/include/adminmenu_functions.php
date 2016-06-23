@@ -69,7 +69,7 @@ function altsys_adminmenu_insert_mymenu_x20(&$module)
 
     // insert tplsadmin
     $db =& XoopsDatabaseFactory::getDatabaseConnection() ;
-    list($count) = $db->fetchRow($db->query("SELECT COUNT(*) FROM ".$db->prefix("tplfile")." WHERE tpl_module='$dirname'")) ;
+    list($count) = $db->fetchRow($db->query('SELECT COUNT(*) FROM ' . $db->prefix('tplfile') . " WHERE tpl_module='$dirname'")) ;
     if ($count > 0) {
         $tplsadmin_title = defined('_MD_A_MYMENU_MYTPLSADMIN') ? _MD_A_MYMENU_MYTPLSADMIN : 'tplsadmin' ;
         $insert = '<img src=\''.XOOPS_URL.'/images/pointer.gif\' width=\'8\' height=\'8\' alt=\'\' />&nbsp;<a href=\''.XOOPS_URL.'/modules/'.$dirname.'/admin/index.php?mode=admin&amp;lib=altsys&amp;page=mytplsadmin\'>'.$tplsadmin_title.'</a><br />'."\n".$insert ;
@@ -139,7 +139,7 @@ function altsys_adminmenu_hack_ft_2col_x20()
     $is_left = true ;
     $module_handler =& xoops_gethandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
-    $last_mid = $mids[ sizeof($mids) - 1 ] ;
+    $last_mid = $mids[count($mids) - 1 ] ;
     foreach ($mids as $mid) {
         $module =& $module_handler->get($mid) ;
         $new_menu_ft = preg_replace('#'.preg_quote($search).'#', sprintf($replace_fmt, $module->getVar('name')), $xoops_admin_menu_ft[$mid]) ;

@@ -36,14 +36,14 @@ class MyBlocksAdmin
         86400 => _DAY ,
         259200 => sprintf(_DAYS, 3) ,
         604800 => _WEEK ,
-        2592000 => _MONTH ,
+        2592000 => _MONTH
     );
 
         $this->ctype_options = array(
         'H' => _MD_A_MYBLOCKSADMIN_CTYPE_HTML ,
         'T' => _MD_A_MYBLOCKSADMIN_CTYPE_NOSMILE ,
         'S' => _MD_A_MYBLOCKSADMIN_CTYPE_SMILE ,
-        'P' => _MD_A_MYBLOCKSADMIN_CTYPE_PHP ,
+        'P' => _MD_A_MYBLOCKSADMIN_CTYPE_PHP
     ) ;
 
         $this->type_options = array(
@@ -51,7 +51,7 @@ class MyBlocksAdmin
         'E' => 'cloned custom block' ,
         'M' => 'module\'s block' ,
         'D' => 'cloned module\'s block' ,
-        'S' => 'system block' ,
+        'S' => 'system block'
     ) ;
     }
 
@@ -95,7 +95,7 @@ public function checkPermission()
         if (is_object(@$target_module)) {
             // module's blocks
             $this->target_mid = $target_module->getVar('mid') ;
-            $this->target_mname = $target_module->getVar('name') . "&nbsp;" . sprintf("(%2.2f)", $target_module->getVar('version') / 100.0) ;
+            $this->target_mname = $target_module->getVar('name') . '&nbsp;' . sprintf('(%2.2f)', $target_module->getVar('version') / 100.0) ;
             $this->target_dirname = $target_module->getVar('dirname') ;
             $modinfo = $target_module->getInfo() ;
             // breadcrumbs
@@ -115,7 +115,7 @@ public function checkPermission()
     } else {
         // myblocksadmin as a library
         $this->target_mid = $xoopsModule->getVar('mid') ;
-        $this->target_mname = $xoopsModule->getVar('name') . "&nbsp;" . sprintf("(%2.2f)", $xoopsModule->getVar('version') / 100.0) ;
+        $this->target_mname = $xoopsModule->getVar('name') . '&nbsp;' . sprintf('(%2.2f)', $xoopsModule->getVar('version') / 100.0) ;
         $this->target_dirname = $xoopsModule->getVar('dirname') ;
         $mod_url = XOOPS_URL.'/modules/'.$xoopsModule->getVar('dirname') ;
         $modinfo = $xoopsModule->getInfo() ;
@@ -140,7 +140,7 @@ public function canEdit($block)
 public function canDelete($block)
 {
     // can delete if it is a cloned block
-    if ($block->getVar("block_type") == 'D' || $block->getVar("block_type") == 'C') {
+    if ($block->getVar('block_type') == 'D' || $block->getVar('block_type') == 'C') {
         return true ;
     } else {
         return false ;
@@ -155,12 +155,12 @@ public function canDelete($block)
 public function canClone($block)
 {
     // can clone link if it is marked as cloneable block
-    if ($block->getVar("block_type") == 'D' || $block->getVar("block_type") == 'C') {
+    if ($block->getVar('block_type') == 'D' || $block->getVar('block_type') == 'C') {
         return 2 ;
     } else {
         // $modversion['blocks'][n]['can_clone']
         foreach ($this->block_configs as $bconf) {
-            if ($block->getVar("show_func") == @$bconf['show_func'] && $block->getVar("func_file") == @$bconf['file'] && (empty($bconf['template']) || $block->getVar("template") == @$bconf['template'])) {
+            if ($block->getVar('show_func') == @$bconf['show_func'] && $block->getVar('func_file') == @$bconf['file'] && (empty($bconf['template']) || $block->getVar('template') == @$bconf['template'])) {
                 if (! empty($bconf['can_clone'])) {
                     return 2 ;
                 }
@@ -206,7 +206,7 @@ public function renderCell4BlockModuleLink($block_data)
         $selected_mids = $block_data['bmodule'] ;
     } else {
         // origined from the table of `block_module_link`
-        $result = $this->db->query("SELECT module_id FROM ".$this->db->prefix('block_module_link')." WHERE block_id='$bid'") ;
+        $result = $this->db->query('SELECT module_id FROM ' . $this->db->prefix('block_module_link') . " WHERE block_id='$bid'") ;
         $selected_mids = array();
         while (list($selected_mid) = $this->db->fetchRow($result)) {
             $selected_mids[] = intval($selected_mid) ;
@@ -255,7 +255,7 @@ public function renderCell4BlockReadGroupPerm($block_data)
         $selected_gids = $block_data['bgroup'] ;
     } else {
         // origined from the table of `group_perm`
-        $result = $this->db->query("SELECT gperm_groupid FROM ".$this->db->prefix('group_permission')." WHERE gperm_itemid='$bid' AND gperm_name='block_read'") ;
+        $result = $this->db->query('SELECT gperm_groupid FROM ' . $this->db->prefix('group_permission') . " WHERE gperm_itemid='$bid' AND gperm_name='block_read'") ;
         $selected_gids = array();
         while (list($selected_gid) = $this->db->fetchRow($result)) {
             $selected_gids[] = intval($selected_gid) ;
@@ -298,39 +298,39 @@ public function renderCell4BlockPosition($block_data)
     $side = intval($block_data['side']) ;
     $visible = intval($block_data['visible']) ;
 
-    $sseln = $ssel0 = $ssel1 = $ssel2 = $ssel3 = $ssel4 = "";
-    $scoln = $scol0 = $scol1 = $scol2 = $scol3 = $scol4 = "unselected";
-    $stextbox = "unselected" ;
+    $sseln = $ssel0 = $ssel1 = $ssel2 = $ssel3 = $ssel4 = '';
+    $scoln = $scol0 = $scol1 = $scol2 = $scol3 = $scol4 = 'unselected';
+    $stextbox = 'unselected';
     $value4extra_side = '' ;
 
     if ($visible != 1) {
         $sseln = " checked='checked'";
-        $scoln = "disabled";
+        $scoln = 'disabled';
     } else {
         switch ($side) {
         case XOOPS_SIDEBLOCK_LEFT :
             $ssel0 = " checked='checked'";
-            $scol0 = "selected";
+            $scol0 = 'selected';
             break ;
         case XOOPS_SIDEBLOCK_RIGHT :
             $ssel1 = " checked='checked'";
-            $scol1 = "selected";
+            $scol1 = 'selected';
             break ;
         case XOOPS_CENTERBLOCK_LEFT :
             $ssel2 = " checked='checked'";
-            $scol2 = "selected";
+            $scol2 = 'selected';
             break ;
         case XOOPS_CENTERBLOCK_RIGHT :
             $ssel4 = " checked='checked'";
-            $scol4 = "selected";
+            $scol4 = 'selected';
             break ;
         case XOOPS_CENTERBLOCK_CENTER :
             $ssel3 = " checked='checked'";
-            $scol3 = "selected";
+            $scol3 = 'selected';
             break ;
         default :
             $value4extra_side = $side ;
-            $stextbox = "selected" ;
+            $stextbox = 'selected';
             break ;
     }
     }
@@ -361,8 +361,8 @@ public function renderCell4BlockPosition($block_data)
 				<div class='blockposition $scoln'>
 					<input type='radio' name='sides[$bid]' value='-1' class='blockposition' $sseln onclick='document.getElementById(\"extra_side_$bid\").value=-1;' />
 				</div>
-				<div style='float:"._GLOBAL_LEFT.";'>"._NONE."</div>
-	" ;
+                <div style='float:"._GLOBAL_LEFT.";'>"._NONE . '</div>
+    ';
 }
 
 
@@ -372,7 +372,7 @@ public function list_blocks()
     global $xoopsGTicket ;
 
     // main query
-    $sql = "SELECT * FROM ".$this->db->prefix("newblocks")." WHERE mid='$this->target_mid' ORDER BY visible DESC,side,weight" ;
+    $sql = 'SELECT * FROM ' . $this->db->prefix('newblocks') . " WHERE mid='$this->target_mid' ORDER BY visible DESC,side,weight" ;
     $result = $this->db->query($sql) ;
     $block_arr = array() ;
 //HACK by domifara
@@ -407,14 +407,14 @@ public function list_blocks()
             'visible' => intval($block->getVar('visible')) ,
             'can_edit' => $this->canEdit($block) ,
             'can_delete' => $this->canDelete($block) ,
-            'can_clone' => $this->canClone($block) ,
+            'can_clone' => $this->canClone($block)
         ) ;
         $blocks4assign[] = array(
             'name_raw' => $block_data['name'] ,
             'title_raw' => $block_data['title'] ,
             'cell_position' => $this->renderCell4BlockPosition($block_data) ,
             'cell_module_link' =>  $this->renderCell4BlockModuleLink($block_data) ,
-            'cell_group_perm' =>  $this->renderCell4BlockReadGroupPerm($block_data) ,
+            'cell_group_perm' =>  $this->renderCell4BlockReadGroupPerm($block_data)
         ) + $block_data ;
     }
 
@@ -428,7 +428,7 @@ public function list_blocks()
         'language' => $this->lang,
         'cachetime_options' => $this->cachetime_options,
         'blocks' => $blocks4assign,
-        'gticket_hidden' => $xoopsGTicket->getTicketHtml(__LINE__, 1800, 'myblocksadmin'),
+        'gticket_hidden' => $xoopsGTicket->getTicketHtml(__LINE__, 1800, 'myblocksadmin')
     )) ;
     $tpl->display('db:altsys_main_myblocksadmin_list.html') ;
 }
@@ -452,7 +452,7 @@ public function list_blocks()
     public function list_groups()
     {
         // query for getting blocks
-    $sql = "SELECT * FROM ".$this->db->prefix("newblocks")." WHERE mid='$this->target_mid' ORDER BY visible DESC,side,weight" ;
+    $sql = 'SELECT * FROM ' . $this->db->prefix('newblocks') . " WHERE mid='$this->target_mid' ORDER BY visible DESC,side,weight" ;
         $result = $this->db->query($sql) ;
         $block_arr = array() ;
 //HACK by domifara
@@ -472,7 +472,7 @@ public function list_blocks()
 
         $item_list = array() ;
         foreach (array_keys($block_arr) as $i) {
-            $item_list[ $block_arr[$i]->getVar("bid") ] = $block_arr[$i]->getVar("title") ;
+            $item_list[ $block_arr[$i]->getVar('bid') ] = $block_arr[$i]->getVar('title') ;
         }
 
         $form = new MyXoopsGroupPermForm(_MD_A_MYBLOCKSADMIN_PERMFORM, 1, 'block_read', '') ;
@@ -550,7 +550,7 @@ public function list_blocks()
 public function updateBlockModuleLink($bid, $bmodules)
 {
     $bid = intval($bid) ;
-    $table = $this->db->prefix("block_module_link") ;
+    $table = $this->db->prefix('block_module_link') ;
 
     $sql = "DELETE FROM `$table` WHERE `block_id`=$bid" ;
     $this->db->query($sql) ;
@@ -566,7 +566,7 @@ public function updateBlockModuleLink($bid, $bmodules)
 public function updateBlockReadGroupPerm($bid, $req_gids)
 {
     $bid = intval($bid) ;
-    $table = $this->db->prefix("group_permission") ;
+    $table = $this->db->prefix('group_permission') ;
     $req_gids = array_map('intval', $req_gids) ;
     sort($req_gids) ;
 
@@ -641,7 +641,7 @@ public function updateBlockReadGroupPerm($bid, $req_gids)
         'bcachetime' => intval(@$_POST['bcachetimes'][$bid]) ,
         'bmodule' => is_array(@$_POST['bmodules'][$bid]) ? $_POST['bmodules'][$bid] : array( 0 ) ,
         'bgroup' => is_array(@$_POST['bgroups'][$bid]) ? $_POST['bgroups'][$bid] : array() ,
-        'options' => is_array(@$_POST['options'][$bid]) ? $_POST['options'][$bid] : array() ,
+        'options' => is_array(@$_POST['options'][$bid]) ? $_POST['options'][$bid] : array()
     ) ;
     }
 
@@ -674,7 +674,7 @@ public function updateBlockReadGroupPerm($bid, $req_gids)
 public function do_deleteBlockReadGroupPerm($bid)
 {
     $bid = intval($bid) ;
-    $table = $this->db->prefix("group_permission") ;
+    $table = $this->db->prefix('group_permission') ;
     $sql = "DELETE FROM `$table` WHERE gperm_name='block_read' AND `gperm_itemid`=$bid" ;
     $this->db->query($sql) ;
 }
@@ -779,7 +779,7 @@ public function do_deleteBlockReadGroupPerm($bid)
         $func_num = 256 ;
         do {
             $func_num -- ;
-            list($count) = $this->db->fetchRow($this->db->query("SELECT COUNT(*) FROM ".$this->db->prefix("newblocks")." WHERE mid=".intval($mid)." AND func_num=".$func_num)) ;
+            list($count) = $this->db->fetchRow($this->db->query('SELECT COUNT(*) FROM ' . $this->db->prefix('newblocks') . ' WHERE mid=' . intval($mid) . ' AND func_num=' . $func_num)) ;
         } while ($count > 0) ;
 
         return $func_num > 128 ? $func_num : 255 ;
@@ -809,7 +809,7 @@ public function do_deleteBlockReadGroupPerm($bid)
             $request = $this->fetchRequest4Block(0) ;
         // permission copy
         foreach ($GLOBALS['xoopsUser']->getGroups() as $gid) {
-            $sql = "INSERT INTO ".$this->db->prefix('group_permission')." (gperm_groupid, gperm_itemid, gperm_modid, gperm_name) VALUES ($gid, $bid, 1, 'block_read')";
+            $sql = 'INSERT INTO ' . $this->db->prefix('group_permission') . " (gperm_groupid, gperm_itemid, gperm_modid, gperm_name) VALUES ($gid, $bid, 1, 'block_read')";
             $this->db->query($sql);
         }
         } else {
@@ -879,7 +879,7 @@ public function do_deleteBlockReadGroupPerm($bid)
     }
 
         $is_custom = in_array($block->getVar('block_type'), array( 'C', 'E' )) ? true : false ;
-        $block_template = $block->getVar('template', 'n') ;
+        $block_template =& $block->getVar('template', 'n') ;
         $block_template_tplset = '' ;
 
         if (! $is_custom && $block_template) {
@@ -908,7 +908,7 @@ public function do_deleteBlockReadGroupPerm($bid)
         'content' => $block->getVar('content', 'n') ,
         'is_custom' => $is_custom ,
         'type' => $block->getVar('block_type') ,
-        'ctype' => $block->getVar('c_type') ,
+        'ctype' => $block->getVar('c_type')
     ) ;
 
         $block4assign = array(
@@ -919,7 +919,7 @@ public function do_deleteBlockReadGroupPerm($bid)
         'cell_module_link' => $this->renderCell4BlockModuleLink($block_data) ,
         'cell_group_perm' =>  $this->renderCell4BlockReadGroupPerm($block_data) ,
         'cell_options' => $this->renderCell4BlockOptions($block_data) ,
-        'content_preview' => $this->previewContent($block_data) ,
+        'content_preview' => $this->previewContent($block_data)
     ) + $block_data ;
 
     // display
@@ -945,7 +945,7 @@ public function do_deleteBlockReadGroupPerm($bid)
         'form_title' => $form_title,
         'submit_button' => $button_value,
         'common_fck_installed' => $this->checkFck(),
-        'gticket_hidden' => $GLOBALS['xoopsGTicket']->getTicketHtml(__LINE__, 1800, 'myblocksadmin'),
+        'gticket_hidden' => $GLOBALS['xoopsGTicket']->getTicketHtml(__LINE__, 1800, 'myblocksadmin')
     )) ;
 
         if (defined('XOOPS_CUBE_LEGACY')) {
@@ -990,7 +990,7 @@ public function do_deleteBlockReadGroupPerm($bid)
 
         restore_error_handler() ;
         $original_level = error_reporting(E_ALL) ;
-        $ret = $block->getContent('S', $block_data['ctype']) ;
+        $ret =& $block->getContent('S', $block_data['ctype']) ;
         error_reporting($original_level) ;
 
         return $ret ;
@@ -1003,7 +1003,7 @@ public function do_deleteBlockReadGroupPerm($bid)
         'H' => _MD_A_MYBLOCKSADMIN_CTYPE_HTML ,
         'S' => _MD_A_MYBLOCKSADMIN_CTYPE_SMILE ,
         'N' => _MD_A_MYBLOCKSADMIN_CTYPE_NOSMILE ,
-        'P' => _MD_A_MYBLOCKSADMIN_CTYPE_PHP ,
+        'P' => _MD_A_MYBLOCKSADMIN_CTYPE_PHP
     ) ;
 
         return isset($ctypes[$bctype]) ? $ctypes[$bctype] : _MD_A_MYBLOCKSADMIN_CTYPE_SMILE ;
