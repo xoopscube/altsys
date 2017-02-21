@@ -15,9 +15,9 @@ include_once __DIR__.'/include/Text_Diff_Renderer_unified.php' ;
 
 
 // only groups have 'module_admin' of 'altsys' can do that.
-$module_handler = xoops_gethandler('module') ;
-$module =& $module_handler->getByDirname('altsys') ;
-$moduleperm_handler = xoops_gethandler('groupperm') ;
+$module_handler = xoops_getHandler('module') ;
+$module = $module_handler->getByDirname('altsys') ;
+$moduleperm_handler = xoops_getHandler('groupperm') ;
 if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin', $module->getVar('mid'), $xoopsUser->getGroups())) {
     die('only admin of altsys can access this area') ;
 }
@@ -26,7 +26,7 @@ if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin'
 
 // initials
 $db = XoopsDatabaseFactory::getDatabaseConnection();
-(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
 // language file
 altsys_include_language_file('mytplsform') ;
@@ -65,7 +65,7 @@ if (empty($_GET['tpl_file']) || $_GET['tpl_file'] == '_custom') {
     ) ;
 
     // breadcrumbs
-    $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+    $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
     $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php?mode=admin&amp;lib=altsys&amp;page=mytplsadmin', '_MI_ALTSYS_MENU_MYTPLSADMIN') ;
     $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php?mode=admin&amp;lib=altsys&amp;page=mytplsadmin&amp;dirname=_custom', _MYTPLSADMIN_CUSTOMTEMPLATE) ;
     $breadcrumbsObj->appendPath('', '_MYTPLSADMIN_CREATENEWCUSTOMTEMPLATE') ;
@@ -86,13 +86,13 @@ if (empty($_GET['tpl_file']) || $_GET['tpl_file'] == '_custom') {
         $target_module = null ;
         $target_mname = _MYTPLSADMIN_CUSTOMTEMPLATE ;
     } else {
-        $module_handler = xoops_gethandler('module') ;
-        $target_module =& $module_handler->getByDirname($tpl['tpl_module']) ;
+        $module_handler = xoops_getHandler('module') ;
+        $target_module = $module_handler->getByDirname($tpl['tpl_module']) ;
         $target_mname = is_object($target_module) ? $target_module->getVar('name') : '' ;
     }
 
     // breadcrumbs
-    $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+    $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
     if ($mydirname != 'altsys' && is_object($target_module)) {
         // mytplsform in each modules
         $mod_url = XOOPS_URL.'/modules/'.$target_module->getVar('dirname') ;

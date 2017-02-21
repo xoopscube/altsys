@@ -14,7 +14,7 @@ function altsys_mylangadmin_get_constant_names($langfile_unique_path, $mydirname
     // get constant_names by "require"
     if (! defined($langfile_fingerprint)) {
         $system_constants = array_keys(get_defined_constants()) ;
-        $reqonce_ret = require_once($langfile_unique_path) ;
+        $reqonce_ret = require_once $langfile_unique_path;
         $langfile_names = array_diff(array_keys(get_defined_constants()), $system_constants) ;
     }
 
@@ -82,7 +82,7 @@ function altsys_mylangadmin_errordie($target_mname, $message4disp)
 {
     xoops_cp_header() ;
     altsys_include_mymenu() ;
-    $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+    $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
     $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php?mode=admin&amp;lib=altsys&amp;page=mylangadmin', _MI_ALTSYS_MENU_MYLANGADMIN) ;
     $breadcrumbsObj->appendPath('', $target_mname) ;
     echo '<h3>' . _MYLANGADMIN_H3_MODULE . ' : ' . $target_mname . '</h3>' ;

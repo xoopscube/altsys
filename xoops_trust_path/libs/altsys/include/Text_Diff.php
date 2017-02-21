@@ -259,7 +259,6 @@ class Text_MappedDiff extends Text_Diff
  */
 class Text_Diff_Engine_xdiff
 {
-
     public function diff($from_lines, $to_lines)
     {
         /* Convert the two input arrays into strings for xdiff processing. */
@@ -325,7 +324,6 @@ class Text_Diff_Engine_xdiff
  */
 class Text_Diff_Engine_native
 {
-
     public function diff($from_lines, $to_lines)
     {
         $n_from = count($from_lines);
@@ -737,7 +735,6 @@ class Text_Diff_Engine_native
  */
 class Text_Diff_Op
 {
-
     public $orig;
     public $final;
 
@@ -765,7 +762,6 @@ class Text_Diff_Op
  */
 class Text_Diff_Op_copy extends Text_Diff_Op
 {
-
     public function __construct($orig, $final = false)
     {
         if (!is_array($final)) {
@@ -789,7 +785,6 @@ class Text_Diff_Op_copy extends Text_Diff_Op
  */
 class Text_Diff_Op_delete extends Text_Diff_Op
 {
-
     public function __construct($lines)
     {
         $this->orig = $lines;
@@ -810,7 +805,6 @@ class Text_Diff_Op_delete extends Text_Diff_Op
  */
 class Text_Diff_Op_add extends Text_Diff_Op
 {
-
     public function __construct($lines)
     {
         $this->final = $lines;
@@ -831,7 +825,6 @@ class Text_Diff_Op_add extends Text_Diff_Op
  */
 class Text_Diff_Op_change extends Text_Diff_Op
 {
-
     public function __construct($orig, $final)
     {
         $this->orig = $orig;

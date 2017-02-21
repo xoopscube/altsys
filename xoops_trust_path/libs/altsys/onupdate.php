@@ -12,7 +12,7 @@ if (! function_exists('altsys_onupdate_base')) {
 
     // for Cube 2.1
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $root =& XCube_Root::getSingleton();
+        $root = XCube_Root::getSingleton();
         $root->mDelegateManager->add('Legacy.Admin.Event.ModuleUpdate.' . ucfirst($mydirname) . '.Success', 'altsys_message_append_onupdate') ;
         $msgs = array() ;
     } else {
@@ -42,7 +42,7 @@ if (! function_exists('altsys_onupdate_base')) {
 
 
     // TEMPLATES (all templates have been already removed by modulesadmin)
-    $tplfile_handler = xoops_gethandler('tplfile') ;
+    $tplfile_handler = xoops_getHandler('tplfile') ;
         $tpl_path = __DIR__.'/templates' ;
         if ($handler = @opendir($tpl_path . '/')) {
             while (($file = readdir($handler)) !== false) {
@@ -52,7 +52,7 @@ if (! function_exists('altsys_onupdate_base')) {
                 $file_path = $tpl_path . '/' . $file ;
                 if (is_file($file_path)) {
                     $mtime = (int)(@filemtime($file_path));
-                    $tplfile =& $tplfile_handler->create() ;
+                    $tplfile = $tplfile_handler->create() ;
                     $tplfile->setVar('tpl_source', file_get_contents($file_path), true) ;
                     $tplfile->setVar('tpl_refid', $mid) ;
                     $tplfile->setVar('tpl_tplset', 'default') ;

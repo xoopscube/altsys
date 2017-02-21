@@ -138,7 +138,7 @@ function tplsadmin_get_basefilepath($dirname, $type, $tpl_file)
     if (defined('ALTSYS_TPLSADMIN_BASEPATH')) {
         // Special hook
         $path = ALTSYS_TPLSADMIN_BASEPATH.'/'.substr($tpl_file, strlen($dirname) + 1) ;
-    } elseif ($mytrustdirname || @include(XOOPS_ROOT_PATH.'/modules/'.$dirname.'/mytrustdirname.php')) {
+    } elseif ($mytrustdirname || @include XOOPS_ROOT_PATH . '/modules/' . $dirname . '/mytrustdirname.php') {
         // D3 module base
         if (! empty($mytrustdirname)) {
             $mid_path = $mytrustdirname == 'altsys' ? '/libs/' : '/modules/' ;

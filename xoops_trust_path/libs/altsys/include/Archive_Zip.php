@@ -2726,7 +2726,7 @@ class Archive_Zip
 
             // ----- Calculate the position of the header
             @rewind($this->_zip_fd);
-            if (@fseek($this->_zip_fd,  $v_header_list[$i]['offset'])) {
+            if (@fseek($this->_zip_fd, $v_header_list[$i]['offset'])) {
                 // ----- Clean
                 $this->_closeFd();
                 $v_temp_zip->_closeFd();
@@ -3489,4 +3489,3 @@ class Archive_Zip
   // ---------------------------------------------------------------------------
 }
   // End of class
-

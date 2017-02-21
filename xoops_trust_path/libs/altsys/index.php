@@ -13,14 +13,14 @@ require_once __DIR__.'/include/altsys_functions.php' ;
 
 
 if (empty($xoopsModule)) {
-    $moduleperm_handler = xoops_gethandler('module') ;
-    $xoopsModule =& $moduleperm_handler->getByDirname('altsys') ;
+    $moduleperm_handler = xoops_getHandler('module') ;
+    $xoopsModule = $moduleperm_handler->getByDirname('altsys') ;
 }
 
 require XOOPS_ROOT_PATH.'/include/cp_functions.php' ;
 
 // breadcrumbs
-$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php', $GLOBALS['xoopsModule']->getVar('name')) ;
 
 // get page
@@ -34,7 +34,7 @@ if (! in_array($page, $controllers)) {
 
 // half measure ... (TODO)
 if (empty($_GET['dirname'])) {
-    $module_handler = xoops_gethandler('module') ;
+    $module_handler = xoops_getHandler('module') ;
     list($top_module) = $module_handler->getObjects(new Criteria('isactive', 1)) ;
     $_GET['dirname'] = $top_module->getVar('dirname') ;
 }

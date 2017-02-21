@@ -2,7 +2,6 @@
 
 class D3LanguageManager
 {
-
     public $default_language = 'english' ;
     public $language = 'english' ;
     public $salt ;

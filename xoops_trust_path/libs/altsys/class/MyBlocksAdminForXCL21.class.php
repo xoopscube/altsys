@@ -5,8 +5,6 @@ require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForXCL21 extends MyBlocksAdmin
 {
-
-
     public function MyBlocksAadminForXCL21()
     {
     }
@@ -29,7 +27,7 @@ public static function &getInstance()
 public function renderCell4BlockOptions($block_data)
 {
     if ($this->target_dirname && substr($this->target_dirname, 0, 1) != '_') {
-        $langman =& D3LanguageManager::getInstance() ;
+        $langman = D3LanguageManager::getInstance() ;
         $langman->read('admin.php', $this->target_dirname) ;
     }
 
@@ -37,11 +35,11 @@ public function renderCell4BlockOptions($block_data)
 
 //HACK by domifara
 //	$block = new XoopsBlock( $bid ) ;
-    $handler = xoops_gethandler('block');
-    $block =& $handler->create(false) ;
+    $handler = xoops_getHandler('block');
+    $block = $handler->create(false) ;
     $block->load($bid) ;
 
-    $legacy_block =& Legacy_Utils::createBlockProcedure($block) ;
+    $legacy_block = Legacy_Utils::createBlockProcedure($block) ;
     return $legacy_block->getOptionForm() ;
 }
 

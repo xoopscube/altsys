@@ -4,7 +4,6 @@ require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX22 extends MyBlocksAdmin
 {
-
     public function MyBlocksAadminForX22()
     {
     }
@@ -522,7 +521,7 @@ function get_modules_pages_list()
     $criteria = new CriteriaCompo(new Criteria('hasmain', 1));
     $criteria->add(new Criteria('isactive', 1));
     $module_handler = xoops_gethandler('module');
-    $module_main =& $module_handler->getObjects($criteria, true, true);
+    $module_main = $module_handler->getObjects($criteria, true, true);
     if (count($module_main) > 0) {
         foreach (array_keys($module_main) as $mid) {
             $module_list[$module_main[$mid]->getVar('name')][$mid."-0"] = _AM_ALLMODULEPAGES;

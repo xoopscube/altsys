@@ -48,4 +48,3 @@ define('_TPLSADMIN_ERR_NOTPLSVARSINFO', 'No hay archivos con información de las
 
 define('_TPLSADMIN_NUMCAP_COMPILEDCACHES', 'Archivos de cache de las plantillas') ;
 define('_TPLSADMIN_NUMCAP_TPLSVARS', 'Archivos de información de las variables de las plantillas') ;
-

@@ -4,7 +4,6 @@ require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX25 extends MyBlocksAdmin
 {
-
     public function MyBlocksAadminForX25()
     {
     }
@@ -47,39 +46,39 @@ public function renderCell4BlockPosition($block_data)
         $scoln = 'disabled';
     } else {
         switch ($side) {
-        case XOOPS_SIDEBLOCK_LEFT :
+        case XOOPS_SIDEBLOCK_LEFT:
             $ssel0 = " checked='checked'";
             $scol0 = 'selected';
             break ;
-        case XOOPS_SIDEBLOCK_RIGHT :
+        case XOOPS_SIDEBLOCK_RIGHT:
             $ssel1 = " checked='checked'";
             $scol1 = 'selected';
             break ;
-        case XOOPS_CENTERBLOCK_LEFT :
+        case XOOPS_CENTERBLOCK_LEFT:
             $ssel3 = " checked='checked'";
             $scol3 = 'selected';
             break ;
-        case XOOPS_CENTERBLOCK_RIGHT :
+        case XOOPS_CENTERBLOCK_RIGHT:
             $ssel4 = " checked='checked'";
             $scol4 = 'selected';
             break ;
-        case XOOPS_CENTERBLOCK_CENTER :
+        case XOOPS_CENTERBLOCK_CENTER:
             $ssel5 = " checked='checked'";
             $scol5 = 'selected';
             break ;
-        case XOOPS_CENTERBLOCK_BOTTOMLEFT :
+        case XOOPS_CENTERBLOCK_BOTTOMLEFT:
             $ssel7 = " checked='checked'";
             $scol7 = 'selected';
             break ;
-        case XOOPS_CENTERBLOCK_BOTTOMRIGHT :
+        case XOOPS_CENTERBLOCK_BOTTOMRIGHT:
             $ssel8 = " checked='checked'";
             $scol8 = 'selected';
             break ;
-        case XOOPS_CENTERBLOCK_BOTTOM :
+        case XOOPS_CENTERBLOCK_BOTTOM:
             $ssel9 = " checked='checked'";
             $scol9 = 'selected';
             break ;
-        default :
+        default:
             $value4extra_side = $side ;
             $stextbox = 'selected';
             break ;
@@ -166,29 +165,29 @@ public function renderCell4BlockPosition($block_data)
         }
 
         switch ($mode) {
-        case 'clone' :
+        case 'clone':
             $form_title = _MD_A_MYBLOCKSADMIN_CLONEFORM ;
             $button_value = _MD_A_MYBLOCKSADMIN_BTN_CLONE ;
             $next_op = 'clone_ok' ;
             // breadcrumbs
-            $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+            $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
             $breadcrumbsObj->appendPath('', _MD_A_MYBLOCKSADMIN_CLONEFORM) ;
             break ;
-        case 'new' :
+        case 'new':
             $form_title = _MD_A_MYBLOCKSADMIN_NEWFORM ;
             $button_value = _MD_A_MYBLOCKSADMIN_BTN_NEW ;
             $next_op = 'new_ok' ;
             // breadcrumbs
-            $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+            $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
             $breadcrumbsObj->appendPath('', _MD_A_MYBLOCKSADMIN_NEWFORM) ;
             break ;
-        case 'edit' :
-        default :
+        case 'edit':
+        default:
             $form_title = _MD_A_MYBLOCKSADMIN_EDITFORM ;
             $button_value = _MD_A_MYBLOCKSADMIN_BTN_EDIT ;
             $next_op = 'edit_ok' ;
             // breadcrumbs
-            $breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+            $breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
             $breadcrumbsObj->appendPath('', _MD_A_MYBLOCKSADMIN_EDITFORM) ;
             break ;
     }
@@ -199,7 +198,7 @@ public function renderCell4BlockPosition($block_data)
 
         if (! $is_custom && $block_template) {
             // find template of the block
-        $tplfile_handler = xoops_gethandler('tplfile');
+        $tplfile_handler = xoops_getHandler('tplfile');
             $found_templates = $tplfile_handler->find($GLOBALS['xoopsConfig']['template_set'], 'block', null, null, $block_template) ;
             $block_template_tplset = count($found_templates) > 0 ? $GLOBALS['xoopsConfig']['template_set'] : 'default' ;
         }
@@ -283,7 +282,7 @@ public function renderCell4BlockPosition($block_data)
     public function fetchRequest4Block($bid)
     {
         $bid = (int)$bid;
-        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
         if (@$_POST['extra_sides'][$bid] > 0) {
             $_POST['sides'][$bid] = (int)$_POST['extra_sides'][$bid];
@@ -348,11 +347,11 @@ public function renderCell4BlockPosition($block_data)
             ob_end_clean();
             $ret = str_replace('{X_SITEURL}', XOOPS_URL . '/', $content);
         } elseif ($c_type == 'S') {
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             $content = str_replace('{X_SITEURL}', XOOPS_URL . '/', $block->getVar('content', 'N'));
             $ret = $myts->displayTarea($content, 1, 1);
         } else {
-            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
+            (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
             $content = str_replace('{X_SITEURL}', XOOPS_URL . '/', $block->getVar('content', 'N'));
             $ret = $myts->displayTarea($content, 1, 0);
         }

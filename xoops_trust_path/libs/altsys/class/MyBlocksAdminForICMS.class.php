@@ -4,7 +4,6 @@ require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForICMS extends MyBlocksAdmin
 {
-
     public $block_positions = array() ;
 
     public function MyBlocksAadminForICMS()
@@ -56,7 +55,7 @@ public function renderCell4BlockModuleLink($block_data)
         }
     }
 
-    $page_handler = xoops_gethandler('page');
+    $page_handler = xoops_getHandler('page');
     $ret = "
 				<select name='bmodules[$bid][]' size='5' multiple='multiple'>
 					".$page_handler->getPageSelOptions($selected_pages) . '

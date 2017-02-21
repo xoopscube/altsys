@@ -12,7 +12,7 @@ if (! function_exists('altsys_onuninstall_base')) {
 
     // for Cube 2.1
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $root =& XCube_Root::getSingleton();
+        $root = XCube_Root::getSingleton();
         $root->mDelegateManager->add('Legacy.Admin.Event.ModuleUninstall.' . ucfirst($mydirname) . '.Success', 'altsys_message_append_onuninstall') ;
         $ret = array() ;
     } else {

@@ -6,10 +6,10 @@ function altsys_set_module_config()
 {
     global $altsysModuleConfig , $altsysModuleId ;
 
-    $module_handler = xoops_gethandler('module') ;
-    $module =& $module_handler->getByDirname('altsys') ;
+    $module_handler = xoops_getHandler('module') ;
+    $module = $module_handler->getByDirname('altsys') ;
     if (is_object($module)) {
-        $config_handler = xoops_gethandler('config') ;
+        $config_handler = xoops_getHandler('config') ;
         $altsysModuleConfig = $config_handler->getConfigList($module->getVar('mid')) ;
         $altsysModuleId = $module->getVar('mid') ;
     } else {
@@ -106,15 +106,15 @@ function altsys_get_core_type()
 function altsys_get_link2modpreferences($mid, $coretype)
 {
     switch ($coretype) {
-        case ALTSYS_CORE_TYPE_X20 :
-        case ALTSYS_CORE_TYPE_X20S :
-        case ALTSYS_CORE_TYPE_ORE :
-        case ALTSYS_CORE_TYPE_X22 :
-        case ALTSYS_CORE_TYPE_X23P :
-        case ALTSYS_CORE_TYPE_ICMS :
-        default :
+        case ALTSYS_CORE_TYPE_X20:
+        case ALTSYS_CORE_TYPE_X20S:
+        case ALTSYS_CORE_TYPE_ORE:
+        case ALTSYS_CORE_TYPE_X22:
+        case ALTSYS_CORE_TYPE_X23P:
+        case ALTSYS_CORE_TYPE_ICMS:
+        default:
             return XOOPS_URL.'/modules/system/admin.php?fct=preferences&op=showmod&mod='.$mid ;
-        case ALTSYS_CORE_TYPE_XCL21 :
+        case ALTSYS_CORE_TYPE_XCL21:
             return XOOPS_URL.'/modules/legacy/admin/index.php?action=PreferenceEdit&confmod_id='.$mid ;
     }
 }

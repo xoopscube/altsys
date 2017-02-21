@@ -47,10 +47,10 @@ public static function &getInstance($conn = null)
 
     public function triggerEvent($mydirname, $mytrustdirname, $category, $item_id, $event, $extra_tags=array(), $user_list=array(), $omit_user_id=null)
     {
-        $module_hanlder = xoops_gethandler('module') ;
-        $module =& $module_hanlder->getByDirname($mydirname) ;
+        $module_handler = xoops_getHandler('module') ;
+        $module = $module_handler->getByDirname($mydirname) ;
 
-        $notification_handler = xoops_gethandler('notification') ;
+        $notification_handler = xoops_getHandler('notification') ;
         $mail_template_dir = $this->getMailTemplateDir($mydirname, $mytrustdirname) ;
 
     // calling a delegate before
@@ -65,7 +65,7 @@ public static function &getInstance($conn = null)
         $mid = $module->getVar('mid') ;
 
     // Check if event is enabled
-    $config_handler = xoops_gethandler('config');
+    $config_handler = xoops_getHandler('config');
         $mod_config = $config_handler->getConfigsByCat(0, $mid);
         if (empty($mod_config['notification_enabled'])) {
             return false;

@@ -4,7 +4,6 @@ require_once __DIR__.'/MyBlocksAdmin.class.php' ;
 
 class MyBlocksAdminForX20S extends MyBlocksAdmin
 {
-
     public $block_positions = array() ;
 
     public function MyBlocksAadminForX20S()

@@ -3,7 +3,6 @@
 // singleton for xoops_breadcrumbs
 class AltsysBreadcrumbs
 {
-
     public $paths = array() ;
 
     public function __construct()

@@ -13,12 +13,12 @@ include_once __DIR__.'/class/D3LanguageManager.class.php' ;
 
 
 // only groups have 'module_admin' of 'altsys' can do that.
-$module_handler = xoops_gethandler('module') ;
-$module =& $module_handler->getByDirname('altsys') ;
+$module_handler = xoops_getHandler('module') ;
+$module = $module_handler->getByDirname('altsys') ;
 if (! is_object($module)) {
     die('install altsys') ;
 }
-$moduleperm_handler = xoops_gethandler('groupperm') ;
+$moduleperm_handler = xoops_getHandler('groupperm') ;
 if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin', $module->getVar('mid'), $xoopsUser->getGroups())) {
     die('only admin of altsys can access this area') ;
 }
@@ -26,8 +26,8 @@ if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin'
 
 // initials
 $db = XoopsDatabaseFactory::getDatabaseConnection();
-(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
-$langman =& D3LanguageManager::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+$langman = D3LanguageManager::getInstance() ;
 
 // language file of this controller
 altsys_include_language_file('mylangadmin') ;
@@ -38,10 +38,10 @@ if (! is_object($xoopsModule)) {
 }
 
 // set target_module if specified by $_GET['dirname']
-$module_handler = xoops_gethandler('module');
+$module_handler = xoops_getHandler('module');
 if (! empty($_GET['dirname'])) {
     $dirname = preg_replace('/[^0-9a-zA-Z_-]/', '', $_GET['dirname']) ;
-    $target_module =& $module_handler->getByDirname($dirname) ;
+    $target_module = $module_handler->getByDirname($dirname) ;
 }
 
 if (! empty($target_module) && is_object($target_module)) {
@@ -263,7 +263,7 @@ if (altsys_get_core_type() == ALTSYS_CORE_TYPE_XCL21) {
             }
         }</strike>
         require_once XOOPS_TRUST_PATH."/libs/altsys/class/D3LanguageManager.class.php" ;
-        $langman =& D3LanguageManager::getInstance() ;
+        $langman = D3LanguageManager::getInstance() ;
         $langman->read( "main.php" , $xoopsModule->getVar("dirname") ) ;
 		</pre>
 	' ;
@@ -281,7 +281,7 @@ xoops_cp_header() ;
 altsys_include_mymenu() ;
 
 // breadcrumbs
-$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 if ($breadcrumbsObj->hasPaths()) {
     $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php?mode=admin&amp;lib=altsys&amp;page=mylangadmin', _MI_ALTSYS_MENU_MYLANGADMIN) ;
     $breadcrumbsObj->appendPath('', $target_mname) ;

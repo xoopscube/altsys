@@ -12,7 +12,7 @@ if (! function_exists('altsys_oninstall_base')) {
 
     // for Cube 2.1
     if (defined('XOOPS_CUBE_LEGACY')) {
-        $root =& XCube_Root::getSingleton();
+        $root = XCube_Root::getSingleton();
         $root->mDelegateManager->add('Legacy.Admin.Event.ModuleInstall.' . ucfirst($mydirname) . '.Success', 'altsys_message_append_oninstall') ;
         $ret = array() ;
     } else {
@@ -68,7 +68,7 @@ if (! function_exists('altsys_oninstall_base')) {
         }
 
     // TEMPLATES
-    $tplfile_handler = xoops_gethandler('tplfile') ;
+    $tplfile_handler = xoops_getHandler('tplfile') ;
         $tpl_path = __DIR__.'/templates' ;
         if ($handler = @opendir($tpl_path . '/')) {
             while (($file = readdir($handler)) !== false) {
@@ -78,7 +78,7 @@ if (! function_exists('altsys_oninstall_base')) {
                 $file_path = $tpl_path . '/' . $file ;
                 if (is_file($file_path)) {
                     $mtime = (int)(@filemtime($file_path));
-                    $tplfile =& $tplfile_handler->create() ;
+                    $tplfile = $tplfile_handler->create() ;
                     $tplfile->setVar('tpl_source', file_get_contents($file_path), true) ;
                     $tplfile->setVar('tpl_refid', $mid) ;
                     $tplfile->setVar('tpl_tplset', 'default') ;

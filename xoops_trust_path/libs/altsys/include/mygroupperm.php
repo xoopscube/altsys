@@ -27,15 +27,15 @@ $modid = isset($_POST['modid']) ? (int)$_POST['modid'] : 1;
 
 if ($modid == 1) {
     // check by the permission of eather 'altsys' or 'system'
-    $module_handler = xoops_gethandler('module') ;
-    $module =& $module_handler->getByDirname('altsys') ;
+    $module_handler = xoops_getHandler('module') ;
+    $module = $module_handler->getByDirname('altsys') ;
     if (! is_object($module)) {
-        $module =& $module_handler->getByDirname('system') ;
+        $module = $module_handler->getByDirname('system') ;
         if (! is_object($module)) {
             die('there is no altsys nor system.') ;
         }
     }
-    $moduleperm_handler = xoops_gethandler('groupperm') ;
+    $moduleperm_handler = xoops_getHandler('groupperm') ;
     if (! is_object(@$GLOBALS['xoopsUser']) || ! $moduleperm_handler->checkRight('module_admin', $module->getVar('mid'), $GLOBALS['xoopsUser']->getGroups())) {
         die('only admin of altsys can access this area') ;
     }
@@ -44,17 +44,17 @@ if ($modid == 1) {
     if ($modid <= 0 || !is_object($GLOBALS['xoopsUser']) || !$GLOBALS['xoopsUser']->isAdmin($modid)) {
         die(_NOPERM) ;
     }
-    $module_handler = xoops_gethandler('module');
+    $module_handler = xoops_getHandler('module');
     $module = $module_handler->get($modid);
     if (!is_object($module) || !$module->getVar('isactive')) {
         die(_MODULENOEXIST) ;
     }
 }
 
-$member_handler = xoops_gethandler('member');
+$member_handler = xoops_getHandler('member');
 $group_list = $member_handler->getGroupList();
 if (!empty($_POST['perms']) && is_array($_POST['perms'])) {
-    $gperm_handler = xoops_gethandler('groupperm');
+    $gperm_handler = xoops_getHandler('groupperm');
     foreach ($_POST['perms'] as $perm_name => $perm_data) {
         foreach ($perm_data['itemname' ] as $item_id => $item_name) {
             // checking code
@@ -80,7 +80,7 @@ if (!empty($_POST['perms']) && is_array($_POST['perms'])) {
                                 }
                             }
                         }
-                        $gperm =& $gperm_handler->create();
+                        $gperm = $gperm_handler->create();
                         $gperm->setVar('gperm_groupid', $group_id);
                         $gperm->setVar('gperm_name', $perm_name);
                         $gperm->setVar('gperm_modid', $modid);

@@ -137,7 +137,7 @@ function altsys_adminmenu_hack_ft_2col_x20()
     $replace_fmt = ' alt="%s" /></a>' ;
 
     $is_left = true ;
-    $module_handler = xoops_gethandler('module') ;
+    $module_handler = xoops_getHandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
     $last_mid = $mids[count($mids) - 1 ] ;
     foreach ($mids as $mid) {
@@ -192,7 +192,7 @@ function altsys_adminmenu_hack_ft_noimg_x20()
         }
     }
 
-    $module_handler = xoops_gethandler('module') ;
+    $module_handler = xoops_getHandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
     foreach ($mids as $mid) {
         $module = $module_handler->get($mid) ;
@@ -236,7 +236,7 @@ function altsys_adminmenu_hack_ft_xcsty_x20()
         }
     }
 
-    $module_handler = xoops_gethandler('module') ;
+    $module_handler = xoops_getHandler('module') ;
     $mids = array_keys($xoops_admin_menu_ft) ;
     foreach ($mids as $mid) {
         $module = $module_handler->get($mid) ;

@@ -12,12 +12,12 @@ include_once __DIR__ . '/include/tpls_functions.php';
 
 
 // only groups have 'module_admin' of 'altsys' can do that.
-$module_handler = xoops_gethandler('module') ;
-$module =& $module_handler->getByDirname('altsys') ;
+$module_handler = xoops_getHandler('module') ;
+$module = $module_handler->getByDirname('altsys') ;
 if (! is_object($module)) {
     die('install altsys') ;
 }
-$moduleperm_handler = xoops_gethandler('groupperm') ;
+$moduleperm_handler = xoops_getHandler('groupperm') ;
 if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin', $module->getVar('mid'), $xoopsUser->getGroups())) {
     die('only admin of altsys can access this area') ;
 }
@@ -25,7 +25,7 @@ if (! is_object(@$xoopsUser) || ! $moduleperm_handler->checkRight('module_admin'
 
 // initials
 $db = XoopsDatabaseFactory::getDatabaseConnection();
-(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
 // language file
 altsys_include_language_file('mytplsadmin') ;
@@ -36,10 +36,10 @@ if (! is_object($xoopsModule)) {
 }
 
 // set target_module if specified by $_GET['dirname']
-$module_handler = xoops_gethandler('module');
+$module_handler = xoops_getHandler('module');
 if (! empty($_GET['dirname'])) {
     $dirname = preg_replace('/[^0-9a-zA-Z_-]/', '', $_GET['dirname']) ;
-    $target_module =& $module_handler->getByDirname($dirname) ;
+    $target_module = $module_handler->getByDirname($dirname) ;
 }
 
 if (! empty($target_module) && is_object($target_module)) {
@@ -210,14 +210,14 @@ $_MYTPLSADMIN_ERR_NOTPLFILE = htmlspecialchars(_MYTPLSADMIN_ERR_NOTPLFILE);
 $javascript = <<<EOD
 <script type="text/javascript">
 	function altsys_mytpladmin_check_copy_submit(msg, id, selcheck) {
-		if (typeof jQuery != 'undefined') {
+		if (typeof jQuery !== 'undefined') {
 			var checked = jQuery('form[name="MainForm"] input[name^="'+id+'check"]:checked').val();
-			if (typeof checked == 'undefined') {
+			if (typeof checked === 'undefined') {
 				alert("$_MYTPLSADMIN_ERR_NOTPLFILE");
 				return false;
 			}
 			if (selcheck) {
-				if (id == 'base') {
+				if (id === 'base') {
 					var select = 'copyf2db_to';
 				} else {
 					var select = 'copy_to['+id.substr(0,id.length-1)+']'
@@ -234,7 +234,7 @@ $javascript = <<<EOD
 EOD;
 
 // get tplsets
-$tplset_handler = xoops_gethandler('tplset') ;
+$tplset_handler = xoops_getHandler('tplset') ;
 $tplsets = array_keys($tplset_handler->getList()) ;
 $sql = 'SELECT distinct tpl_tplset FROM ' . $db->prefix('tplfile') . " ORDER BY tpl_tplset='default' DESC,tpl_tplset" ;
 $srs = $db->query($sql);
@@ -253,7 +253,7 @@ foreach ($tplsets as $tplset) {
         $th_attr = "class='active dbtplset_active'";
         $active = '<sup>*</sup>';
     }
-    $tplsets_th4disp .= "<th $th_attr><input type='checkbox' title='"._MYTPLSADMIN_TITLE_CHECKALL."' onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type=='checkbox'&&elements[i].name.indexOf('{$tplset4disp}_check')>=0){elements[i].checked=this.checked;}}}\" />{$active}DB-{$tplset4disp}</th>" ;
+    $tplsets_th4disp .= "<th $th_attr><input type='checkbox' title='"._MYTPLSADMIN_TITLE_CHECKALL."' onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type==='checkbox'&&elements[i].name.indexOf('{$tplset4disp}_check')>=0){elements[i].checked=this.checked;}}}\" />{$active}DB-{$tplset4disp}</th>" ;
     $tplset_options .= "<option value='$tplset4disp'>$tplset4disp</option>\n" ;
 }
 
@@ -277,7 +277,7 @@ echo $javascript;
 altsys_include_mymenu() ;
 
 // breadcrumbs
-$breadcrumbsObj =& AltsysBreadcrumbs::getInstance() ;
+$breadcrumbsObj = AltsysBreadcrumbs::getInstance() ;
 if ($breadcrumbsObj->hasPaths()) {
     $breadcrumbsObj->appendPath(XOOPS_URL.'/modules/altsys/admin/index.php?mode=admin&amp;lib=altsys&amp;page=mytplsadmin', _MI_ALTSYS_MENU_MYTPLSADMIN) ;
     $breadcrumbsObj->appendPath('', $target_mname) ;
@@ -298,7 +298,7 @@ echo "
 		<tr>
             <th>"._MYTPLSADMIN_TH_NAME . '</th>
             <th>' . _MYTPLSADMIN_TH_TYPE . "</th>
-			<th><input type='checkbox' title="._MYTPLSADMIN_TITLE_CHECKALL." onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type=='checkbox'&&elements[i].name.indexOf('basecheck')>=0){elements[i].checked=this.checked;}}}\" />"._MYTPLSADMIN_TH_FILE."</th>
+			<th><input type='checkbox' title="._MYTPLSADMIN_TITLE_CHECKALL." onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type==='checkbox'&&elements[i].name.indexOf('basecheck')>=0){elements[i].checked=this.checked;}}}\" />"._MYTPLSADMIN_TH_FILE."</th>
 			$tplsets_th4disp
 		</tr>\n" ;
 

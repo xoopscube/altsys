@@ -31,13 +31,13 @@ function b_altsys_admin_menu_show($options)
     }
 
     $db = XoopsDatabaseFactory::getDatabaseConnection();
-    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
+    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
-    $module_handler = xoops_gethandler('module');
-    $current_module =& $module_handler->getByDirname($mydirname);
-    $config_handler = xoops_gethandler('config');
+    $module_handler = xoops_getHandler('module');
+    $current_module = $module_handler->getByDirname($mydirname);
+    $config_handler = xoops_getHandler('config');
     $current_configs = $config_handler->getConfigList($current_module->mid()) ;
-    $moduleperm_handler = xoops_gethandler('groupperm');
+    $moduleperm_handler = xoops_getHandler('groupperm');
     $admin_mids = $moduleperm_handler->getItemIds('module_admin', $xoopsUser->getGroups());
     $modules = $module_handler->getObjects(new Criteria('mid', '('.implode(',', $admin_mids) . ')', 'IN'), true) ;
 
@@ -72,9 +72,9 @@ function b_altsys_admin_menu_show($options)
 
         // for modules overriding Module.class.php (eg. Analyzer for XC)
         if (empty($submenus4assign) && defined('XOOPS_CUBE_LEGACY') && ! empty($modinfo['cube_style'])) {
-            $module_handler = xoops_gethandler('module');
+            $module_handler = xoops_getHandler('module');
             $module = $module_handler->get($mid);
-            $moduleObj =& Legacy_Utils::createModule($module);
+            $moduleObj = Legacy_Utils::createModule($module);
             $modinfo['adminindex'] = $moduleObj->getAdminIndex() ;
             $modinfo['adminindex_absolute'] = true ;
             foreach ($moduleObj->getAdminMenu() as $sub) {
@@ -106,22 +106,22 @@ function b_altsys_admin_menu_show($options)
         }
 
         $module4assign = array(
-            'mid' => $mid ,
-            'dirname' => $dirname ,
-            'name' => $mod->getVar('name') ,
-            'version_in_db' => sprintf('%.2f', $mod->getVar('version') / 100.0) ,
-            'version_in_file' => sprintf('%.2f', $modinfo['version']) ,
-            'description' => htmlspecialchars(@$modinfo['description'], ENT_QUOTES) ,
-            'image' => htmlspecialchars($modinfo['image'], ENT_QUOTES) ,
-            'isactive' => $mod->getVar('isactive') ,
-            'hasmain' => $mod->getVar('hasmain') ,
-            'hasadmin' => $mod->getVar('hasadmin') ,
-            'hasconfig' => $mod->getVar('hasconfig') ,
-            'weight' => $mod->getVar('weight') ,
-            'adminindex' => htmlspecialchars(@$modinfo['adminindex'], ENT_QUOTES) ,
-            'adminindex_absolute' => @$modinfo['adminindex_absolute'] ,
-            'submenu' => $submenus4assign ,
-            'selected' => $mid == $mid_selected ? true : false ,
+            'mid' => $mid,
+            'dirname' => $dirname,
+            'name' => $mod->getVar('name'),
+            'version_in_db' => sprintf('%.2f', $mod->getVar('version') / 100.0),
+            'version_in_file' => sprintf('%.2f', $modinfo['version']),
+            'description' => htmlspecialchars(@$modinfo['description'], ENT_QUOTES),
+            'image' => htmlspecialchars($modinfo['image'], ENT_QUOTES),
+            'isactive' => $mod->getVar('isactive'),
+            'hasmain' => $mod->getVar('hasmain'),
+            'hasadmin' => $mod->getVar('hasadmin'),
+            'hasconfig' => $mod->getVar('hasconfig'),
+            'weight' => $mod->getVar('weight'),
+            'adminindex' => htmlspecialchars(@$modinfo['adminindex'], ENT_QUOTES),
+            'adminindex_absolute' => @$modinfo['adminindex_absolute'],
+            'submenu' => $submenus4assign,
+            'selected' => $mid == $mid_selected,
             'dot_suffix' => $mid == $mid_selected ? 'selected_opened' : 'closed'
         ) ;
         $block['modules'][] = $module4assign ;

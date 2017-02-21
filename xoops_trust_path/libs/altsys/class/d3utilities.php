@@ -2,7 +2,6 @@
 
 class d3utilities
 {
-
     public $dirname = '' ; // directory name under xoops_trust_path
     public $mydirname = '' ; // each directory name under xoops_root_path
     public $mid = 0 ; // id of each module instance
@@ -24,8 +23,8 @@ class d3utilities
         $this->table = $db->prefix($mydirname ? $mydirname . '_' . $table_body : $table_body) ;
         $this->primary_key = $primary_key ;
         $this->cols = $cols ;
-        $module_handler = xoops_gethandler('module') ;
-        $module =& $module_handler->getByDirname($this->mydirname) ;
+        $module_handler = xoops_getHandler('module') ;
+        $module = $module_handler->getByDirname($this->mydirname) ;
         if (! empty($module)) {
             $this->mid = (int)$module->getVar('mid');
         }
@@ -43,17 +42,17 @@ class d3utilities
     public function get_set4sql($value, $col)
     {
         switch ($col['type']) {
-            case 'text' :
-            case 'blob' :
+            case 'text':
+            case 'blob':
                 $length = empty($col['length']) ? 65535 : (int)$col['length'];
                 return "`{$col['name']}`='".addslashes(xoops_substr($value, 0, $length))."'" ;
-            case 'char' :
-            case 'varchar' :
-            case 'string' :
+            case 'char':
+            case 'varchar':
+            case 'string':
                 $length = empty($col['length']) ? 255 : (int)$col['length'];
                 return "`{$col['name']}`='".addslashes(xoops_substr($value, 0, $length))."'" ;
-            case 'int' :
-            case 'integer' :
+            case 'int':
+            case 'integer':
                 $value = (int)$value;
                 if (! empty($col['max'])) {
                     $value = min($value, (int)$col['max']) ;
@@ -205,29 +204,29 @@ class d3utilities
             }
             if (! isset($col['default_value'])) {
                 switch ($col['type']) {
-                    case 'int' :
-                    case 'integer' :
+                    case 'int':
+                    case 'integer':
                         $col['default_value'] = 0 ;
                         break ;
-                    default :
+                    default:
                         $col['default_value'] = '' ;
                         break ;
                 }
             }
             switch ($col['edit_edit']) {
-                case 'checkbox' :
+                case 'checkbox':
                     $checked = empty($col['default_value']) ? '' : "checked='checked'" ;
                     $value = empty($col['checkbox_value']) ? 1 : htmlspecialchars($col['checkbox_value'], ENT_QUOTES) ;
 
                     $lines[ $col['name'] ] = "<input type='checkbox' name='{$col['name']}' value='$value' $checked />" ;
                     break ;
-                case 'text' :
-                default :
+                case 'text':
+                default:
                     $size = empty($col['edit_size']) ? 32 : (int)$col['edit_size'];
                     $length = empty($col['length']) ? 255 : (int)$col['length'];
                     $lines[ $col['name'] ] = "<input type='text' name='{$col['name']}' size='$size' maxlength='$length' value='".htmlspecialchars($col['default_value'], ENT_QUOTES)."' />" ;
                     break ;
-                case false :
+                case false:
                     $lines[ $col['name'] ] = htmlspecialchars($col['default_value'], ENT_QUOTES) ;
                     break ;
             }
