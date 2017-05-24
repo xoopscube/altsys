@@ -94,7 +94,7 @@ public static function &getInstance($conn = null)
         $mode_criteria->add(new Criteria('not_mode', XOOPS_NOTIFICATION_MODE_SENDONCETHENDELETE), 'OR');
         $mode_criteria->add(new Criteria('not_mode', XOOPS_NOTIFICATION_MODE_SENDONCETHENWAIT), 'OR');
         $criteria->add($mode_criteria);
-        $notifications =& $notification_handler->getObjects($criteria);
+        $notifications = $notification_handler->getObjects($criteria);
         if (empty($notifications)) {
             return;
         }

@@ -1,7 +1,7 @@
 <?php
 
 //require_once __DIR__.'/class/D3LanguageManager.class.php' ;
-//$langman =& D3LanguageManager::getInstance() ;
+//$langman = D3LanguageManager::getInstance() ;
 //$langman->read( 'modinfo.php' , 'altsys' , 'altsys' ) ;
 
 if (file_exists(__DIR__.'/language/'.$GLOBALS['xoopsConfig']['language'].'/modinfo.php')) {

@@ -33,7 +33,7 @@ function list_blocks( $target_mid , $target_dirname )
 {
     global $xoopsGTicket ;
 
-    (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
+    (method_exists('MyTextSanitizer', 'sGetInstance') && $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance() ;
 
     // main query
     $db = XoopsDatabaseFactory::getDatabaseConnection();
@@ -78,7 +78,7 @@ function list_blocks( $target_mid , $target_dirname )
     $criteria = new CriteriaCompo($crit);
     $criteria->setSort('visible DESC, side ASC, weight');
     $instance_handler = xoops_gethandler('blockinstance');
-    $instances =& $instance_handler->getObjects($criteria, true, true);
+    $instances = $instance_handler->getObjects($criteria, true, true);
 
     //Get modules and pages for visible in
     $modules_pages_list = $this->get_modules_pages_list() ;

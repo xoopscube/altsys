@@ -259,7 +259,7 @@ if ($op == 'save') {
 
                         // generate image cache files from image binary data, save them under cache/
                         $image_handler = xoops_getHandler('imagesetimg');
-                        $imagefiles =& $image_handler->getObjects(new Criteria('tplset_name', $newtplset), true);
+                        $imagefiles = $image_handler->getObjects(new Criteria('tplset_name', $newtplset), true);
                         foreach (array_keys($imagefiles) as $i) {
                             if (!$fp = fopen(XOOPS_CACHE_PATH.'/'.$newtplset.'_'.$imagefiles[$i]->getVar('imgsetimg_file'), 'wb')) {
                             } else {
