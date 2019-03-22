@@ -1,5 +1,8 @@
-[mlimg]
-[xlang:en]
+## 🚧 Altsys module was merged into XCL branch module/altsys !
+https://github.com/xoopscube/xcl/tree/module/altsys
+
+## ⚠️ This repository is planned to be archived !
+
 == ALTSYS == alternative system module & library
 
 [b]SUMMARY:[/b]
