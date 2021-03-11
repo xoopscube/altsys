@@ -1,5 +1,11 @@
 [xlang:en]
 
+0.84 Beta 1 (2021-03-10)
+============================
+- PHP 8 cleanup (mamba)
+- Yoda (mamba)
+- short array (mamba)
+
 0.83 Beta 2 (2017-02-20)
 ============================
 - more PHP 7 cleanup (mamba)

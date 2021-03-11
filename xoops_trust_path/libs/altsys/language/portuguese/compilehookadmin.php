@@ -1,47 +1,47 @@
 <?php
 // ******************************************************************** //
 // ** XOOPS Cube Legacy - AltSys Module - Portuguese
-// ** Por Mikhail Miguel <mikhail.miguel@gmail.com> - http://xoops.net.br/
+// ** Por Mikhail Miguel <mikhail.miguel@gmail.com> - https://xoops.net.br/
 // ** $Id: compilehookadmin.php 1040 2011-11-06 05:24:00Z mikhail $
-// **	License http://creativecommons.org/licenses/by/2.5/br/
+// **   License https://creativecommons.org/licenses/by/2.5/br/
 // ******************************************************************** //
 //
 define('_TPLSADMIN_CNF_DELETEOK', 'Deseja remover?');
-define('_TPLSADMIN_CNF_ENCLOSEBYBORDEREDDIV', 'Os caches dos modelos compilados ser„o abertos e fechados por cÛdigos <q><code>DIV</code></q>. Confirma?');
-define('_TPLSADMIN_CNF_ENCLOSEBYCOMMENT', 'Os caches dos modelos compilados ser„o delimitadas pelos coment·rios do tplsadmin. VocÍ concorda com isso?');
-define('_TPLSADMIN_CNF_HOOKSAVEVARS', 'Nas compilaÁıes dos caches dos modelos ser· implantada a lÛgica para coleta das vari·veis do modelo. VocÍ concorda com isso?');
-define('_TPLSADMIN_CNF_REMOVEHOOKS', 'VocÍ concorda com a normalizaÁ„o?');
+define('_TPLSADMIN_CNF_ENCLOSEBYBORDEREDDIV', 'Os caches dos modelos compilados ser√£o abertos e fechados por c√≥digos <q><code>DIV</code></q>. Confirma?');
+define('_TPLSADMIN_CNF_ENCLOSEBYCOMMENT', 'Os caches dos modelos compilados ser√£o delimitadas pelos coment√°rios do tplsadmin. Voc√™ concorda com isso?');
+define('_TPLSADMIN_CNF_HOOKSAVEVARS', 'Nas compila√ß√µes dos caches dos modelos ser√° implantada a l√≥gica para coleta das vari√°veis do modelo. Voc√™ concorda com isso?');
+define('_TPLSADMIN_CNF_REMOVEHOOKS', 'Voc√™ concorda com a normaliza√ß√£o?');
 define('_TPLSADMIN_DD_ENCLOSEBYBORDEREDDIV',
-       'Cada modelo ser· envolto por cÛdigos <q><code>DIV</code></q> de bordas pretas. Um link para controle da ediÁ„o do tplsadmin ser· inserido em cada um dos modelos. Embora isso muitas vezes cause a destruiÁ„o do design, vocÍ pode editar cada modelo mais instintiva e facilmente.');
+       'Cada modelo ser√° envolto por c√≥digos <q><code>DIV</code></q> de bordas pretas. Um link para controle da edi√ß√£o do tplsadmin ser√° inserido em cada um dos modelos. Embora isso muitas vezes cause a destrui√ß√£o do design, voc√™ pode editar cada modelo mais instintiva e facilmente.');
 define('_TPLSADMIN_DD_ENCLOSEBYCOMMENT',
-       'Dois coment·rios em HTML ser„o colocados nos pontos de comeÁo e final de cada modelo. Uma vez que isso raramente quebra os design, isso È recomendado para profissionais que podem eles mesmos ler HTML');
-define('_TPLSADMIN_DD_GETTEMPLATES', 'Selecione um conjunto antes de apertar cada bot„o.');
+       'Dois coment√°rios em HTML ser√£o colocados nos pontos de come√ßo e final de cada modelo. Uma vez que isso raramente quebra os design, isso √© recomendado para profissionais que podem eles mesmos ler HTML');
+define('_TPLSADMIN_DD_GETTEMPLATES', 'Selecione um conjunto antes de apertar cada bot√£o.');
 define('_TPLSADMIN_DD_GETTPLSVARSINFO_DW',
-       'Primeiro , abra o Gerenciador de Extensıes do Adobe DreamWeaver.<br />Extraia o arquivo descarregado.<br />Execute os arquivos com a extens„o .mxi e vocÍ encontrar· di·logos de instalaÁ„o.<br />Os snippets para vari·veis de modelo de seu site ser„o utiliz·veis apÛs reiniciar o Adobe DreamWeaver.');
+       'Primeiro , abra o Gerenciador de Extens√µes do Adobe DreamWeaver.<br />Extraia o arquivo descarregado.<br />Execute os arquivos com a extens√£o .mxi e voc√™ encontrar√° di√°logos de instala√ß√£o.<br />Os snippets para vari√°veis de modelo de seu site ser√£o utiliz√°veis ap√≥s reiniciar o Adobe DreamWeaver.');
 define('_TPLSADMIN_DD_HOOKSAVEVARS',
-       'O primeiro passo para obtenÁ„o das informaÁıes das vari·veis de modelo em seu site. As informaÁıes das vari·veis do modelo ser„o coletadas quando o lado p˙blico de seu site for exibido. ApÛs os modelos que vocÍ deseja editar forem mostrados, obtenha as informaÁıes das vari·veis do modelo atravÈs dos botıes subjacentes.');
+       'O primeiro passo para obten√ß√£o das informa√ß√µes das vari√°veis de modelo em seu site. As informa√ß√µes das vari√°veis do modelo ser√£o coletadas quando o lado p√∫blico de seu site for exibido. Ap√≥s os modelos que voc√™ deseja editar forem mostrados, obtenha as informa√ß√µes das vari√°veis do modelo atrav√©s dos bot√µes subjacentes.');
 define('_TPLSADMIN_DD_PUTTEMPLATES',
-       'Selecione um conjunto que vocÍ queira enviar ou subescrever, antes de enviar o arquivo zip ou tgz incluindo esses arquivos des modelos (.html). VocÍ n„o precisa verificar a profundidade dos caminhos nos arquivos.');
-define('_TPLSADMIN_DD_REMOVEHOOKS', 'Isso remove coment·rios, cÛdigos <q><code>DIV</code></q>, e sequÍncias lÛgicas inseridas pelas operaÁıes acima em cada cache compilado do modelo.');
-define('_TPLSADMIN_DT_ENCLOSEBYBORDEREDDIV', 'Inserir cÛdigos <q><code>DIV</code></q>');
-define('_TPLSADMIN_DT_ENCLOSEBYCOMMENT', 'Inserir coment·rios');
+       'Selecione um conjunto que voc√™ queira enviar ou subescrever, antes de enviar o arquivo zip ou tgz incluindo esses arquivos des modelos (.html). Voc√™ n√£o precisa verificar a profundidade dos caminhos nos arquivos.');
+define('_TPLSADMIN_DD_REMOVEHOOKS', 'Isso remove coment√°rios, c√≥digos <q><code>DIV</code></q>, e sequ√™ncias l√≥gicas inseridas pelas opera√ß√µes acima em cada cache compilado do modelo.');
+define('_TPLSADMIN_DT_ENCLOSEBYBORDEREDDIV', 'Inserir c√≥digos <q><code>DIV</code></q>');
+define('_TPLSADMIN_DT_ENCLOSEBYCOMMENT', 'Inserir coment√°rios');
 define('_TPLSADMIN_DT_GETTEMPLATES', 'Descarregar os modelos');
-define('_TPLSADMIN_DT_GETTPLSVARSINFO_DW', 'Obter informaÁıes das vari·veis de modelo como extensıes do Adobe Dreamweaver');
-define('_TPLSADMIN_DT_HOOKSAVEVARS', 'Inserir sequÍncias lÛgicas para coletar as vari·veis do modelo');
+define('_TPLSADMIN_DT_GETTPLSVARSINFO_DW', 'Obter informa√ß√µes das vari√°veis de modelo como extens√µes do Adobe Dreamweaver');
+define('_TPLSADMIN_DT_HOOKSAVEVARS', 'Inserir sequ√™ncias l√≥gicas para coletar as vari√°veis do modelo');
 define('_TPLSADMIN_DT_PUTTEMPLATES', 'Enviar os modelos');
-define('_TPLSADMIN_DT_REMOVEHOOKS', 'Normalizar compilaÁ„o dos caches dos modelos');
-define('_TPLSADMIN_ERR_EXTENSION', 'Esta extens„o n„o pÙde ser reconhecida.');
-define('_TPLSADMIN_ERR_INVALIDARCHIVE', 'O arquivo n„o pÙde ser descompactado.');
-define('_TPLSADMIN_ERR_INVALIDTPLSET', 'O nome escolhido para o conjunto de modelos foi considerado inv·lido pelo sistema.');
-define('_TPLSADMIN_ERR_NOTPLSVARSINFO', 'N„o h· arquivos com informaÁıes sobre as vari·veis do modelo.');
-define('_TPLSADMIN_ERR_NOTUPLOADED', 'Os arquivos n„o foram enviados.');
-define('_TPLSADMIN_FMT_MSG_ENCLOSEBYBORDEREDDIV', '%d os caches dos modelos est„o sendo envoltos por cÛdigos <q><code>DIV</code></q>');
-define('_TPLSADMIN_FMT_MSG_ENCLOSEBYCOMMENT', '%d os caches dos modelos foram delimitados pelos coment·rios do tplsadmin');
-define('_TPLSADMIN_FMT_MSG_HOOKSAVEVARS', '%d nos caches dos modelos est„o sendo inseridas sequÍncias lÛgicas para coletar as vari·veis do modelo');
+define('_TPLSADMIN_DT_REMOVEHOOKS', 'Normalizar compila√ß√£o dos caches dos modelos');
+define('_TPLSADMIN_ERR_EXTENSION', 'Esta extens√£o n√£o p√¥de ser reconhecida.');
+define('_TPLSADMIN_ERR_INVALIDARCHIVE', 'O arquivo n√£o p√¥de ser descompactado.');
+define('_TPLSADMIN_ERR_INVALIDTPLSET', 'O nome escolhido para o conjunto de modelos foi considerado inv√°lido pelo sistema.');
+define('_TPLSADMIN_ERR_NOTPLSVARSINFO', 'N√£o h√° arquivos com informa√ß√µes sobre as vari√°veis do modelo.');
+define('_TPLSADMIN_ERR_NOTUPLOADED', 'Os arquivos n√£o foram enviados.');
+define('_TPLSADMIN_FMT_MSG_ENCLOSEBYBORDEREDDIV', '%d os caches dos modelos est√£o sendo envoltos por c√≥digos <q><code>DIV</code></q>');
+define('_TPLSADMIN_FMT_MSG_ENCLOSEBYCOMMENT', '%d os caches dos modelos foram delimitados pelos coment√°rios do tplsadmin');
+define('_TPLSADMIN_FMT_MSG_HOOKSAVEVARS', '%d nos caches dos modelos est√£o sendo inseridas sequ√™ncias l√≥gicas para coletar as vari√°veis do modelo');
 define('_TPLSADMIN_FMT_MSG_PUTTEMPLATES', '%d modelos foram importados.');
 define('_TPLSADMIN_FMT_MSG_REMOVEHOOKS', '%d os caches de modelo foram normalizados');
 define('_TPLSADMIN_MSG_CLEARCACHE', 'Os caches dos modelos foram removidos');
 define('_TPLSADMIN_MSG_CREATECOMPILECACHEFIRST',
-       'Ainda n„o foi criado qualquer cache de modelos compilados. O primeiro passo para criar os arquivos de cache È tornar o seu portal acessÌvel ao p˙blico.');
+       'Ainda n√£o foi criado qualquer cache de modelos compilados. O primeiro passo para criar os arquivos de cache √© tornar o seu portal acess√≠vel ao p√∫blico.');
 define('_TPLSADMIN_NUMCAP_COMPILEDCACHES', 'Caches de modelos compilados');
-define('_TPLSADMIN_NUMCAP_TPLSVARS', 'Arquivos com informaÁıes sobre as vari·veis do modelo');
+define('_TPLSADMIN_NUMCAP_TPLSVARS', 'Arquivos com informa√ß√µes sobre as vari√°veis do modelo');

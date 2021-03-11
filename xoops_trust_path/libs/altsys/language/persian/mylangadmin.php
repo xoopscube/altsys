@@ -1,16 +1,16 @@
 <?php
 /**
-* Translation of altsys for Persian users
-*
-* @copyright	      http://www.impresscms.ir/ The Persian ImpressCMS Project 
-* @copyright	http://www.irxoops.org/ The Persian XOOPS support site
-* @license		http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
-* @package	      Translations
-* @since		 0.70
-* @author		stranger <pesian_stranger@users.sourceforge.net>
-* @author		voltan   <djvoltan@gmail.com>
-* @version		$Id$
-*/
+ * Translation of altsys for Persian users
+ *
+ * @copyright          https://www.impresscms.ir/ The Persian ImpressCMS Project
+ * @copyright          https://www.irxoops.org/ The Persian XOOPS support site
+ * @license            https://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License (GPL)
+ * @package            Translations
+ * @since              0.70
+ * @author             stranger <pesian_stranger@users.sourceforge.net>
+ * @author             voltan   <djvoltan@gmail.com>
+ * @version            $Id$
+ */
 // Appended by Xoops Language Checker -GIJOE- in 2007-12-29 06:46:08
 define('_MYLANGADMIN_NOTE_ADDEDBYMYLANG', '(یک ثابت زبان توسط کاربر اضافه شده است)');
 define('_MYLANGADMIN_DT_MYLANGFILENAME', 'برجسته ساختن جزییِ نام پرونده');
@@ -30,11 +30,11 @@ define('_MYLANGADMIN_MSG_D3LANGMANENABLED', 'برجسته‌سازی سیستم 
 define('_MYLANGADMIN_FMT_HOWTOENABLED3LANGMAN4XCL', 'برجسته‌سازی سیستم غیرفعال است. برای فعال کردن آن، "%s" را به "%s" کپی کنید');
 define('_MYLANGADMIN_MSG_HOWTOENABLED3LANGMAN4X2', 'سیستم برجسته سازی با این هسته کار نمی کند بجز برای ماژول‌های D3. اگر اصرار به استفاده از این قابلیت دارید، هک زیر را انجام دهید:');
 
-define('_MYLANGADMIN_H3_MODULE', 'ماژول مقصود') ;
-define('_MYLANGADMIN_CACHEUPDATED', 'فایل ذخیره‌ساز به روز شد') ;
-define('_MYLANGADMIN_BTN_UPDATE', 'بروز سازی') ;
-define('_MYLANGADMIN_BTN_RESET', 'بازگشت') ;
+define('_MYLANGADMIN_H3_MODULE', 'ماژول مقصود');
+define('_MYLANGADMIN_CACHEUPDATED', 'فایل ذخیره‌ساز به روز شد');
+define('_MYLANGADMIN_BTN_UPDATE', 'بروز سازی');
+define('_MYLANGADMIN_BTN_RESET', 'بازگشت');
 
-define('_MYLANGADMIN_TH_CONSTANTNAME', 'نام ثابت') ;
-define('_MYLANGADMIN_TH_DEFAULTVALUE', 'ارزش پیشفرض') ;
-define('_MYLANGADMIN_TH_USERVALUE', 'ارزش تعریف شده توسط کاربر') ;
+define('_MYLANGADMIN_TH_CONSTANTNAME', 'نام ثابت');
+define('_MYLANGADMIN_TH_DEFAULTVALUE', 'ارزش پیشفرض');
+define('_MYLANGADMIN_TH_USERVALUE', 'ارزش تعریف شده توسط کاربر');

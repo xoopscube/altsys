@@ -1,4 +1,4 @@
-[![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg?style=flat)](LICENSE)
+[![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/mambax7/altsys.svg?style=flat)](https://scrutinizer-ci.com/g/mambax7/altsys/?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d144581b7d3488e8530e6254e0fd81d)](https://www.codacy.com/app/mambax7/altsys)
 [![Code Climate](https://img.shields.io/codeclimate/github/xoopscube/altsys.svg?style=flat)](https://codeclimate.com/github/xoopscube/altsys)
