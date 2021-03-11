@@ -12,7 +12,7 @@ function b_altsys_admin_menu_show($options)
 
     $mydirname = empty($options[0]) ? 'altsys' : $options[0];
 
-    $this_template = empty($options[1]) ? 'db:' . $mydirname . '_block_admin_menu.html' : trim($options[1]);
+    $this_template = empty($options[1]) ? 'db:' . $mydirname . '_block_admin_menu.tpl' : trim($options[1]);
 
     if (preg_match('/[^0-9a-zA-Z_-]/', $mydirname)) {
         die('Invalid mydirname');
@@ -184,7 +184,7 @@ function b_altsys_admin_menu_edit($options)
 {
     $mydirname = empty($options[0]) ? 'd3forum' : $options[0];
 
-    $this_template = empty($options[1]) ? 'db:' . $mydirname . '_block_admin_menu.html' : trim($options[1]);
+    $this_template = empty($options[1]) ? 'db:' . $mydirname . '_block_admin_menu.tpl' : trim($options[1]);
 
     if (preg_match('/[^0-9a-zA-Z_-]/', $mydirname)) {
         die('Invalid mydirname');

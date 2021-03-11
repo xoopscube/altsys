@@ -336,7 +336,7 @@ class MyBlocksAdminForX25 extends MyBlocksAdmin
 
         //HACK by domifara
 
-        $tpl->display('db:altsys_main_myblocksadmin_edit_4x25.html');
+        $tpl->display('db:altsys_main_myblocksadmin_edit_4x25.tpl');
     }
 
     /**

@@ -18,6 +18,8 @@ if (!is_object($xoopsUser) || !is_object($xoopsModule) || !$xoopsUser->isAdmin($
 $db = XoopsDatabaseFactory::getDatabaseConnection();
 (method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
+$configHandler = xoops_getHandler('Config');
+
 // language file
 altsys_include_language_file('mypreferences');
 

@@ -140,7 +140,7 @@ if ($dh) {
             continue;
         }
 
-        if ('index.html' == $file) {
+        if ('index.php' == $file) {
             continue;
         }
 
@@ -354,7 +354,7 @@ $tpl->assign([
                  'already_read' => $already_read,
                  'gticket_hidden' => $xoopsGTicket->getTicketHtml(__LINE__, 1800, 'altsys'),
              ]);
-$tpl->display('db:altsys_main_mylangadmin.html');
+$tpl->display('db:altsys_main_mylangadmin.tpl');
 
 xoops_cp_footer();
 exit;

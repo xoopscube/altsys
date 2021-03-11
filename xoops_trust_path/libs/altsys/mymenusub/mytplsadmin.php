@@ -55,4 +55,4 @@ $tpl->assign([
                  'adminmenu' => $adminmenu,
                  'mypage' => 'mytplsadmin',
              ]);
-$tpl->display('db:altsys_inc_mymenusub.html');
+$tpl->display('db:altsys_inc_mymenusub.tpl');

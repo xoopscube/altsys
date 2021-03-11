@@ -212,7 +212,7 @@ foreach (array_keys($block_arr) as $i) {
     } else {
         $bid = $block_arr[$i]->getVar('bid');
 
-        if (empty($bcachetime) || !$xoopsTpl->is_cached('db:system_dummy.html', 'blk_' . $bid)) {
+        if (empty($bcachetime) || !$xoopsTpl->is_cached('db:system_dummy.tpl', 'blk_' . $bid)) {
             $xoopsLogger->addBlock($block_arr[$i]->getVar('name'));
 
             $bresult = $block_arr[$i]->buildBlock();
@@ -223,13 +223,13 @@ foreach (array_keys($block_arr) as $i) {
 
             $xoopsTpl->assign_by_ref('dummy_content', $bresult['content']);
 
-            $bcontent = $xoopsTpl->fetch('db:system_dummy.html', 'blk_' . $bid);
+            $bcontent = $xoopsTpl->fetch('db:system_dummy.tpl', 'blk_' . $bid);
 
             $xoopsTpl->clear_assign('block');
         } else {
             $xoopsLogger->addBlock($block_arr[$i]->getVar('name'), true, $bcachetime);
 
-            $bcontent = $xoopsTpl->fetch('db:system_dummy.html', 'blk_' . $bid);
+            $bcontent = $xoopsTpl->fetch('db:system_dummy.tpl', 'blk_' . $bid);
         }
     }
 

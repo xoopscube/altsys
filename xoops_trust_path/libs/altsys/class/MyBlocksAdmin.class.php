@@ -582,7 +582,7 @@ class MyBlocksAdmin
                          'gticket_hidden' => $xoopsGTicket->getTicketHtml(__LINE__, 1800, 'myblocksadmin'),
                      ]);
 
-        $tpl->display('db:altsys_main_myblocksadmin_list.html');
+        $tpl->display('db:altsys_main_myblocksadmin_list.tpl');
     }
 
     /**
@@ -732,8 +732,8 @@ class MyBlocksAdmin
                     }
                 }
             } else {
-                if ($xoopsTpl->is_cached('db:system_dummy.html', 'blk_' . $bid)) {
-                    if (!$xoopsTpl->clear_cache('db:system_dummy.html', 'blk_' . $bid)) {
+                if ($xoopsTpl->is_cached('db:system_dummy.tpl', 'blk_' . $bid)) {
+                    if (!$xoopsTpl->clear_cache('db:system_dummy.tpl', 'blk_' . $bid)) {
                         $msg = 'Unable to clear cache for block ID' . $bid;
                     }
                 }
@@ -1288,9 +1288,9 @@ class MyBlocksAdmin
                      ]);
 
         if (defined('XOOPS_CUBE_LEGACY')) {
-            $tpl->display('db:altsys_main_myblocksadmin_edit_4legacy.html');
+            $tpl->display('db:altsys_main_myblocksadmin_edit_4legacy.tpl');
         } else {
-            $tpl->display('db:altsys_main_myblocksadmin_edit.html');
+            $tpl->display('db:altsys_main_myblocksadmin_edit.tpl');
         }
     }
 

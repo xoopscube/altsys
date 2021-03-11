@@ -67,7 +67,7 @@ $tpl = new D3Tpl();
 $tpl->assign([
                  'adminmenu' => $adminmenu,
              ]);
-$tpl->display('db:altsys_inc_mymenu.html');
+$tpl->display('db:altsys_inc_mymenu.tpl');
 
 // submenu
 $page = preg_replace('/[^0-9a-zA-Z_-]/', '', @$_GET['page']);

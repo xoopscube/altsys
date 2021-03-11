@@ -62,4 +62,4 @@ $tpl->assign([
                  'adminmenu' => $adminmenu,
                  'mypage' => 'myblocksadmin',
              ]);
-$tpl->display('db:altsys_inc_mymenusub.html');
+$tpl->display('db:altsys_inc_mymenusub.tpl');
