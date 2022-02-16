@@ -1,14 +1,30 @@
 <?php
+/**
+ * Altsys library (UI-Components) for D3 modules
+ * Class altsysUtils
+ * @package    Altsys
+ * @version    XCL 2.3.1
+ * @author     Other authors Gigamaster, 2020 XCL PHP7
+ * @author     Gijoe (Peak)
+ * @copyright  (c) 2005-2022 Author
+ * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ */
+
 class altsysUtils
 {
-    public static function getDelegateCallbackClassNames($name, $doRegist = true)
+    /**
+     * @param      $name
+     * @param bool $doRegist
+     * @return array
+     */
+    public static function getDelegateCallbackClassNames($name, bool $doRegist = true)
     {
-        $names = array();
-        
-        if (! class_exists('XCube_Delegate')) {
+        $names = [];
+
+        if (!class_exists('XCube_Delegate')) {
             return $names;
         }
-        
+
         if ($doRegist) {
             $delegate = new XCube_Delegate();
             $delegate->register($name);
@@ -16,8 +32,10 @@ class altsysUtils
         $m = XCube_Root::getSingleton()->mDelegateManager;
         if ($m) {
             $delgates = $m->getDelegates();
+
             if (isset($delgates[$name])) {
                 $d_target = $delgates[$name];
+
                 $keys = array_keys($d_target);
                 $callbacks = $d_target[$keys[0]]->_mCallbacks;
                 foreach (array_keys($callbacks) as $priority) {
@@ -32,38 +50,50 @@ class altsysUtils
         }
         return $names;
     }
-    
-    public static function isInstalledXclHtmleditor()
+
+    /**
+     * @return bool
+     */
+    public static function isInstalledXclHtmleditor(): bool
     {
         if (defined('LEGACY_BASE_VERSION') && version_compare(LEGACY_BASE_VERSION, '2.2.0.0', '>=')) {
             $cNames = self::getDelegateCallbackClassNames('Site.TextareaEditor.HTML.Show');
             if ($cNames) {
                 $last = array_pop($cNames);
-                if ($last !== 'Legacy_TextareaEditor') {
+                if ('Legacy_TextareaEditor' !== $last) {
                     return true;
                 }
             }
         }
         return false;
     }
-    
-    public static function htmlspecialchars($str, $flags = ENT_COMPAT, $encoding = null, $double_encode = true)
+
+    /**
+     * @param      $str
+     * @param int $flags
+     * @param null $encoding
+     * @param bool $double_encode
+     * @return mixed|string
+     */
+    public static function htmlSpecialChars($str, int $flags = ENT_COMPAT, $encoding = null, bool $double_encode = true)
     {
         static $php523 = null;
-        if (is_null($php523)) {
-            $php523 = version_compare(PHP_VERSION, '5.2.3', '>=');
+        if (null === $php523) {
+            $php523 = PHP_VERSION_ID >= 50203;
         }
-        if (is_null($encoding)) {
-            $encoding = (defined('_CHARSET'))? _CHARSET : '';
+        if (null === $encoding) {
+            $encoding = defined('_CHARSET') ? _CHARSET : '';
         }
         if ($php523) {
             return htmlspecialchars($str, $flags, $encoding, $double_encode);
-        } else {
-            $ret = htmlspecialchars($str, $flags, $encoding);
-            if (! $double_encode) {
-                $ret = str_replace('&amp;amp;', '&amp;', $ret);
-            }
-            return $ret;
         }
+
+        $ret = htmlspecialchars($str, $flags, $encoding);
+
+        if (!$double_encode) {
+            $ret = str_replace('&amp;amp;', '&amp;', $ret);
+        }
+
+        return $ret;
     }
 }

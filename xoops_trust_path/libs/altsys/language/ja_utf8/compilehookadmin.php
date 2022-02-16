@@ -29,7 +29,7 @@ define('_TPLSADMIN_CNF_DELETEOK', '削除してよろしいですか?') ;
 
 
 define('_TPLSADMIN_DT_GETTPLSVARSINFO_DW', 'テンプレート変数情報をDreamWeaver用に取得する') ;
-define('_TPLSADMIN_DD_GETTPLSVARSINFO_DW', 'まずは Macromedia Extension Manager がインストールされていることを確認し、起動しておいてください。<br />ダウンロードしたファイルを解凍して、拡張子mxiのファイルを実行することで、お使いのDreamWeaverにExtensionとしてインストールされます。DreamWeaver再起動後に、Snippetから利用できます。') ;
+define('_TPLSADMIN_DD_GETTPLSVARSINFO_DW', 'まずは Macromedia Extension Manager がインストールされていることを確認し、起動しておいてください。<br>ダウンロードしたファイルを解凍して、拡張子mxiのファイルを実行することで、お使いのDreamWeaverにExtensionとしてインストールされます。DreamWeaver再起動後に、Snippetから利用できます。') ;
 
 define('_TPLSADMIN_DT_GETTEMPLATES', 'テンプレートをダウンロードする') ;
 define('_TPLSADMIN_DD_GETTEMPLATES', 'テンプレートセットを選択してから、希望のアーカイブタイプボタンを押してください') ;

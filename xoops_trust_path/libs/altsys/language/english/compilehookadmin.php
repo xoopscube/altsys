@@ -1,19 +1,19 @@
 <?php
 
 define('_TPLSADMIN_FMT_MSG_ENCLOSEBYCOMMENT', '%d template caches have been enclosed by tplsadmin comments') ;
-define('_TPLSADMIN_DT_ENCLOSEBYCOMMENT', 'Implant comments') ;
-define('_TPLSADMIN_DD_ENCLOSEBYCOMMENT', 'Two HTML comments will be implanted in the begging/ending point of each templates. Since this rarely breaks its design, it is recommended to professionals can read HTML itself') ;
+define('_TPLSADMIN_DT_ENCLOSEBYCOMMENT', 'Insert comments') ;
+define('_TPLSADMIN_DD_ENCLOSEBYCOMMENT', 'Two HTML comments will be inserted in the begging/ending point of each template. Since this rarely breaks its design, it is recommended to help professionals identify the components.') ;
 define('_TPLSADMIN_CNF_ENCLOSEBYCOMMENT', 'Compiled template caches will be enclosed by tplsadmin comments. Are you OK?') ;
 
 
 define('_TPLSADMIN_FMT_MSG_ENCLOSEBYBORDEREDDIV', '%d template caches have been enclosed by div tags') ;
-define('_TPLSADMIN_DT_ENCLOSEBYBORDEREDDIV', 'Implant div tags') ;
-define('_TPLSADMIN_DD_ENCLOSEBYBORDEREDDIV', 'Each templates will be enclosed by black-bordered div tags. A link for editing controller of tplsadmin will be implanted into each templates. Though this often cause destructions in designing, you can edit each templates the most instictively and easily.') ;
+define('_TPLSADMIN_DT_ENCLOSEBYBORDEREDDIV', 'Insert div tags') ;
+define('_TPLSADMIN_DD_ENCLOSEBYBORDEREDDIV', 'Each template will be enclosed by black-bordered div tags. A link for editing controller of tplsadmin will be added into each templates. Though this can often break the design, you can easily edit each template instantly.') ;
 define('_TPLSADMIN_CNF_ENCLOSEBYBORDEREDDIV', 'Compiled template caches will be enclosed by div tags. Are you OK?') ;
 
-define('_TPLSADMIN_FMT_MSG_HOOKSAVEVARS', '%d template caches have been implanted hooking logics to collect template varibles') ;
-define('_TPLSADMIN_DT_HOOKSAVEVARS', 'Implant logics to collect template variables') ;
-define('_TPLSADMIN_DD_HOOKSAVEVARS', 'The first step of getting the informations of template variables in your site. The template vars infos will be collected when public sides of your site is displayed. If all templates you want to edit are displayed, get template vars info by underlying buttons.') ;
+define('_TPLSADMIN_FMT_MSG_HOOKSAVEVARS', '%d template caches have been modified hooking logic to collect template variables') ;
+define('_TPLSADMIN_DT_HOOKSAVEVARS', 'Insert logic to collect template variables') ;
+define('_TPLSADMIN_DD_HOOKSAVEVARS', 'The first step of getting the information of templates variables in your site. The template vars infos will be collected when the front-end is displayed. If all templates you want to edit are displayed, get template vars info by underlying buttons.') ;
 define('_TPLSADMIN_CNF_HOOKSAVEVARS', 'Compiled template caches will be implanted the logics to collect template variables. Are you OK?') ;
 
 define('_TPLSADMIN_FMT_MSG_REMOVEHOOKS', '%d template caches have been normalized') ;
@@ -29,14 +29,14 @@ define('_TPLSADMIN_CNF_DELETEOK', 'Delete OK?') ;
 
 
 define('_TPLSADMIN_DT_GETTPLSVARSINFO_DW', 'Get info of template variables as DreamWeaver Extensions') ;
-define('_TPLSADMIN_DD_GETTPLSVARSINFO_DW', 'Open Macromedia Extension Manager, first.<br />Extract the download archive.<br />Execute the files which extensions are .mxi and you will meet installing dialogs.<br />The snippets for template variables of your site will be usable after restarting Dream Weaver.') ;
+define('_TPLSADMIN_DD_GETTPLSVARSINFO_DW', 'Open Macromedia Extension Manager, first.<br>Extract the download archive.<br>Run the files with the .mxi extension and follow the installation dialogues.<br>The snippets for template variables of your site will be usable after restarting DreamWeaver.') ;
 
 define('_TPLSADMIN_DT_GETTEMPLATES', 'Download templates') ;
 define('_TPLSADMIN_DD_GETTEMPLATES', 'Select a set before pushing either button') ;
 
 define('_TPLSADMIN_FMT_MSG_PUTTEMPLATES', '%d templates are imported.') ;
 define('_TPLSADMIN_DT_PUTTEMPLATES', 'Upload templates') ;
-define('_TPLSADMIN_DD_PUTTEMPLATES', 'Select a set you want to upload/overwrite before uploading zip/tgz archive including template files (.html). You need not to check depths of the paths in the archive.') ;
+define('_TPLSADMIN_DD_PUTTEMPLATES', 'Select a set you want to upload/overwrite before uploading the zip/tgz archive including the template files (.html).<br> It is not necessary to check the depth of the paths in the archive.') ;
 
 
 define('_TPLSADMIN_ERR_NOTUPLOADED', 'No files are uploaded.') ;

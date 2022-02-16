@@ -28,7 +28,7 @@ define('_MD_A_MYBLOCKSADMIN_PERMFORM', 'Permissions') ;
 define('_MD_A_MYBLOCKSADMIN_PERM_MADMIN', 'module admin') ;
 define('_MD_A_MYBLOCKSADMIN_PERM_MREAD', 'module read') ;
 define('_MD_A_MYBLOCKSADMIN_DBUPDATED', 'Database updated successfully') ;
-define('_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK', '%s will be removed. really OK?') ;
+define('_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK', '%s will be deleted. Are you sure to delete this block?') ;
 
 
 define('_MD_A_MYBLOCKSADMIN_CLONEFORM', 'Clone the block') ;
