@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 class d3utilities
@@ -326,7 +326,7 @@ class d3utilities
             <form action='' method='get' name='admin_control' id='admin_control'>
                 $hiddens
                 $controllers_html
-                <input type='submit' value='" . _SUBMIT . "' class='ui-button'>
+                <input type='submit' value='" . _SUBMIT . "' class='button'>
             </form>\n";
     }
 

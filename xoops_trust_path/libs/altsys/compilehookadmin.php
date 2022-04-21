@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 require_once __DIR__ . '/class/AltsysBreadcrumbs.class.php';
@@ -84,13 +84,13 @@ if ( ! empty( $_POST['clearcache'] ) || ! empty( $_POST['cleartplsvars'] ) ) {
 	if ( $handler = opendir( XOOPS_COMPILE_PATH . '/' ) ) {
 		while ( false !== ( $file = readdir( $handler ) ) ) {
 			if ( ! empty( $_POST['clearcache'] ) ) {
-				// judging template cache '*.php'
+				// check template cache '*.php'
 
 				if ( '.php' !== mb_substr( $file, - 4 ) ) {
 					continue;
 				}
 			} else {
-				// judging tplsvars cache 'tplsvars_*'
+				// check tplsvars cache 'tplsvars_*'
 
 				if ( 'tplsvars_' !== mb_substr( $file, 0, 9 ) ) {
 					continue;
@@ -201,10 +201,6 @@ foreach ( $compile_hooks as $command => $compile_hook ) {
 }
 
 
-//
-// EXAMINE STAGE
-//
-
 // count template vars & compiled caches
 $compiledcache_num = 0;
 $tplsvars_num      = 0;
@@ -218,6 +214,7 @@ if ( $handler = opendir( XOOPS_COMPILE_PATH . '/' ) ) {
 	}
 }
 
+
 // get tplsets
 $sql            = 'SELECT tplset_name,COUNT(DISTINCT tpl_file) FROM ' . $xoopsDB->prefix( 'tplset' ) . ' LEFT JOIN ' . $xoopsDB->prefix( 'tplfile' ) . " ON tplset_name=tpl_tplset GROUP BY tpl_tplset ORDER BY tpl_tplset='default' DESC,tpl_tplset";
 $srs            = $xoopsDB->query( $sql );
@@ -229,9 +226,7 @@ while ( list( $tplset, $tpl_count ) = $xoopsDB->fetchRow( $srs ) ) {
 }
 
 
-//
 // FORM RENDER
-//
 
 xoops_cp_header();
 
@@ -244,7 +239,7 @@ $breadcrumbsObj->appendPath( XOOPS_URL . '/modules/altsys/admin/index.php?mode=a
 
 // Heading Title
 echo "
-<h3 class='admintitle'>" . _MI_ALTSYS_MENU_COMPILEHOOKADMIN . "</h3>
+<h2 class='admintitle'>" . _MI_ALTSYS_MENU_COMPILEHOOKADMIN . "</h2>
 
 	<style>
 		dl	{ margin: 10px; }
@@ -260,16 +255,16 @@ foreach ( $compile_hooks as $command => $compile_hook ) {
 		<h3>{$compile_hook['dt']}</h3>
 		<div class='ui-card-full'>
 		<p>{$compile_hook['dd']}</p>
-		<p><input type='submit' name='$command' id='$command' value='" . _GO . "' onclick='return confirm(\"{$compile_hook['conf_msg']}\");'></p>
+		<p><input class='button' type='submit' name='$command' id='$command' value='" . _GO . "' onclick='return confirm(\"{$compile_hook['conf_msg']}\");'></p>
 		</div>
 	\n";
 }
 
     echo "<div class='ui-card-full'>
 		<p>" . _TPLSADMIN_NUMCAP_COMPILEDCACHES . ": <strong>$compiledcache_num</strong></p>
-		<p><input type='submit' class='delete' name='clearcache' value='" . _DELETE . "' onclick='return confirm(\"" . _TPLSADMIN_CNF_DELETEOK . "\");'></p>
+		<p><input type='submit' class='button delete' name='clearcache' value='" . _DELETE . "' onclick='return confirm(\"" . _TPLSADMIN_CNF_DELETEOK . "\");'></p>
 		<p>" . _TPLSADMIN_NUMCAP_TPLSVARS . ": <strong>$tplsvars_num</strong></p>
-		<p><input type='submit' class='delete' name='cleartplsvars' value='" . _DELETE . "' onclick='return confirm(\"" . _TPLSADMIN_CNF_DELETEOK . "\");'></p>
+		<p><input type='submit' class='button delete' name='cleartplsvars' value='" . _DELETE . "' onclick='return confirm(\"" . _TPLSADMIN_CNF_DELETEOK . "\");'></p>
 		" . $xoopsGTicket->getTicketHtml( __LINE__ ) . "
 		</div>
 	</form>
@@ -279,7 +274,7 @@ foreach ( $compile_hooks as $command => $compile_hook ) {
 		<h3>" . _TPLSADMIN_DT_GETTPLSVARSINFO_DW . "</h3>
 		<div class='ui-card-full'>
 		<p>" . _TPLSADMIN_DD_GETTPLSVARSINFO_DW . "</p>
-		<p><input type='submit' name='as_dw_extension_zip' value='zip'> <input type='submit' name='as_dw_extension_tgz' value='tar.gz'></p>
+		<p><input class='button download' type='submit' name='as_dw_extension_zip' value='zip'> <input class='button download' type='submit' name='as_dw_extension_tgz' value='tar.gz'></p>
 		</div>
 	</form>
 
@@ -287,7 +282,7 @@ foreach ( $compile_hooks as $command => $compile_hook ) {
 		<h3>" . _TPLSADMIN_DT_GETTEMPLATES . "</h3>
 		<div class='ui-card-full'>
 		<p>" . _TPLSADMIN_DD_GETTEMPLATES . "</p>
-		<p><select name='tplset'>$tplset_options</select> <input type='submit' name='download_zip' value='zip'> <input type='submit' name='download_tgz' value='tar.gz'></p>
+		<p><select name='tplset'>$tplset_options</select> <input class='button download' type='submit' name='download_zip' value='zip'> <input class='button download' type='submit' name='download_tgz' value='tar.gz'></p>
 		</div>
 	</form>
 
@@ -295,11 +290,8 @@ foreach ( $compile_hooks as $command => $compile_hook ) {
 		<h3>" . _TPLSADMIN_DT_PUTTEMPLATES . "</h3>
 		<div class='ui-card-full'>
 		<p>" . _TPLSADMIN_DD_PUTTEMPLATES . "</p>
-		<p><select name='tplset'>$tplset_options</select> <input type='file' name='tplset_archive' size='60'> <input type='submit' value='" . _SUBMIT . "'></p>
+		<p><select name='tplset'>$tplset_options</select> <input type='file' name='tplset_archive' size='60'> <input class='button upload' type='submit' value='" . _SUBMIT . "'></p>
 		</div>
     </form>";
 
-
 xoops_cp_footer();
-
-

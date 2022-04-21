@@ -5,10 +5,9 @@
  * @package    Altsys
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
- * @author     Other authors nobunobu, XOOPS 2.0.x
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 global $xoopsDB;

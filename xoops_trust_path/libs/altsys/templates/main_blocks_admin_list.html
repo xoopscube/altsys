@@ -1,37 +1,36 @@
-<!-- TEMPLATE : MAIN_MYBLOCKSADMIN_LIST.HTML -->
-
-
-<h3 class="admintitle"><{$target_mname}> : <{$smarty.const._MD_A_MYBLOCKSADMIN_BLOCKADMIN}></h3>
 <div class="ui-dev-mode"><{$smarty.template}></div>
 
 
-<div layout="row center-justify" class="control-action">
+<h2 class="admintitle"><{$smarty.const._MD_A_MYBLOCKSADMIN_BLOCKADMIN}> » <{$target_mname|ucfirst}></h2>
 
-    <a class="ui-btn ui-btn-small" href="index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__&op=edit"><{$smarty.const._MI_ALTSYS_MENU_NEWCUSTOMBLOCK}></a>
+<div class="tips">
+	<{$smarty.const._MD_A_MYBLOCKSADMIN_TIPS}>
+</div>
+
+
+<{* ////— ACTION-CONTROL —\\\\ *}>
+<div layout="row center-justify" class="action-control">
+
+    <a class="button" href="index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__&op=edit"><{$smarty.const._MI_ALTSYS_MENU_NEWCUSTOMBLOCK}></a>
 
     <div class="control-view">
-        <button id="list" class="ui-btn" data-id="1" type="button" title="View List">
+        <button id="list" class="button" data-id="1" type="button" title="View List">
             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                 <path d="M9 5v4h12V5M9 19h12v-4H9m0-1h12v-4H9M4 9h4V5H4m0 14h4v-4H4m0-1h4v-4H4v4z" fill="currentColor"/></svg>
         </button>
-
-        <button id="grid" class="ui-btn" data-id="2" type="button" title="View Grid">
+        <button id="grid" class="button" data-id="2" type="button" title="View Grid">
             <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                 <path d="M16 5v6h5V5m-11 6h5V5h-5m6 13h5v-6h-5m-6 6h5v-6h-5m-6 6h5v-6H4m0-1h5V5H4v6z" fill="currentColor"/></svg>
         </button>
-
-        <button id="filter" class="ui-btn" type="button" data-id="3" onclick="slideToggle('.module-filter', this)"  title="View Filter">
-            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
-                <path d="M7 11h10v2H7zM4 7h16v2H4zm6 8h4v2h-4z" fill="currentColor"/></svg>
-        </button>
-
-        <button class="help-admin ui-btn" type='button' data-id='4' data-module='altsys' data-help-article='#help-module-block' title="Help">
+        <button class="help-admin button" type='button' data-id='4' data-module='altsys' data-help-article='#help-custom-block' title="<{$smarty.const._HELP}>">
             <span class="ui-icon ui-icon-help"></span>
         </button>
     </div>
 
 </div>
 
+
+<hr>
 
 
 <form action="?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>" name="blockadmin" method="post">
@@ -97,13 +96,15 @@
 
 		<div class="ui-card-block-content">
 
-			<div class="ui-card-block-item">
+			<div layout="rows column">
+			<div class="ui-card-block-item" layout="rows">
 				<input type="text" name="weights[<{$block.bid}>]" value="<{$block.weight}>" size="1" maxlength="5">
 				<input type="text" name="titles[<{$block.bid}>]" value="<{$block.title_raw|escape}>" size="20" title="<{$block.name_raw|escape}>">
 			</div>
 
 			<div class="ui-card-block-item">
 				<{$block.cell_position}>
+			</div>
 			</div>
 
 			<div class="ui-card-block-item">
@@ -120,14 +121,14 @@
 
 			<div class="ui-card-block-item">
 			<{if $block.can_edit}>
-			<a href="?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>&amp;op=edit&amp;bid=<{$block.bid}>" class="ui-btn ui-btn-small" title="<{$smarty.const._EDIT}>">
+			<a href="?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>&amp;op=edit&amp;bid=<{$block.bid}>" class="button button-small" title="<{$smarty.const._EDIT}>">
 				<img src="<{$xoops_url}>/modules/legacy/admin/theme/icons/icon-edit.svg" class="svg"> <{$smarty.const._EDIT}>
 			</a>
 			<{/if}>
 
 
 			<{if $block.can_clone}>
-			<a href="?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>&amp;op=clone&amp;bid=<{$block.bid}>" class="ui-btn ui-btn-small" title="<{if $block.can_clone == 2}><{$smarty.const._CLONE}><{else}><{$smarty.const._MD_A_MYBLOCKSADMIN_LINK_FORCECLONE}><{/if}>">
+			<a href="?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>&amp;op=clone&amp;bid=<{$block.bid}>" class="button button-small" title="<{if $block.can_clone == 2}><{$smarty.const._CLONE}><{else}><{$smarty.const._MD_A_MYBLOCKSADMIN_LINK_FORCECLONE}><{/if}>">
 				<img src="<{$xoops_url}>/modules/legacy/admin/theme/icons/icon-duplicate.svg" class="svg"> <{if $block.can_clone == 2}><{$smarty.const._CLONE}><{else}><{$smarty.const._MD_A_MYBLOCKSADMIN_LINK_FORCECLONE}><{/if}>
 			</a>
 			<{/if}>
@@ -144,11 +145,11 @@
 </div><{* ui-data-render *}>
 
 
-<div class="foot">
-	<input type="hidden" name="fct" value="blocksadmin" />
-	<input type="hidden" name="op" value="order" />
+<div layout="row centered" class="adminnavi">
+	<input type="hidden" name="fct" value="blocksadmin">
+	<input type="hidden" name="op" value="order">
 	<{$gticket_hidden}>
-	<input type="submit" name="submit" value="<{$smarty.const._SUBMIT}>">
+	<input class="button submit" type="submit" name="submit" value="<{$smarty.const._SUBMIT}>">
 </div>
 
 </form>

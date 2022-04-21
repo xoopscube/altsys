@@ -5,8 +5,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 include_once __DIR__ . '/include/gtickets.php';
@@ -41,9 +41,8 @@ while ( ob_get_level() > 0 ) {
 	}
 }
 
-//
-// EXTRACT STAGE
-//
+
+// EXTRACT VIEW
 
 $orig_filename4check = mb_strtolower( $_FILES['tplset_archive']['name'] );
 if ( '.zip' == mb_strtolower( mb_substr( $orig_filename4check, - 4 ) ) ) {
@@ -84,9 +83,8 @@ if ( empty( $do_upload ) ) {
 	die( _TPLSADMIN_ERR_EXTENSION );
 }
 
-//
-// IMPORT STAGE
-//
+
+// IMPORT VIEW
 
 $tplset = @$_POST['tplset'];
 if ( ! preg_match( '/^[0-9A-Za-z_-]{1,16}$/', $tplset ) ) {

@@ -1,7 +1,14 @@
 <div class="ui-dev-mode"><{$smarty.template}></div>
-<h3 class="admintitle"><{$target_mname}></h3>
+
+<h2 class="admintitle"><{$smarty.const._MD_A_MYBLOCKSADMIN_BLOCKADMIN}> : <{$target_mname|ucfirst}></h2>
 
 <article id="admin-block">
+
+	<{if $block.content_preview}>
+	<div class="ui-block-admin-preview">
+		<{$block.content_preview}>
+	</div>
+	<{/if}>
 
 <form name="blockform" id="blockform" action="<{$xoops_url}>/modules/altsys/admin/index.php?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>&amp;bid=<{$block.bid}>" method="post">
 
@@ -61,7 +68,6 @@
 						<{xoops_dhtmltarea cols=74 rows=15 name="contents[`$block.bid`]" id="textarea_content" value="`$block.content_raw`" myckeditor=true class=bbcode editor=bbcode}>
 					<{/if}>
 
-
 				<{/if}>
 			</td>
 		</tr>
@@ -108,9 +114,11 @@
 		<td class="head"></td>
 		<td class="even">
 			<{if $block.is_custom}>
-				<input type="submit" class="formButton" name="preview"  id="preview" value="<{$smarty.const._PREVIEW}>">
+<!--				<input type="submit" class="formButton" name="preview"  id="preview" value="<{$smarty.const._PREVIEW}>">-->
+			<button type="submit" class="button preview" name="preview"  id="preview" value="<{$smarty.const._PREVIEW}>"><{$smarty.const._PREVIEW}></button>
 			<{/if}>
-			<input type="submit" class="formButton" name="submitblock"  id="submitblock" value="<{$submit_button}>">
+<!--			<input type="submit" class="formButton" name="submitblock"  id="submitblock" value="<{$submit_button}>">-->
+			<button type="submit" class="button submit" name="submitblock"  id="submitblock" value="<{$submit_button}>"><{$submit_button}></button>
 		</td>
 	</tr>
     </tfoot>
@@ -118,11 +126,5 @@
 <{$gticket_hidden}>
 <input type="hidden" name="op" value="<{$op}>">
 </form>
-
-<{if $block.content_preview}>
-	<div class="ui-block-admin-preview">
-		<{$block.content_preview}>
-	</div>
-<{/if}>
 
 </article>

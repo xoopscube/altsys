@@ -5,8 +5,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 include_once __DIR__ . '/include/altsys_functions.php';
@@ -14,25 +14,27 @@ include_once __DIR__ . '/include/altsys_functions.php';
 // language file (modinfo.php)
 altsys_include_language_file( 'modinfo' );
 
+// Manifesto
+$modversion['dirname']          = 'altsys';
 $modversion['name']             = _MI_ALTSYS_MODULENAME;
 $modversion['version']          = '2.31';
-$modversion['detailed_version'] = '2.31.0';
+$modversion['detailed_version'] = '2.31.1';
 $modversion['description']      = _MI_ALTSYS_MODULEDESC;
+$modversion['author']           = 'GIJ=CHECKMATE<br>PEAK Corp.(https://www.peak.ne.jp/)';
 $modversion['credits']          = 'PEAK Corp., Gigamaster (XCL/PHP7)';
-$modversion['author']           = 'GIJ=CHECKMATE<br>PEAK Corp.(https://www.peak.ne.jp/), Gigamaster (XCL/PHP7)';
 $modversion['license']          = 'GPL see LICENSE';
-$modversion['cube_style']       = true;
+$modversion['image']            = 'images/module_ui_components.svg';
+$modversion['icon']             = 'images/module_icon.svg';
 $modversion['help']             = "help.html";
 $modversion['official']         = 0;
-$modversion['image']            = 'images/module_ui_components.svg';
-$modversion['dirname']          = 'altsys';
+$modversion['cube_style']       = true;
 
-// Admin things
+// Admin
 $modversion['hasAdmin']   = 1;
 $modversion['adminindex'] = 'admin/index.php';
 $modversion['adminmenu']  = 'admin/admin_menu.php';
 
-// All Templates can't be touched by modulesadmin.
+// Templates can't be touched by modulesadmin.
 $modversion['templates'] = [];
 
 // Blocks

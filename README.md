@@ -35,11 +35,9 @@ License | GPL
 
 [b]SUMMARY:[/b]
 
-The unified module of blocksadmin, tplsadmin, etc around the system.
-
-I'm appreciated your bug reports :-)
-
-I'll maintain this module instead of blocksadmin, tplsadmin, avaman etc.
+UI Common Library to create custom Blocks and Templates.  
+Manage modules Blocks, Templates, and translations.  
+GUI for Localization.  
 
 
 [b]INSTALL:[/b]

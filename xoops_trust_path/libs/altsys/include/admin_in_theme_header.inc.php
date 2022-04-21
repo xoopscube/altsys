@@ -1,15 +1,13 @@
 <?php
 /**
  * Altsys library (UI-Components) for D3 modules
- * Admin in theme. This is a mimic file of 2.0.16-JP header.php
+ * Admin in theme. This is a mimic file from header.php
  * @package    Altsys
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
- * @author     Other authors minahito
- * @author     Other authors domifara, ver 0.0.7.1 2011/01/27
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 require_once dirname( __DIR__ ) . '/class/AltsysBreadcrumbs.class.php';

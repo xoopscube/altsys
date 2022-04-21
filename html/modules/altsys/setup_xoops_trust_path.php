@@ -5,8 +5,8 @@
  * @version    2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  Copyright 2005-2021 Gijoe (Peak)
- * @license    https://github.com/xoopscube/xcl/blob/master/docs/GPL_V2.txt
+ * @copyright  Copyright 2005-2022 Gijoe (Peak.n.jp)
+ * @license    GPL v2.0
  */
 
 $xoopsOption['nocommon'] = 1 ;

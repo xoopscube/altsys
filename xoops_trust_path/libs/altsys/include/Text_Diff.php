@@ -1,5 +1,7 @@
 <?php
 /**
+ *  @brief XCL/PHP7 @gigamaster replace 'each' (deprecated) with foreach
+ *
  * Text_Diff
  *
  * General API for generating and formatting diffs - the differences between
@@ -512,8 +514,9 @@ class Text_Diff_Engine_native {
 						break;
 					}
 				}
-
-				while ( list( $junk, $y ) = each( $matches ) ) {
+                // TODO @gigamaster replace each (deprecated) with foreach
+				// while ( list( $junk, $y ) = each( $matches ) ) {
+                    foreach($matches as $junk => $y) {
 					if ( $y > $this->seq[ $k - 1 ] ) {
 						// assert($y < $this->seq[$k]); // GIJ Patched
 						/* Optimization: this is a common case: next match is

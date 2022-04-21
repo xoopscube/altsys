@@ -5,8 +5,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 
@@ -15,7 +15,7 @@ eval( ' function xoops_module_update_' . $mydirname . '( $module ) { return alts
 
 if ( ! function_exists( 'altsys_onupdate_base' ) ) {
 	function altsys_onupdate_base( $module, $mydirname ) {
-		// transations on module update
+		// transactions on module update
 
 		global $msgs; // TODO :-D
 

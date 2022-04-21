@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 if ( ! defined( 'XOOPS_ROOT_PATH' ) ) {
@@ -20,7 +20,7 @@ if ( ! defined( 'XOOPS_TRUST_PATH' ) || XOOPS_TRUST_PATH == '' ) {
 	exit;
 }
 
-define( 'ALTSYS_MYLANGUAGE_ROOT_PATH', XOOPS_ROOT_PATH . '/my_language' );
+const ALTSYS_MYLANGUAGE_ROOT_PATH = XOOPS_ROOT_PATH . '/my_language';
 
 
 class SetupAltsysLangMgr extends XCube_ActionFilter {
@@ -58,7 +58,7 @@ class AltsysLangMgr_LanguageManager extends Legacy_LanguageManager {
 		}
 
 		require_once $langmanpath;
-        //$this->langman =& D3LanguageManager::getInstance();
+
 		$this->langman = D3LanguageManager::getInstance();
 
 		$this->langman->language = $this->mLanguageName;

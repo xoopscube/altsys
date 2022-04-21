@@ -5,9 +5,9 @@
  * @package    Altsys
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
- * @author     Gijoe <http://www.peak.ne.jp/>
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @author     Gijoe (Peak)
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 error_reporting( 0 );

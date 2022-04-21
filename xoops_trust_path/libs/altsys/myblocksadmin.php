@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 
@@ -23,20 +23,6 @@ altsys_get_core_type( ALTSYS_CORE_TYPE_XCL21 );
 include_once __DIR__ . '/class/MyBlocksAdminForXCL21.class.php';
 $myba =& MyBlocksAdminForXCL21::getInstance();
 
-
-// fork by core types
-/*switch (altsys_get_core_type()) {
-
-        case ALTSYS_CORE_TYPE_XCL21 :
-            include_once __DIR__ .'/class/MyBlocksAdminForXCL21.class.php' ;
-            $myba =& MyBlocksAdminForXCL21::getInstance() ;
-            break ;
-
-    default:
-        include_once __DIR__ . '/class/MyBlocksAdmin.class.php';
-        $myba = &MyBlocksAdmin::getInstance();
-        break;
-}*/
 // permission
 $myba->checkPermission();
 
@@ -44,17 +30,13 @@ $myba->checkPermission();
 $myba->init( $xoopsModule );
 
 
-//
-// transaction stage
-//
-
+// transaction
 if ( ! empty( $_POST ) ) {
 	$myba->processPost();
 }
 
-//
-// form stage
-//
+
+// RENDER View
 
 // header
 xoops_cp_header();

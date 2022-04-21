@@ -1,8 +1,26 @@
 <div class="ui-dev-mode"><{$smarty.template}></div>
 
-<h3 class="admintitle"><{$smarty.const._MYLANGADMIN_H3_MODULE}> : <{$target_mname}> : <{$target_lang|escape}> : <{$target_file|escape}></h3>
 
-<div layout="row center-justify" class="control-action">
+<h2 class="admintitle"><{$smarty.const._MYLANGADMIN_H3_MODULE}> : <{$target_mname}> : <{$target_lang|escape}> : <{$target_file|escape}></h2>
+
+
+<div class="tips">
+	<dl class="altsys_langman_information">
+		<{if $use_my_language}>
+		<dt><{$smarty.const._MYLANGADMIN_DT_MYLANGFILENAME}></dt>
+		<dd><{$mylang_file_name}></dd>
+		<{/if}>
+		<dt><{$smarty.const._MYLANGADMIN_DT_CACHEFILENAME}></dt>
+		<dd><{$cache_file_name}></dd>
+		<dt><{$smarty.const._MYLANGADMIN_DT_CACHESTATUS}></dt>
+		<dd><{if $cache_file_mtime}><{$smarty.const._MYLANGADMIN_CREATED}> (<{"Y-m-d H:i:s"|date:$cache_file_mtime+$timezone_offset}>)<{else}><{$smarty.const._MYLANGADMIN_NOTCREATED}><{/if}></dd>
+		<dt><{$notice}></dt>
+	</dl>
+</div>
+
+
+<{* ////— ACTION-CONTROL —\\\\ *}>
+<div layout="row center-justify" class="action-control">
 
     <form name="SelectLangFile" action="index.php" method="get">
         <input type="hidden" name="mode" value="admin">
@@ -15,31 +33,17 @@
         <select name="target_file" onchange="submit();">
             <{html_options values=$lang_files output=$lang_files selected=$target_file}>
         </select>
-        <input type="submit" value="<{$smarty.const._SUBMIT}>">
+        <input class="button submit" type="submit" value="<{$smarty.const._SUBMIT}>">
     </form>
 
     <div class="control-view">
-        <button class="help-admin ui-btn" type='button' data-id='4' data-module='altsys' data-help-article='#help-language' title="Help">
+        <button class="help-admin button" type='button' data-module='altsys' data-help-article='#help-language' title="<{$smarty.const._HELP}>">
             <span class="ui-icon ui-icon-help"></span>
         </button>
     </div>
 
 </div>
 
-
-<div class="tips">
-<dl class="altsys_langman_information">
-	<{if $use_my_language}>
-	<dt><{$smarty.const._MYLANGADMIN_DT_MYLANGFILENAME}></dt>
-	<dd><{$mylang_file_name}></dd>
-	<{/if}>
-	<dt><{$smarty.const._MYLANGADMIN_DT_CACHEFILENAME}></dt>
-	<dd><{$cache_file_name}></dd>
-	<dt><{$smarty.const._MYLANGADMIN_DT_CACHESTATUS}></dt>
-	<dd><{if $cache_file_mtime}><{$smarty.const._MYLANGADMIN_CREATED}> (<{"Y-m-d H:i:s"|date:$cache_file_mtime+$timezone_offset}>)<{else}><{$smarty.const._MYLANGADMIN_NOTCREATED}><{/if}></dd>
-	<dt><{$notice}></dt>
-</dl>
-</div>
 
 <form name="MainForm" action="index.php?mode=admin&amp;lib=altsys&amp;page=mylangadmin&amp;dirname=<{$target_dirname}>&amp;target_lang=<{$target_lang}>&amp;target_file=<{$target_file}>" method="post">
 	<table class="outer">
@@ -79,8 +83,8 @@
 	<tfoot>
 		<tr>
 			<td colspan="3">
-			<input type="submit" name="do_update" value="<{$smarty.const._MYLANGADMIN_BTN_UPDATE}>">
-			<input type="reset" value="<{$smarty.const._MYLANGADMIN_BTN_RESET}>">
+				<input class="button reset" type="reset" value="<{$smarty.const._MYLANGADMIN_BTN_RESET}>">
+				<input class="button update" type="submit" name="do_update" value="<{$smarty.const._MYLANGADMIN_BTN_UPDATE}>">
 			<{$gticket_hidden}>
 			</td>
 		</tr>
@@ -90,8 +94,3 @@
 
 	</div>
 </form>
-
-
-
-
-

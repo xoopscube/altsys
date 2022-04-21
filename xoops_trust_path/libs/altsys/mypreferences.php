@@ -6,8 +6,8 @@
  * @version    XCL 2.3.1
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Author
- * @license    https://github.com/xoopscube/xcl/blob/master/GPL_V2.txt
+ * @copyright  (c) 2005-2022 Authors
+ * @license    GPL v2.0
  */
 
 require_once __DIR__ . '/class/AltsysBreadcrumbs.class.php';
@@ -88,7 +88,7 @@ if ( 'showmod' == $op ) {
 			case 'textarea':
 				( method_exists( 'MyTextSanitizer', 'sGetInstance' ) and $myts =& MyTextSanitizer::sGetInstance() ) || $myts =& MyTextSanitizer::getInstance();
 				if ( 'array' == $config[ $i ]->getVar( 'conf_valuetype' ) ) {
-					// this is exceptional.. only when value type is array need a smarter way for this
+					// this is exceptional. only when value type is array need a smarter way for this
 					$ele = ( '' != $config[ $i ]->getVar( 'conf_value' ) ) ? new XoopsFormTextArea( $title, $config[ $i ]->getVar( 'conf_name' ), $myts->htmlspecialchars( implode( '|', $config[ $i ]->getConfValueForOutput() ) ), 5, 50 ) : new XoopsFormTextArea( $title, $config[ $i ]->getVar( 'conf_name' ), '', 5, 50 );
 				} else {
 					$ele = new XoopsFormTextArea( $title, $config[ $i ]->getVar( 'conf_name' ), $myts->htmlspecialchars( $config[ $i ]->getConfValueForOutput() ), 5, 50 );

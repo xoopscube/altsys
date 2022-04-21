@@ -1,7 +1,7 @@
 <div class="adminnavi" aria-label="breadcrumb">
 	<a href="<{$xoops_url}>/admin.php">Dashboard</a>
 
-	&raquo;&raquo; <a href="./index.php"><{$dirname}></a>
+	&raquo;&raquo; <a href="./index.php"><{$dirname|ucfirst}></a>
 
 	<{foreach from=$adminmenu item="menuitem"}>
 	<{if $menuitem.selected}>
