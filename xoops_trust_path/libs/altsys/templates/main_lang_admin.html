@@ -20,7 +20,7 @@
 
 
 <{* ////— ACTION-CONTROL —\\\\ *}>
-<div layout="row center-justify" class="action-control">
+<section layout="row center-justify" class="action-control">
 
     <form name="SelectLangFile" action="index.php" method="get">
         <input type="hidden" name="mode" value="admin">
@@ -38,11 +38,10 @@
 
     <div class="control-view">
         <button class="help-admin button" type='button' data-module='altsys' data-help-article='#help-language' title="<{$smarty.const._HELP}>">
-            <span class="ui-icon ui-icon-help"></span>
-        </button>
+            <b>?</b> </button>
     </div>
 
-</div>
+</section>
 
 
 <form name="MainForm" action="index.php?mode=admin&amp;lib=altsys&amp;page=mylangadmin&amp;dirname=<{$target_dirname}>&amp;target_lang=<{$target_lang}>&amp;target_file=<{$target_file}>" method="post">
@@ -59,7 +58,7 @@
 	</thead>
 	<tbody>
 		<{foreach from=$langfile_constants key="langfile_name" item="langfile_uservalue"}>
-		<tr class="<{cycle values="even,odd"}>" title="<{$langfile_name|escape}>">
+		<tr title="<{$langfile_name|escape}>">
 			<td><label for="input_<{$langfile_name|escape}>"><{$langfile_name|truncate:30|escape}></label></td>
 			<td>
 				<div style="width:240px; overflow: auto;">
@@ -69,9 +68,18 @@
 			<td>
 				<{if empty($mylang_constants.$langfile_name)}>
 					<{if strlen(constant($langfile_name)) < 32}>
-						<input type="text" name="<{$langfile_name|escape}>" id="input_<{$langfile_name|escape}>" value="<{$langfile_uservalue|escape}>" style="width:240px;<{if $langfile_uservalue}>background-color:#777;<{/if}>" />
+						<input type="text"
+							   name="<{$langfile_name|escape}>"
+							   id="input_<{$langfile_name|escape}>"
+							   value="<{$langfile_uservalue|escape}>"
+							   <{if $langfile_uservalue}>class="lang-custom"<{/if}>
+								title="<{$smarty.const._MYLANGADMIN_TH_USERVALUE}>">
 					<{else}>
-						<textarea name="<{$langfile_name|escape}>" id="input_<{$langfile_name|escape}>" style="width:240px;<{if $langfile_uservalue}>background-color:#777;<{/if}>"><{$langfile_uservalue|escape}></textarea>
+						<textarea name="<{$langfile_name|escape}>"
+								  id="input_<{$langfile_name|escape}>"
+								  <{if $langfile_uservalue}>class="lang-custom"<{/if}>">
+								  <{$langfile_uservalue|escape}>
+						</textarea>
 					<{/if}>
 				<{else}>
 					<span class="my_language"><{$mylang_constants.$langfile_name}></span>

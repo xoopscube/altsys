@@ -9,7 +9,7 @@
 
 
 <{* ////— ACTION-CONTROL —\\\\ *}>
-<div layout="row center-justify" class="action-control">
+<section layout="row center-justify" class="action-control">
 
     <a class="button" href="index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__&op=edit"><{$smarty.const._MI_ALTSYS_MENU_NEWCUSTOMBLOCK}></a>
 
@@ -23,14 +23,11 @@
                 <path d="M16 5v6h5V5m-11 6h5V5h-5m6 13h5v-6h-5m-6 6h5v-6h-5m-6 6h5v-6H4m0-1h5V5H4v6z" fill="currentColor"/></svg>
         </button>
         <button class="help-admin button" type='button' data-id='4' data-module='altsys' data-help-article='#help-custom-block' title="<{$smarty.const._HELP}>">
-            <span class="ui-icon ui-icon-help"></span>
-        </button>
+            <b>?</b> </button>
     </div>
 
-</div>
+</section>
 
-
-<hr>
 
 
 <form action="?mode=admin&amp;lib=altsys&amp;page=myblocksadmin&amp;dirname=<{$target_dirname}>" name="blockadmin" method="post">

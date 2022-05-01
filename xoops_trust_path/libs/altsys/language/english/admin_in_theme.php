@@ -1,4 +1,4 @@
 <?php
 
-const _MD_A_AINTHEME_FMT_PUBLICTOP = 'Public Top of %s';
-const _MD_A_AINTHEME_FMT_ADMINTOP = 'Admin Top of %s';
+define(' _MD_A_AINTHEME_FMT_PUBLICTO', 'Public Top of %s');
+define(' _MD_A_AINTHEME_FMT_ADMINTOP', 'Admin Top of %s');

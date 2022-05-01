@@ -297,7 +297,7 @@ echo "<form name='MainForm' action='?mode=admin&amp;lib=altsys&amp;page=mytplsad
     . $xoopsGTicket->getTicketHtml( __LINE__ ) ;
 
 ////— ACTION-CONTROL —\\\\
-echo '<div layout="row center-justify mb-4" class="action-control">
+echo '<section layout="row center-justify" class="action-control">
         <div>' . _MYTPLSADMIN_CREATE_NEW_TPLSET . ' : ' . _MYTPLSADMIN_CAPTION_BASE . ':
 			<select name="clone_tplset_from">'. $tplset_options .'
 			<option value="_blank_">' . _MYTPLSADMIN_OPT_BLANKSET . '</option>
@@ -312,10 +312,9 @@ echo '<div layout="row center-justify mb-4" class="action-control">
     }
 echo '<a class="button" href="' .XOOPS_URL . '/modules/legacyRender/admin/index.php?action=TplsetList">Render</a>
         <button class="help-admin button" type="button" data-id="4" data-module="altsys" data-help-article="#help-templates" title="'._HELP.'">
-            <span class="ui-icon ui-icon-help"></span>
-        </button>
+            <b>?</b> </button>
     </div>
-    </div>';
+    </section>';
 
 
 // TABLE
