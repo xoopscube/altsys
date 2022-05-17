@@ -1,3 +1,4 @@
+<div class="ui-dev-mode"><{$smarty.template}></div>
 <script type="text/javascript">
 	function submenuToggle(mid) {
 		el = xoopsGetElementById('adminmenu_block_sub_'+mid).style;
@@ -14,7 +15,7 @@
 
 <div class="adminmenu_block">
 	<{foreach from=$block.modules item="module"}>
-		<div id="adminmenu_block_main_<{$module.mid}>" class="adminmenu_block_main_<{$module.dirname}> adminmenu_block_main" title="<{$module.dirname}>">
+		<div id="adminmenu_block_main_<{$module.mid}>" class="adminmenu_block_main_<{$module.dirname}> adminmenu_block_main" aria-label="<{$module.dirname}>">
 			<a id="adminmenu_block_openclose_<{$module.mid}>" href="javascript:void(0);" onclick="submenuToggle(<{$module.mid}>);">
 				<img id="adminmenu_block_dot_status_<{$module.mid}>" src="<{$block.mod_imageurl}>/adminmenu_<{$module.dot_suffix}>.gif" alt="<{$smarty.const._MB_ALTSYS_OPENCLOSE}>">
 			</a>

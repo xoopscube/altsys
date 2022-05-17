@@ -69,12 +69,13 @@ function altsys_include_language_file( $type ) {
 	}
 }
 
-define( 'ALTSYS_CORE_TYPE_XCL21', 16 ); // XOOPSCube 2.1 Legacy
+const ALTSYS_CORE_TYPE_XCL21 = 16; // XOOPSCube 2.1 Legacy
 
 /**
  * @return int|null
  */
 function altsys_get_core_type() {
+
 	static $result = null;
 
 	if ( empty( $result ) && defined( 'XOOPS_CUBE_LEGACY' ) ) {
@@ -85,6 +86,7 @@ function altsys_get_core_type() {
 }
 
 /**
+ * Use system legacy for preferences
  * @param $mid
  *
  * @return string

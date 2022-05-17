@@ -30,7 +30,7 @@ define( '_MD_A_MYBLOCKSADMIN_EDITFORM' , "Editar o bloco");
 define( '_MD_A_MYBLOCKSADMIN_EDITTPL' , "Editar o modelo");
 define( '_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK' , "%s será removido. Você concorda?");
 define( '_MD_A_MYBLOCKSADMIN_FMT_TAGRULE' , "%s será substituído por %s.");
-define( '_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE' , "Forçar clonagem");
+define( '_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE' , "Forçar duplicação");
 define( '_MD_A_MYBLOCKSADMIN_NAME' , "Nome");
 define( '_MD_A_MYBLOCKSADMIN_NEWFORM' , "Adicionar novo bloco");
 define( '_MD_A_MYBLOCKSADMIN_NOTICE4COMMONFCK' , "Se você deseja utilizar um editor visual (WYSIWYG), instale-o em /common/fckeditor");

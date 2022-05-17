@@ -53,7 +53,7 @@ if ( ! empty( $target_module ) && is_object( $target_module ) ) {
 	$target_mid         = $target_module->getVar( 'mid' );
 	$target_dirname     = $target_module->getVar( 'dirname' );
 	$target_dirname4sql = addslashes( $target_dirname );
-	$target_mname       = $target_module->getVar( 'name' ) . sprintf( '<span class="count" style="font-size:16px;position:relative;bottom:.5em">v %2.2f </span>', $target_module->getVar( 'version' ) / 100.0 );
+	$target_mname       = $target_module->getVar( 'name' ) . sprintf( '<span class="badge-count" style="font-size:16px;position:relative;bottom:.5em">v %2.2f </span>', $target_module->getVar( 'version' ) / 100.0 );
 	//$query4redirect = '?dirname='.urlencode(strip_tags($_GET['dirname'])) ;
 } elseif ( @$_GET['dirname'] == '_custom' ) {
 	// custom template
@@ -82,6 +82,7 @@ if ( ! empty( $_POST['clone_tplset_do'] ) && ! empty( $_POST['clone_tplset_from'
 
 	$tplset_from = $myts->stripSlashesGPC( $_POST['clone_tplset_from'] );
 	$tplset_to   = $myts->stripSlashesGPC( $_POST['clone_tplset_to'] );
+
 	// check tplset_name "from" and "to"
 	if ( ! preg_match( '/^[0-9A-Za-z_-]{1,16}$/', $_POST['clone_tplset_from'] ) ) {
 		tplsadmin_die( _MYTPLSADMIN_ERR_INVALIDSETNAME, $target_dirname );
@@ -202,7 +203,6 @@ if ( is_array( @$_POST['del_do'] ) ) {
 }
 
 
-
 // GET stage
 
 // javascript
@@ -311,7 +311,7 @@ echo '<section layout="row center-justify" class="action-control">
         echo '<a class="button" href="index.php?mode=admin&lib=altsys&page=mytplsform&tpl_tplset=default">' . _MYTPLSADMIN_CREATENEWCUSTOMTEMPLATE . '</a>';
     }
 echo '<a class="button" href="' .XOOPS_URL . '/modules/legacyRender/admin/index.php?action=TplsetList">Render</a>
-        <button class="help-admin button" type="button" data-id="4" data-module="altsys" data-help-article="#help-templates" title="'._HELP.'">
+        <button class="help-admin button" type="button" data-id="4" data-module="altsys" data-help-article="#help-templates" aria-label="'._HELP.'">
             <b>?</b> </button>
     </div>
     </section>';
@@ -353,7 +353,7 @@ while ( list( $tpl_file, $tpl_desc, $type, $count ) = $db->fetchRow( $frs ) ) {
                 <dd>" . htmlspecialchars( $tpl_desc, ENT_QUOTES ) . "</dd>
             </dl>
         </td>
-        <td>" . $type . " <span class='count'>" . $count . "</span></td>\n";
+        <td>" . $type . " <span class='badge-count'>" . $count . "</span></td>\n";
 
 	// the base file template column
 	$basefilepath = tplsadmin_get_basefilepath( $target_dirname, $type, $tpl_file );
@@ -399,7 +399,7 @@ while ( list( $tpl_file, $tpl_desc, $type, $count ) = $db->fetchRow( $frs ) ) {
                 <td class='{$class}'>" . formatTimestamp( $tpl['tpl_lastmodified'], 'm' ) . '<br>' . substr( $fingerprint, 0, 16 ) . "<br>
                 <input type='checkbox' name='{$tplset4disp}_check[{$tpl_file}]' value='1' /> &nbsp;
                 <a href='?mode=admin&amp;lib=altsys&amp;page=mytplsform&amp;tpl_file=" . htmlspecialchars( $tpl['tpl_file'], ENT_QUOTES ) . "&amp;tpl_tplset=" . htmlspecialchars( $tpl['tpl_tplset'], ENT_QUOTES ) . "&amp;dirname=" . htmlspecialchars( $target_dirname, ENT_QUOTES ) . "'>" . _EDIT . "</a> 
-                <span class='count'>$numrows</span>
+                <span class='badge-count'>$numrows</span>
                 </td>\n";
 		}
 	}

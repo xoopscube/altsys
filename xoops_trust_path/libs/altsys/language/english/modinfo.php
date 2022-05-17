@@ -30,7 +30,7 @@ define( '_MI_ALTSYS_ADMINMENU_IMDSC' , 'If your admin menu is broken, remove cac
 define( '_MI_ALTSYS_ADMIN_IN_THEME' , 'Theme set for admin');
 define( '_MI_ALTSYS_ADMIN_IN_THEMEDSC' , 'Set the name of the theme displaying admin area. Insert a line just after including common.php in mainfile.php<br>include XOOPS_TRUST_PATH.\'/libs/altsys/include/admin_in_theme.inc.php\');<br> to enable this. This feature works only with XOOPS 2.0.x');
 
-define( '_MI_ALTSYS_ENABLEFORCECLONE' , 'Force all blocks to be clonable');
+define( '_MI_ALTSYS_ENABLEFORCECLONE' , 'Force all blocks to be duplicable');
 define( '_MI_ALTSYS_ENABLEFORCECLONEDSC' , 'Warning : Some blocks may cause errors if multiple instances are displayed on the same page!');
 
 define( '_MI_ALTSYS_IMAGES_DIR' , 'Directory for image files');

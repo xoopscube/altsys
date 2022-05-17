@@ -19,7 +19,7 @@ define( '_MD_A_MYBLOCKSADMIN_VISIBLEIN' , 'Visible in');
 define( '_MD_A_MYBLOCKSADMIN_CONTENT' , 'Content');
 define( '_MD_A_MYBLOCKSADMIN_CAPT_USABLETAGS' , 'Usable tags');
 define( '_MD_A_MYBLOCKSADMIN_FMT_TAGRULE' , '%s will be replaced into %s in the view');
-define( '_MD_A_MYBLOCKSADMIN_CTYPE' , 'Cutom Type');
+define( '_MD_A_MYBLOCKSADMIN_CTYPE' , 'Custom Type');
 define( '_MD_A_MYBLOCKSADMIN_EDITTPL' , 'Edit the template');
 define( '_MD_A_MYBLOCKSADMIN_OPTIONS' , 'Block\'s option');
 define( '_MD_A_MYBLOCKSADMIN_BCACHETIME' , 'Cache Time');
@@ -34,13 +34,13 @@ define( '_MD_A_MYBLOCKSADMIN_DBUPDATED' , 'Database updated successfully');
 define( '_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK' , '%s will be deleted. Are you sure to delete this block?');
 
 
-define( '_MD_A_MYBLOCKSADMIN_CLONEFORM' , 'Clone the block');
+define( '_MD_A_MYBLOCKSADMIN_CLONEFORM' , 'Copy the block');
 define( '_MD_A_MYBLOCKSADMIN_NEWFORM' , 'Create a block');
 define( '_MD_A_MYBLOCKSADMIN_EDITFORM' , 'Edit the block');
 
-define( '_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE' , 'Force clone');
+define( '_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE' , 'Force Copy');
 
-define( '_MD_A_MYBLOCKSADMIN_BTN_CLONE' , 'Clone');
+define( '_MD_A_MYBLOCKSADMIN_BTN_CLONE' , 'Copy');
 define( '_MD_A_MYBLOCKSADMIN_BTN_NEW' , 'Create');
 define( '_MD_A_MYBLOCKSADMIN_BTN_EDIT' , 'Update');
 

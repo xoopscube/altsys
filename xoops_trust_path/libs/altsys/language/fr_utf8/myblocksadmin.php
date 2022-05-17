@@ -36,13 +36,13 @@ define( '_MD_A_MYBLOCKSADMIN_DBUPDATED' , 'Mise à jour avec succés de la Base 
 define( '_MD_A_MYBLOCKSADMIN_FMT_REMOVEBLOCK' , '%s sera supprimé. Voulez-vous confirmer?');
 
 
-define( '_MD_A_MYBLOCKSADMIN_CLONEFORM' , 'Cloner le bloc');
+define( '_MD_A_MYBLOCKSADMIN_CLONEFORM' , 'Copier le bloc');
 define( '_MD_A_MYBLOCKSADMIN_NEWFORM' , 'Créer un bloc');
 define( '_MD_A_MYBLOCKSADMIN_EDITFORM' , 'Editer un bloc');
 
-define( '_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE' , 'Forcer clonage');
+define( '_MD_A_MYBLOCKSADMIN_LINK_FORCECLONE' , 'Forcer copie');
 
-define( '_MD_A_MYBLOCKSADMIN_BTN_CLONE' , 'Cloner');
+define( '_MD_A_MYBLOCKSADMIN_BTN_CLONE' , 'Copier');
 define( '_MD_A_MYBLOCKSADMIN_BTN_NEW' , 'Créer');
 define( '_MD_A_MYBLOCKSADMIN_BTN_EDIT' , 'Mise à jour');
 

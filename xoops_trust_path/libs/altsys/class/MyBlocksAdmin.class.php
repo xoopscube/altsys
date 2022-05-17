@@ -63,9 +63,9 @@ class MyBlocksAdmin {
 
 		$this->type_options = [
 			'C' => 'custom block',
-			'E' => 'cloned custom block',
+			'E' => 'copied custom block',
 			'M' => 'module\'s block',
-			'D' => 'cloned module\'s block',
+			'D' => 'copied module\'s block',
 			'S' => 'system block',
 		];
 	}
@@ -194,7 +194,7 @@ class MyBlocksAdmin {
 	 */
 
 	public function canDelete( $block ) {
-		// can delete if it is a cloned block
+		// can delete if it is a copy/duplicated block
 		return 'D' == $block->getVar( 'block_type' ) || 'C' == $block->getVar( 'block_type' );
 	}
 
@@ -406,27 +406,27 @@ class MyBlocksAdmin {
 
     // Block-Side Render View
     return "
-    <div title='Block-Left'>
+    <div aria-label='Block-Left'>
         <input type='radio' name='sides[$bid]' value='" . XOOPS_SIDEBLOCK_LEFT . "' class='blockposition' $ssel0 onclick='document.getElementById(\"extra_side_$bid\").value=" . XOOPS_SIDEBLOCK_LEFT . ";'>
     </div>
     <div>-</div>
-    <div title='Center-Block-Left'>
+    <div aria-label='Center-Block-Left'>
         <input type='radio' name='sides[$bid]' value='" . XOOPS_CENTERBLOCK_LEFT . "' class='blockposition' $ssel2 onclick='document.getElementById(\"extra_side_$bid\").value=" . XOOPS_CENTERBLOCK_LEFT . ";'>
     </div>
-    <div title='Center-Block-Center'>
+    <div aria-label='Center-Block-Center'>
         <input type='radio' name='sides[$bid]' value='" . XOOPS_CENTERBLOCK_CENTER . "' class='blockposition' $ssel3 onclick='document.getElementById(\"extra_side_$bid\").value=" . XOOPS_CENTERBLOCK_CENTER . ";'>
     </div>
-    <div title='Center-Block-Right'>
+    <div aria-label='Center-Block-Right'>
         <input type='radio' name='sides[$bid]' value='" . XOOPS_CENTERBLOCK_RIGHT . "' class='blockposition' $ssel4 onclick='document.getElementById(\"extra_side_$bid\").value=" . XOOPS_CENTERBLOCK_RIGHT . ";'>
     </div>
     <div>-</div>
-    <div title='Block-Right'>
+    <div aria-label='Block-Right'>
         <input type='radio' name='sides[$bid]' value='" . XOOPS_SIDEBLOCK_RIGHT . "' class='blockposition' $ssel1 onclick='document.getElementById(\"extra_side_$bid\").value=" . XOOPS_SIDEBLOCK_RIGHT . ";'>
     </div>
 
     <input type='hidden' name='extra_sides[$bid]' value='" . $value4extra_side . "' class='block-extra-side' id='extra_side_$bid'>
 
-    <div title='" . _NONE . "'>
+    <div aria-label='" . _NONE . "'>
         <input type='radio' name='sides[$bid]' value='-1' class='blockposition ui-input-red' $sseln onclick='document.getElementById(\"extra_side_$bid\").value=-1;'>
     </div>
 	";

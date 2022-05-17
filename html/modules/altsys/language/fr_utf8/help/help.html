@@ -1,14 +1,13 @@
-<section id="help-module">
+<article id="help-module">
 
 
     <nav id="help-menu">
         <ul>
             <li><a href="#help-custom-block" class="button">Custom Blocks</a>
-            <li><a href="#help-module-block" class="button">Modules Blocks</a>
             <li><a href="#help-templates" class="button">Templates</a>
             <li><a href="#help-advanced" class="button">Advanced Templates</a>
             <li><a href="#help-language" class="button">Language</a>
-            <li><a href="#help-dev" class="button">Contribution</a>
+            <li><a href="#help-development" class="button">Development</a>
         </ul>
     </nav>
 
@@ -16,218 +15,241 @@
 <hr>
 
 
-    <article id="help-overview">
-        <h3>Overview</h3>
-        <p>This module is installed by default.
+    <section id="help-overview">
+
+        <h2>Overview</h2>
+
+        <p>This module aims to provide quick access to most common tasks of the application platform.
+        <p>This module (library) is required and installed by default with the core modules.
         <p>Permissions can be extended to trusted user groups.
-        <p>This module aims to provide a quick access to most common tasks of the application platform.
+
         <p>Next we will give an overview of some common tasks you can do with the Administration.
             Each task will be used to highlight a particular function within the module.
         <p>creation of custom blocks (HTML, PHP and BBCode), modules block management,
-                advanced templates design, custommization of language translations and localization.
-    </article>
+                advanced templates design, customization, translations and localization.
+    </section>
 
 
 <hr>
 
 
-    <article id="help-custom-block">
-        <h3>Custom Block</h3>
-        <p>creation of custom blocks (HTML, PHP and BBCode)
-        <div class="ui-data-render view">
+    <section id="help-custom-block">
 
-            <div class="ui-card-block">
+        <h2>Blocks management</h2>
 
-                <div class="ui-card-block-header">
+        <p>The building blocks of your site are single components of content like business information,
+            advertisements, contact forms, images or media embeds from other platforms.</p>
 
-                    <div class="ui-card-block-info">
-                        <a href="#" title="Custom (plain HTML)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" class="icon-info">
-                                <path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2z" fill="currentColor"></path>
-                        </svg>
-                        </a>
-                    </div>
-
-                    <div class="ui-card-block-settings">
-                            <a href="#" title="Delete">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-                                <path d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12m2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14l-2.13-2.12M15.5 4l-1-1h-5l-1 1H5v2h14V4h-3.5z" fill="currentColor"></path>
-                            </svg>
-                            </a>
-                    </div>
-
-                </div>
-
-                <div class="ui-card-block-image">
-                        <a href="#" class="ui-block-type" title="Custom (plain HTML)">
-                        <svg xmlns="http://www.w3.org/2000.svg" width="100%" height="100%" viewBox="0 0 240 100" class="ui-block-module">
-                            <g id="ui-block-module">
-                            <path class="block-icon" d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18c.21 0 .41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18c-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35L12 4.15M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69l6-3.38m-5.15-2.55l6.28-3.63l-.58-1.01l-6.28 3.63l.58 1.01z" fill="currentColor"></path>
-                            <text class="block-name" x="120px" y="50px" fill="currentColor">
-                            <tspan>Custom (plain HTML)</tspan>
-                            </text>
-                            </g>
-                        </svg>
-                        </a>
-                </div>
-
-                <div class="ui-card-block-content">
-
-                    <div class="ui-card-block-item">
-                        <input type="text" name="weights[45]" value="0" size="1" maxlength="5">
-                        <input type="text" name="titles[45]" value="html-smarty" size="20" title="Custom (plain HTML)">
-                    </div>
-
-                    <div class="ui-card-block-item">
-
-                        <div title="Block-Left">
-                            <input type="radio" name="sides[45]" value="0" class="blockposition" onclick="document.getElementById(&quot;extra_side_45&quot;).value=0;">
-                        </div>
-                        <div>-</div>
-                        <div title="Center-Block-Left">
-                            <input type="radio" name="sides[45]" value="3" class="blockposition" onclick="document.getElementById(&quot;extra_side_45&quot;).value=3;">
-                        </div>
-                        <div title="Center-Block-Center">
-                            <input type="radio" name="sides[45]" value="5" class="blockposition" checked="checked" onclick="document.getElementById(&quot;extra_side_45&quot;).value=5;">
-                        </div>
-                        <div title="Center-Block-Right">
-                            <input type="radio" name="sides[45]" value="4" class="blockposition" onclick="document.getElementById(&quot;extra_side_45&quot;).value=4;">
-                        </div>
-                        <div>-</div>
-                        <div title="Block-Right">
-                            <input type="radio" name="sides[45]" value="1" class="blockposition" onclick="document.getElementById(&quot;extra_side_45&quot;).value=1;">
-                        </div>
-
-                        <div style="width:45px;" title="Block-Extra">
-                            <input type="text" name="extra_sides[45]" value="" class="block-extra-side" id="extra_side_45">
-                        </div>
-                        <div title="None">
-                            <input type="radio" name="sides[45]" value="-1" class="blockposition ui-input-red" onclick="document.getElementById(&quot;extra_side_45&quot;).value=-1;">
-                        </div>
-
-                    </div>
-
-                    <div class="ui-card-block-item">
-
-                        <select name="bmodules[45][]" size="5" multiple="multiple">
-                            <option value="-1">Top Page</option>
-                            <option value="0" selected="selected">All Pages</option>
-                            <option value="7">UI Components</option>
-                            <option value="8">Private Message</option>
-                            <option value="11">xelFinder</option>
-                            <option value="16">Forum</option>
-                            <option value="18">Publish</option>
-                        </select>
-
-
-                        <select name="bgroups[45][]" size="5" multiple="multiple">
-                            <option value="1" selected="selected">Webmasters</option>
-                            <option value="2" selected="selected">Registered Users</option>
-                            <option value="3">Anonymous Users</option>
-                            <option value="4">Translators</option>
-                        </select>
-                    </div>
-
-                    <div class="ui-card-block-item pad-center">
-                        <select name="bcachetimes[45]" size="1">
-                            <option label="No Cache" value="0" selected="selected">No Cache</option>
-                            <option label="30 seconds" value="30">30 seconds</option>
-                            <option label="1 minute" value="60">1 minute</option>
-                            <option label="5 minutes" value="300">5 minutes</option>
-                            <option label="30 minutes" value="1800">30 minutes</option>
-                            <option label="1 hour" value="3600">1 hour</option>
-                            <option label="5 hours" value="18000">5 hours</option>
-                            <option label="1 day" value="86400">1 day</option>
-                            <option label="3 days" value="259200">3 days</option>
-                            <option label="1 week" value="604800">1 week</option>
-                            <option label="1 month" value="2592000">1 month</option>
-                        </select>
-                    </div>
-
-                    <div class="ui-card-block-item">
-                        <a href="#" class="button button-small" title="Edit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" class="svg-ui-icon">
-                            <path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z" fill="currentColor"></path>
-                        </svg> Edit
-                        </a>
-
-
-                    <a href="#" class="button button-small" title="Clone">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" class="svg-ui-icon">
-                        <path d="M11 17H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h12v2H4v12h7v-2l4 3l-4 3v-2m8 4V7H8v6H6V7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-2h2v2h11z" fill="currentColor"></path>
-                    </svg>Clone
-                    </a>
-                </div>
-
-                </div>
-            </div>
-
-
-
-        </div>
-    </article>
-
-
-<hr>
-
-
-    <article id="help-module-block">
-        <h3>Modules blocks</h3>
-        <p>General modules block management.</p>
-    </article>
-
-
-<hr>
-
-
-    <article id="help-templates">
-        <h3>Templates</h3>
-        <p>Customize your templates, clone/duplicate your Templates to create a new Set.</p>
-    </article>
-
-
-<hr>
-
-
-    <article id="help-advanced">
-        <h3>Advanced</h3>
-        <p>Doloremque a illo corporis dicta laborum!
-            Perspiciatis qui debitis aliquid soluta doloribus reiciendis nihil.
-            Quis tempore temporibus consequuntur a? Repellendus est quibusdam iste?
-            Est temporibus quo eligendi rem illo natus.</p>
-    </article>
-
-
-<hr>
-
-
-    <article id="help-language">
-        <h3>Language</h3>
-        <p>Keep your global voice consistent across all branches, cultures, and language locales.
-            Easily scale the number of languages as your activity expands into new markets.
-        <p>Localization (l10n) is the process of customizing your app to work in other languages other than the default.
-            Localization can include different spoken variations and dialects of the same language,
-            which are referred to as locales. Locales are a combination of the language and the country
-            it's spoken in.
-        <p>Language localisation is the process of adapting a product's translation to a specific country or region.
-            It is the second phase of a larger process of product translation and cultural adaptation to account for
-            differences in distinct markets, a process known as internationalisation and localisation.</p>
-    </article>
-
-
-<hr>
-
-
-    <article id="help-dev">
-        <h3>Development - Contribute</h3>
+        <h3>Block Settings</h3>
+        <p>Each block has the following default properties :</p>
         <ul>
-            <li>Module name	: Altsys
-            <li>Status :	Compatibility OK
-            <li>Category :	System
-            <li>Version	: 0.80
-            <li>Download URL :	https://github.com/xoopscube/</li>
+            <li>name (title)</li>
+            <li>order or weight of display</li>
+            <li>default block "side"</li>
+            <li>enabled or disable</li>
+            <li>in which module</li>
+            <li>for which user groups</li>
+            <li>and cache settings</li>
+            <li><b>Custom Blocks</b></li>
+            <li>+ Type of Block (HTML,PHP...)</li>
+            <li>+ Copy/duplicate</li>
+            <li>+ edit the template</li>
+            <li>+ and delete the custom block</li>
         </ul>
-    </article>
+
+        <h3>Block Side</h3>
+
+        <p>The block "side"" is just a legacy code convention to identify areas in the theme and organize the layout.
+            Blocks are modular units of content that can be positioned almost anywhere on the page.</p>
+        <p>For example, a theme can place the block-left "Main Menu" at the top of the page to create a navigation bar.</p>
+
+        <div class="tips">The block template specifies the shape, and the global theme specifies the areas and appearance.
+            However, the block's presentation layer can be replaced by a custom template.</div>
+
+        <h3>Types of blocks</h3>
+
+        <h4>Custom blocks</h4>
+
+        <p>A Custom block can be built with HTML, CSS, JavaScript, PHP and Smarty variables.
+            Thus allowing to create reusable Components to create an effective website layout.</p>
+        <p>It can also embed code or integrate with third-party features specific to a site's unique needs.</p>
+
+        <div class="tips">The block editor will switch according to the type of content.</div>
+
+        <h4>Modules blocks</h4>
+
+        <p>Modules have several pre-built blocks that offer specific functionality and favor composition over inheritance.
+            These blocks are made available in Block Management by enabling modules.
+            Each module block has its own settings and customization options.</p>
+
+        <p><a class="button" href="<{'index.php?action=Help&dirname=legacy&file=block.html'}>">Learn more about Blocks ⭢</a></p>
+
+    </section>
 
 
-</section>
+<hr>
+
+
+    <section id="help-templates">
+
+        <h3>Templates</h3>
+
+        <p>Templates of modules and blocks shape content. While the frontend and backend Themes define the general appearance.</p>
+        <p>A custom template can be created with HTML, CSS, JavaScript, PHP and Smarty variables to make a single file component.</p>
+
+        <h3>Template Set</h3>
+
+        <p>The list of Template Sets can be found in Template Management of module Renderer.
+            When modules are installed, their templates become part of the Default Template Set.</p>
+
+        <p>1. First, make a copy of the <b>Default Template Set</b> ( Base-File )</p>
+        <p>2. Browse to templates »» Module</p>
+        <p>3. Click "edit" next to the template of the new Set</p>
+        <p>4. Make the changes you want</p>
+        <p>5. Save the template</p>
+
+        <div class="tips">In case of errors, check the box next to the template to easily copy from <b>Base-File Set</b> !</div>
+
+        <h3>Find a Template</h3>
+
+        <h4>Naming Convention</h4>
+
+        <p>The template naming convention is a systematic method for naming files
+            written in all-lowercase ASCII letters. The name specs might include the package name, action, event.</p>
+        <ul>
+            <li>[module-name]_[admin].html</li>
+            <li>[module-name]_[block].html</li>
+            <li>[module-name]_[inc]_[component-name].html</li>
+        </ul>
+
+        <p><a class="button" href="<{'index.php?action=Help&dirname=legacy&file=directory_structure.html'}>">Learn more about Naming Convention ⭢</a></p>
+
+        <h3>Custom Templates</h3>
+        <p>1. Create a custom template</p>
+        <p>2. Add some content</p>
+        <p>3. Name the template eg.: mycustom_template.html</p>
+        <p>4. Save the custom template</p>
+
+        <p>Then, you can create a custom block and load your custom template</p>
+        <pre><code class="lang-php">
+$xoopsTpl = new XoopsTpl();
+$test = $xoopsTpl->fetch('myblock_custom.html');
+echo $test;
+        </code></pre>
+
+        <h3>Renderer Engine</h3>
+
+        <p>The Renderer uses Smarty Template Engine —one of the most popular and mature template engines— with custom delimiters
+            similar to HTML markup language that make easier to design and develop components for templates.</p>
+        <p>From template Management you can enable a Set and check the list of templates that you can edit, copy, download or delete.</p>
+
+        <p><a class="button" href="<{'index.php?action=Help&dirname=legacyRender'}>">Learn more about Themes and Templates ⭢</a></p>
+
+    </section>
+
+
+<hr>
+
+
+    <section id="help-advanced">
+
+        <h3>Advanced Templates</h3>
+
+        <p>These features allow you to insert ruler guides and logic to collect template variables
+            in order to help designers identify components during the design process.</p>
+
+       <div class="tips">You can also generate a DreamWeaver extension with template variables.</div>
+
+    </section>
+
+
+<hr>
+
+
+    <section id="help-language">
+
+        <h3>Language</h3>
+
+        <p>The default distribution comes with English, French, Japanese and Portuguese translations.
+            You can change the 'Default Language' in <br>
+        <div class="badge">System »» Preferences »» Settings</div>
+
+        <p>Other local languages translations are available that you can download from the
+        <a href="https://github.com/xoopscube/i18n-language" target="_blank">GitHub repository - i18n-language ⭧</a><p>
+
+        <div class="confirm">
+        Note that he translations of installation wizard, System and modules might not be up-to-date.
+        However, you can translate and customize here any missing constants.
+        </div>
+
+        <h3>Translation</h3>
+
+        <p>If your language files are not available, you’ll need to translate the files located in modules directories
+            e.g. “/language/english/”</p>
+
+        <div class="error">
+            Some times you have a placeholder within a constant, for example, <b>%s</b> or <b>{0}</b>,
+            it's important to keep them !<br>
+            define( '_MSC_INTSITE' , 'Interesting Site: <b>%s</b>');<br>
+            // Here <b>%s</b> is a placeholder for your site name
+        </div>
+
+        <p>1. Click the module to translate
+        <p>2. Select the local language, e.g. english</p>
+        <p>3. Select the file to translate</p>
+        <p>4. Add a new Custom Value</p>
+        <p>5. Update to save the constants translated into your language</p>
+        <p> This will save into the database and in a file under TRUST_PATH/cache/....</p>
+
+        <h3>Localization</h3>
+
+        <p>Localisation (l10n) is the process of customizing your app and
+            adapting your product's translation to a specific country or region.</p>
+
+        <div class="tips">
+            Keep your global voice consistent across all modules, branches, cultures, and language locales
+        </div>
+
+        <p>It is the second phase of a larger process of product translation and cultural adaptation to account for
+            differences in distinct markets, a process known as internationalisation and localisation.</p>
+
+    </section>
+
+
+<hr>
+
+
+    <section id="help-development">
+        <h3>Development</h3>
+
+        <table class="outer">
+            <thead>
+            <tr>
+                <th>Module name</th>
+                <th>Altsys</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Type</td>
+                <td>Trust Module [ D3 library ]</td>
+            </tr>
+            <tr>
+                <td>Version</td>
+                <td>2.31</td>
+            </tr>
+            <tr>
+                <td>Level</td>
+                <td>Required</td>
+            </tr>
+            <tr>
+                <td>🌐 Repository URL</td>
+                <td><a href="https://github.com/xoopscube/altsys" target="_blank">https://github.com/xoopscube/altsys ⭧</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+
+</article>

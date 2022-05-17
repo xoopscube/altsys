@@ -40,18 +40,24 @@ $mrs = $db->query( 'SELECT m.name,m.dirname,COUNT(t.tpl_module) AS tpl_count FRO
 
 // module loop
 while ( list( $name, $dirname, $count ) = $db->fetchRow( $mrs ) ) {
+
+    $moduleIcon = '<img class="svg" src="'.XOOPS_URL.'/modules/'.$dirname.'/images/module_icon.svg" width="1em" height="1em">';
+
 	if ( $dirname == $current_dirname ) {
 		$adminmenu[] = [
 			'selected' => true,
-			'title'    => $name . " ($count)",
+			'title'    => "<span class='badge-count fingerprint6'>$count</span>" . $name,
 			'link'     => '?mode=admin&lib=altsys&page=mytplsadmin&dirname=' . $dirname,
+            'icon'     => $moduleIcon,
 		];
 		//$GLOBALS['altsysXoopsBreadcrumbs'][] = array( 'name' => htmlspecialchars( $name , ENT_QUOTES ) ) ;
+        // @todo @gigamaster Badge count
 	} else {
 		$adminmenu[] = [
 			'selected' => false,
-			'title'    => $name . " ($count)",
+			'title'    => "<span class='badge-count'>$count</span>". $name,
 			'link'     => '?mode=admin&lib=altsys&page=mytplsadmin&dirname=' . $dirname,
+            'icon'     => $moduleIcon,
 		];
 	}
 }
