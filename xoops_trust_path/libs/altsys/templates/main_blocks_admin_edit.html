@@ -60,9 +60,43 @@
 				<{if $xoops_cube_legacy}>
 
 					<{if $block.ctype == 'P'}>
-						<textarea name="contents[<{$block.bid}>]" id="textarea_content" style="width: 100%;" rows="20"><{$block.content_raw|escape}></textarea>
+					<script type="text/javascript" src="<{$xoops_url}>/modules/ckeditor4/ckeditor/ckeditor.js"></script>
 
-					<{elseif $block.ctype == 'H' || empty($block.ctype) }>
+					<textarea name="contents[<{$block.bid}>]" id="textarea_content" style="width: 100%;" rows="20"><{$block.content_raw|escape}></textarea>
+					<style>
+						.cke_chrome {
+							border: none!important;
+						}
+						.cke_top {
+							border-bottom: 1px solid #000000!important;
+							background: hsl(220deg 30% 5%)!important;
+							padding: 6px 8px 2px;
+							white-space: normal;
+						}
+						a.cke_button{
+							background: #363d49;
+							border-color: hsl(220deg 30% 5%);
+							margin-right: 0.25rem;
+						}
+						a.cke_button_off:hover, a.cke_button_off:focus, a.cke_button_off:active {
+							background-color: var(--button-active)!important;
+							border-color: var(--link-hover)!important;
+						}
+						.cke_button_on {
+							background-color: transparent!important;
+							border-color: var(--link-hover)!important;
+						}
+						.cke_button_icon {
+							background: #363d49;
+						}
+					</style>
+					<script type="text/javascript">
+						CKEDITOR.replace( 'textarea_content', {
+							customConfig: '<{$xoops_url}>/modules/ckeditor4/ckeditor/config_php.js',
+						});
+					</script>
+
+					<{elseif $block.ctype == 'H' || empty($block.ctype)}>
 						<{xoops_dhtmltarea cols=74 rows=15 name="contents[`$block.bid`]" id="textarea_content" value="`$block.content_raw`" class=html editor=html}>
 					<{else}>
 						<{xoops_dhtmltarea cols=74 rows=15 name="contents[`$block.bid`]" id="textarea_content" value="`$block.content_raw`" myckeditor=true class=bbcode editor=bbcode}>
