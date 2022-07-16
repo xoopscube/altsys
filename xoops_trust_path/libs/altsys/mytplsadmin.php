@@ -250,12 +250,17 @@ $tplsets_th4disp = '';
 $tplset_options  = "<option value=''>----</option>\n";
 foreach ( $tplsets as $tplset ) {
 	$tplset4disp = htmlspecialchars( $tplset, ENT_QUOTES );
+
+    // Active Template Set
 	$active      = $th_attr = '';
 	if ( $tplset == $xoopsConfig['template_set'] ) {
-		$th_attr = "class='active dbtplset_active'";
+		$th_attr = "class='list_left active dbtplset_active'";
 		$active  = '<sup>*</sup>';
 	}
-	$tplsets_th4disp .= "<th $th_attr><input type='checkbox' title='" . _MYTPLSADMIN_TITLE_CHECKALL . "' onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type=='checkbox'&&elements[i].name.indexOf('{$tplset4disp}_check')>=0){elements[i].checked=this.checked;}}}\">{$active}DB-{$tplset4disp}</th>";
+	$tplsets_th4disp .= "<th $th_attr>"
+        ."<input type='checkbox' title='" . _MYTPLSADMIN_TITLE_CHECKALL . "' onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type=='checkbox'&&elements[i].name.indexOf('{$tplset4disp}_check')>=0){elements[i].checked=this.checked;}}}\">"
+        ."{$active}DB-{$tplset4disp}"
+        ."</th>";
 	$tplset_options  .= "<option value='$tplset4disp'>$tplset4disp</option>\n";
 }
 
@@ -289,6 +294,7 @@ if ( $breadcrumbsObj->hasPaths() ) {
 }
 
 // Heading Title
+echo '<div class="ui-dev-mode">file:mytplsadmin.php</div>';
 echo "<h2>" . _MYTPLSADMIN_H3_MODULE . " » $target_mname</h2>\n";
 echo '<div class="tips">' . _MYTPLSADMIN_TIPS . '</div>';
 
@@ -322,8 +328,11 @@ echo "<table class='outer'>
     <thead>
         <tr>
 			<th>" . _MYTPLSADMIN_TH_NAME . "</th>
-			<th>" . _MYTPLSADMIN_TH_TYPE . "</th>
-			<th><input type='checkbox' title=" . _MYTPLSADMIN_TITLE_CHECKALL . " onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type=='checkbox'&&elements[i].name.indexOf('basecheck')>=0){elements[i].checked=this.checked;}}}\" />" . _MYTPLSADMIN_TH_FILE . "</th>
+			<th class='list_left'>" . _MYTPLSADMIN_TH_TYPE . "</th>
+			<th class='list_left'>
+			<input type='checkbox' title=" . _MYTPLSADMIN_TITLE_CHECKALL . " onclick=\"with(document.MainForm){for(i=0;i<length;i++){if(elements[i].type=='checkbox'&&elements[i].name.indexOf('basecheck')>=0){elements[i].checked=this.checked;}}}\">"
+            . _MYTPLSADMIN_TH_FILE
+            . "</th>
             $tplsets_th4disp
         </tr>
     </thead>\n";
@@ -348,10 +357,8 @@ while ( list( $tpl_file, $tpl_desc, $type, $count ) = $db->fetchRow( $frs ) ) {
 	// information about the template
     echo "<tr>
         <td>
-            <dl>
-                <dt>" . htmlspecialchars( $tpl_file, ENT_QUOTES ) . "</dt>
-                <dd>" . htmlspecialchars( $tpl_desc, ENT_QUOTES ) . "</dd>
-            </dl>
+            " . htmlspecialchars( $tpl_file, ENT_QUOTES ) . "<br>
+            <em>" . htmlspecialchars( $tpl_desc, ENT_QUOTES ) . "</em>
         </td>
         <td>" . $type . " <span class='badge-count'>" . $count . "</span></td>\n";
 
@@ -361,8 +368,12 @@ while ( list( $tpl_file, $tpl_desc, $type, $count ) = $db->fetchRow( $frs ) ) {
 	if ( file_exists( $basefilepath ) ) {
 		$fingerprint                  = tplsadmin_get_fingerprint( file( $basefilepath ) );
 		$fingerprints[ $fingerprint ] = '';
-		echo '<td>' . formatTimestamp( filemtime( $basefilepath ), 'm' ) .
-		     '<br>' . substr( $fingerprint, 0, 16 ) . "<br><input type='checkbox' name='basecheck[$tpl_file]' value='1'></td>\n";
+		echo "<td>"
+            ."<input type='checkbox' name='basecheck[$tpl_file]' value='1'>"
+            . formatTimestamp( filemtime( $basefilepath ), 'm' )
+            . "<br><small>"
+            . substr( $fingerprint, 0, 16 )
+            . "</small></td>\n";
 		$fingerprint_class_count = 0;
 	} else {
 		echo '<td><br></td>';
@@ -396,11 +407,16 @@ while ( list( $tpl_file, $tpl_desc, $type, $count ) = $db->fetchRow( $frs ) ) {
 				$fingerprints[ $fingerprint ] = $class;
 			}
 			echo "
-                <td class='{$class}'>" . formatTimestamp( $tpl['tpl_lastmodified'], 'm' ) . '<br>' . substr( $fingerprint, 0, 16 ) . "<br>
-                <input type='checkbox' name='{$tplset4disp}_check[{$tpl_file}]' value='1' /> &nbsp;
-                <a href='?mode=admin&amp;lib=altsys&amp;page=mytplsform&amp;tpl_file=" . htmlspecialchars( $tpl['tpl_file'], ENT_QUOTES ) . "&amp;tpl_tplset=" . htmlspecialchars( $tpl['tpl_tplset'], ENT_QUOTES ) . "&amp;dirname=" . htmlspecialchars( $target_dirname, ENT_QUOTES ) . "'>" . _EDIT . "</a> 
-                <span class='badge-count'>$numrows</span>
-                </td>\n";
+                <td class='{$class}'>
+                <input type='checkbox' name='{$tplset4disp}_check[{$tpl_file}]' value='1'> 
+                <a href='?mode=admin&amp;lib=altsys&amp;page=mytplsform&amp;tpl_file=" . htmlspecialchars( $tpl['tpl_file'], ENT_QUOTES ) . "&amp;tpl_tplset=" . htmlspecialchars( $tpl['tpl_tplset'], ENT_QUOTES ) . "&amp;dirname=" . htmlspecialchars( $target_dirname, ENT_QUOTES ) . "'>"
+                . _EDIT
+                . "</a> 
+                <span class='badge-count'>$numrows</span><br>"
+                . formatTimestamp( $tpl['tpl_lastmodified'], 'm' )
+                . '<br><small>'
+                . substr( $fingerprint, 0, 16 )
+                . "</small></td>\n";
 		}
 	}
 
@@ -416,9 +432,10 @@ echo "<tfoot>
 				<option value='_blank_'>" . _MYTPLSADMIN_OPT_BLANKSET . "</option>
         </select>
         <br>"
-    . _MYTPLSADMIN_CAPTION_SETNAME . " <input type='text' name='clone_tplset_to' size='8' maxlength='16'> <input type='submit' name='clone_tplset_do' value='" . _MYTPLSADMIN_BTN_NEWTPLSET . "'>
+    . _MYTPLSADMIN_CAPTION_SETNAME
+    . " <input type='text' name='clone_tplset_to' size='8' maxlength='16'> <input type='submit' name='clone_tplset_do' value='" . _MYTPLSADMIN_BTN_NEWTPLSET . "'>
 		</td>
-		<td class='head'>"
+		<td class='list_left'>"
     . _MYTPLSADMIN_CAPTION_COPYTO . "
 		<br>
         <select name='copyf2db_to'>
@@ -429,7 +446,7 @@ echo "<tfoot>
 
 foreach ( $tplsets as $tplset ) {
 	$tplset4disp = htmlspecialchars( $tplset, ENT_QUOTES );
-	echo "\t<td class='head'>"
+	echo "\t<td class='list_left'>"
         . _MYTPLSADMIN_CAPTION_COPYTO
         . "<br>\n"
         . "<select name='copy_to[{$tplset4disp}]'>\n"

@@ -17,6 +17,7 @@
  * @return array
  */
 function altsys_mylangadmin_get_constant_names( $langfile_unique_path, $mydirname ) {
+
 	$constpref = '';
 
 	$langfile_names = [];
@@ -78,6 +79,7 @@ function altsys_mylangadmin_get_constant_names( $langfile_unique_path, $mydirnam
  * @return array
  */
 function altsys_mylangadmin_get_constant_names_by_pcre( $langfile_path ) {
+
 	if ( ! file_exists( $langfile_path ) ) {
 		return [];
 	}
@@ -103,6 +105,7 @@ function altsys_mylangadmin_get_constant_names_by_pcre( $langfile_path ) {
  * @return array
  */
 function altsys_mylangadmin_get_constants_by_pcre( $langfile_path ) {
+
 	if ( ! file_exists( $langfile_path ) ) {
 		return [];
 	}
@@ -125,6 +128,7 @@ function altsys_mylangadmin_get_constants_by_pcre( $langfile_path ) {
  * @param $message4disp
  */
 function altsys_mylangadmin_errordie( $target_mname, $message4disp ) {
+
 	xoops_cp_header();
 
 	altsys_include_mymenu();
@@ -135,8 +139,8 @@ function altsys_mylangadmin_errordie( $target_mname, $message4disp ) {
 
 	$breadcrumbsObj->appendPath( '', $target_mname );
 
-	echo '<h3>' . _MYLANGADMIN_H3_MODULE . ' : ' . $target_mname . '</h3>';
-
+    echo '<div class="ui-dev-mode">altsys/include/lang_functions.php</div>';
+	echo '<h2>' . _MYLANGADMIN_H3_MODULE . ' » ' . $target_mname . '</h2>';
 	echo '<p>' . $message4disp . '</p>';
 
 	xoops_cp_footer();

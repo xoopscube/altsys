@@ -125,6 +125,7 @@ class MyBlocksAdmin {
 				$this->target_mid = $target_module->getVar( 'mid' );
 
 				$this->target_mname = $target_module->getVar( 'name' ) . '&nbsp;' . sprintf( '(%2.2f)', $target_module->getVar( 'version' ) / 100.0 );
+                //$this->target_mname = $target_module->getVar( 'name' ) . sprintf( '<span class="badge-count" style="font-size:16px;position:relative;bottom:.5em">v %2.2f </span>', $target_module->getVar( 'version' ) / 100.0 );
 
 				$this->target_dirname = $target_module->getVar( 'dirname' );
 
@@ -156,8 +157,8 @@ class MyBlocksAdmin {
 			$this->target_mid = $xoopsModule->getVar( 'mid' );
 
 			$this->target_mname = $xoopsModule->getVar( 'name' ) . '&nbsp;' . sprintf( '(%2.2f)', $xoopsModule->getVar( 'version' ) / 100.0 );
-
-			$this->target_dirname = $xoopsModule->getVar( 'dirname' );
+            //$this->target_mname = $xoopsModule->getVar( 'name' ) . sprintf( '<span class="badge-count" style="font-size:16px;position:relative;bottom:.5em">v %2.2f </span>', $xoopsModule->getVar( 'version' ) / 100.0 );
+            $this->target_dirname = $xoopsModule->getVar( 'dirname' );
 
 			$mod_url = XOOPS_URL . '/modules/' . $xoopsModule->getVar( 'dirname' );
 
@@ -266,10 +267,10 @@ class MyBlocksAdmin {
 
 		// get selected targets
 		if ( is_array( @$block_data['bmodule'] ) ) {
-			// bmodule origined from request (preview etc.)
+			// bmodule originated from request (preview etc.)
 			$selected_mids = $block_data['bmodule'];
 		} else {
-			// origined from the table of `block_module_link`
+			// originated from the table of `block_module_link`
 			$result = $this->db->query( 'SELECT module_id FROM ' . $this->db->prefix( 'block_module_link' ) . " WHERE block_id='$bid'" );
 
 			$selected_mids = [];
