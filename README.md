@@ -1,17 +1,43 @@
-## 🚧 Altsys module was merged into XCL branch module/altsys !
-https://github.com/xoopscube/xcl/tree/module/altsys
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/2.0.0/active.svg)](https://github.com/xoopscube/xcl)
+![License GPL](https://img.shields.io/badge/License-GPL-green)
+![License GPL](https://img.shields.io/badge/X--Update%20Store-Pending-red)
 
-## ⚠️ This repository is planned to be archived !
+## ///// — AltSys UI Common Library
+
+![alt text](https://repository-images.githubusercontent.com/8041517/16f372e9-91e2-4ff8-8d79-ccbb6b2ad0d9)
+
+
+MODULE | ALTSYS
+------------ | -------------
+Description | UI Common Library to create and manage Modules Blocks, Templates, Localization
+Render Engine | Smarty v2 and XCube Layout
+Version | 2.3.1
+Author | Original by GiJoe ( peak.ne.jp )
+Author | Update by Nuno Luciano (aka Gigamaster)
+Copyright | 2005-2022 Authors
+License | GPL
+
+
+##### :computer: The Minimum Requirements
+
+
+
+          Apache, Nginx, etc. PHP 7.2.x
+          MySQL 5.6, MariaDB  InnoDB utf8 / utf8mb4
+          XCL version 2.3.+
+
+
+
+-----
+
 
 == ALTSYS == alternative system module & library
 
 [b]SUMMARY:[/b]
 
-The unified module of blocksadmin, tplsadmin, etc around the system.
-
-I'm appreciated your bug reports :-)
-
-I'll maintain this module instead of blocksadmin, tplsadmin, avaman etc.
+UI Common Library to create custom Blocks and Templates.  
+Manage modules Blocks, Templates, and translations.  
+GUI for Localization.  
 
 
 [b]INSTALL:[/b]
