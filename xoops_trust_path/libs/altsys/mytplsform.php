@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  * Templates admin form for each modules
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -25,6 +25,7 @@ $module_handler     =& xoops_gethandler( 'module' );
 $module             =& $module_handler->getByDirname( 'altsys' );
 $moduleperm_handler =& xoops_gethandler( 'groupperm' );
 if ( ! is_object( @$xoopsUser ) || ! $moduleperm_handler->checkRight( 'module_admin', $module->getVar( 'mid' ), $xoopsUser->getGroups() ) ) {
+    // TODO redirect
 	die( 'only admin of altsys can access this area' );
 }
 
@@ -122,7 +123,9 @@ if ( empty( $tpl ) ) {
 		die( 'Not DB template' );
 	}
 
-	die( 'Invalid tpl_file.' );
+	//die( 'Invalid tpl_file.' ); // TODO Cannot edit newblock template - redirect to block management !
+   // redirect_header( $_SERVER['REQUEST_URI'], 1, $msg );
+    redirect_header( XOOPS_URL . '/modules/legacy/admin/index.php?action=BlockList', 2, 'Edit Template with Block Management ');
 }
 
 

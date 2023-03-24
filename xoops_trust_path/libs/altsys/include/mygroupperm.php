@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  *
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -56,7 +56,7 @@ if ( 1 == $modid ) {
 		$module = $module_handler->getByDirname( 'system' );
 		if ( ! is_object( $module ) ) {
 
-			die( 'there is no UI Components nor base system.' );
+			die( 'there is no AltSys UI Components nor base system.' );
 		}
 	}
 

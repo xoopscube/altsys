@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  * Templates admin for each modules
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -316,7 +316,7 @@ echo '<section data-layout="row center-justify" class="action-control">
     if ( $target_dirname == '_custom' ) {
         echo '<a class="button" href="index.php?mode=admin&lib=altsys&page=mytplsform&tpl_tplset=default">' . _MYTPLSADMIN_CREATENEWCUSTOMTEMPLATE . '</a>';
     }
-echo '<a class="button" href="' .XOOPS_URL . '/modules/legacyRender/admin/index.php?action=TplsetList">Renderer</a>
+echo '<a class="button" href="' .XOOPS_URL . '/modules/legacyRender/admin/index.php?action=TplsetList">Render</a>
         <button class="help-admin button" type="button" data-id="4" data-module="altsys" data-help-article="#help-templates" aria-label="'._HELP.'">
             <b>?</b> </button>
     </div>

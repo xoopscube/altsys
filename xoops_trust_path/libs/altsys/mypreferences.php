@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  * Alternative preferences
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -188,7 +188,7 @@ if ( 'showmod' == $op ) {
 
 	// Heading Title
     // Module Name
-	echo "<h3 class='admintitle'>" . $module->getvar( 'name' ) . ' &nbsp; ' . _PREFERENCES . "</h3>\n";
+	echo "<h3>" . $module->getvar( 'name' ) . ' &nbsp; ' . _PREFERENCES . "</h3>\n";
 
 	$form->display();
 
