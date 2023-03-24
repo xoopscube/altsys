@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  * Renders a form for setting module specific group permissions
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -185,8 +185,7 @@ class MyXoopsGroupPermForm extends XoopsForm {
 
 		$this->addElement( $tray );
 
-		$ret      = '<div class="ui-block-permissions">';
-		$ret      .= '<h2>' . $this->getTitle() . '</h2>';
+		$ret      = '<h2>' . $this->getTitle() . '</h2>';
         $ret      .= $this->_permDesc . '<br>';
 		$ret      .= "<form name='" . $this->getName() . "' id='" . $this->getName() . "' action='" . $this->getAction() . "' method='" . $this->getMethod() . "'" . $this->getExtra() . ">\n";
 		$ret      .= "<table class='outer'>\n";
@@ -207,7 +206,7 @@ class MyXoopsGroupPermForm extends XoopsForm {
 				$ret .= $elements[ $i ]->render();
 			}
 		}
-		$ret .= '</table>' . $xoopsGTicket->getTicketHtml( __LINE__, 1800, 'myblocksadmin' ) . '</form></div>';
+		$ret .= '</table>' . $xoopsGTicket->getTicketHtml( __LINE__, 1800, 'myblocksadmin' ) . '</form>';
 
 		return $ret;
 	}
@@ -342,7 +341,7 @@ class MyXoopsGroupFormCheckBox extends XoopsFormElement {
 					$ret  .= '</tr><tr>';
 					$cols = 1;
 				}
-				$tree   = '<td class="odd">';
+				$tree   = '<td>';
 				$prefix = '';
 				$this->_renderOptionTree( $tree, $this->_optionTree[ $topitem ], $prefix );
 				$ret .= $tree . '</td>';

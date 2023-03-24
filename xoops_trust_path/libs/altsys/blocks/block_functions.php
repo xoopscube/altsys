@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  *
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors Gigamaster, 2020 XCL PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -73,7 +73,7 @@ function b_altsys_admin_menu_show($options)
         $dirname = $mod->getVar('dirname');
 
         // TODO gigamaster add module icon
-        $moduleIcon = '<img class="svg" src="'.XOOPS_URL.'/modules/'.$dirname.'/images/module_icon.svg" width="1em" height="1em">';
+        $moduleIcon = '<img class="svg" src="'.XOOPS_URL.'/modules/'.$dirname.'/images/module_icon.svg" width="1em" height="1em" alt="module-icon">';
         $modinfo = $mod->getInfo();
 
         $submenus4assign = [];

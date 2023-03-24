@@ -2,10 +2,10 @@
 /**
  * Altsys library (UI-Components) for D3 modules
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -14,14 +14,14 @@ if ( ! defined( 'XOOPS_ROOT_PATH' ) ) {
 }
 
 $adminmenu = [
-	[
+    [
+        'title' => _MI_ALTSYS_MENU_NEWCUSTOMBLOCK,
+        'link'  => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__&op=edit',
+        'show'  => false,
+    ],
+    [
 		'title' => _MI_ALTSYS_MENU_CUSTOMBLOCKS,
 		'link'  => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__',
-	],
-	[
-		'title' => _MI_ALTSYS_MENU_NEWCUSTOMBLOCK,
-		'link'  => 'admin/index.php?mode=admin&lib=altsys&page=myblocksadmin&dirname=__CustomBlocks__&op=edit',
-		'show'  => false,
 	],
 	[
 		'title' => _MI_ALTSYS_MENU_MYBLOCKSADMIN,

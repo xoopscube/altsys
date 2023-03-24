@@ -1,8 +1,8 @@
 <?php
 
 define( '_MYTPLSADMIN_TIPS' , 'The original template file is read-only for added security reasons.<br>
-	Create a new template set and copy the templates to customize.<br>
-	In the Render, you can select the new Template, edit, copy, download or delete.');
+	Select a base set and create a new set of templates, or check only the templates you want to copy and customize.<br>
+	The <b>Render</b> allows you to select, edit, copy, download or delete a Template Set and templates files.');
 define( '_MYTPLSADMIN_CREATE_NEW_TPLSET' , 'Create a new set');
 define( '_MYTPLSADMIN_CAPTION_BASE' , 'Base');
 define( '_MYTPLSADMIN_CAPTION_SETNAME' , 'name');
@@ -23,7 +23,7 @@ define( '_MYTPLSADMIN_ERR_DUPLICATEDSETNAME' , 'The set name already exists.');
 define( '_MYTPLSADMIN_ERR_INVALIDSETNAME' , 'a wrong set name is specified.');
 
 define( '_MYTPLSADMIN_H3_MODULE' , 'Module');
-define( '_MYTPLSADMIN_BTN_NEWTPLSET' , 'create');
+define( '_MYTPLSADMIN_BTN_NEWTPLSET' , 'Create');
 
 define( '_MYTPLSADMIN_DBUPDATED' , 'Templates updated successfully');
 

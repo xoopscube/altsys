@@ -3,10 +3,10 @@
  * Altsys library (UI-Components) for D3 modules
  *
  * @package    Altsys
- * @version    XCL 2.3.1
+ * @version    XCL 2.3.3
  * @author     Other authors gigamaster, 2020 XCL/PHP7
  * @author     Gijoe (Peak)
- * @copyright  (c) 2005-2022 Authors
+ * @copyright  (c) 2005-2023 Authors
  * @license    GPL v2.0
  */
 
@@ -24,7 +24,7 @@ $adminmenu = [];
 
 while ( list( $name, $dirname, $count ) = $db->fetchRow( $mrs ) ) {
 
-    $moduleIcon = '<img class="svg" src="'.XOOPS_URL.'/modules/'.$dirname.'/images/module_icon.svg" width="1em" height="1em">';
+    $moduleIcon = '<img class="svg" src="'.XOOPS_URL.'/modules/'.$dirname.'/images/module_icon.svg" width="1em" height="1em" alt="module-icon">';
 
 	if ( $dirname == $current_dirname ) {
 
