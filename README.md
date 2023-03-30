@@ -19,7 +19,7 @@ Version | 2.33.0
 Author | Nobuhiro Yasutomi @nbuy XCL PHP8  
 Author | Nuno Luciano @gigamaster XCL PHP7  
 Author | GiJoe ( peak.ne.jp ) Original work
-Copyright | 2005-2022 Authors
+Copyright | 2005-2023 Authors
 License | GPL
 
 
