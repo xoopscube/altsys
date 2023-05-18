@@ -1,12 +1,11 @@
-![X-Updare Store](https://img.shields.io/website?down_color=red&down_message=Offline&label=X-Update%20Store&style=for-the-badge&up_color=308311&up_message=online&url=https%3A%2F%2Fxoopscube.xyz%2Fuploads%2Fxupdatemaster%2Fstores_json_V1.txt)
-[![XOOPSCube powered-by-electricity](https://img.shields.io/badge/Powered%20by-Electricity-face74?style=for-the-badge&labelColor=203244&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNmYWNlNzQiIGQ9Ik0xNC42OSAyLjIxTDQuMzMgMTEuNDljLS42NC41OC0uMjggMS42NS41OCAxLjczTDEzIDE0bC00Ljg1IDYuNzZjLS4yMi4zMS0uMTkuNzQuMDggMS4wMWMuMy4zLjc3LjMxIDEuMDguMDJsMTAuMzYtOS4yOGMuNjQtLjU4LjI4LTEuNjUtLjU4LTEuNzNMMTEgMTBsNC44NS02Ljc2Yy4yMi0uMzEuMTktLjc0LS4wOC0xLjAxYS43Ny43NyAwIDAgMC0xLjA4LS4wMnoiLz48L3N2Zz4=)](https://github.com/xoopscube)
-[![XCL](https://img.shields.io/badge/XCL-Made%20with%20passion-b0201d?style=for-the-badge&labelColor=991015&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJtMTIgMjEuMzVsLTEuNDUtMS4zMkM1LjQgMTUuMzYgMiAxMi4yNyAyIDguNUMyIDUuNDEgNC40MiAzIDcuNSAzYzEuNzQgMCAzLjQxLjgxIDQuNSAyLjA4QzEzLjA5IDMuODEgMTQuNzYgMyAxNi41IDNDMTkuNTggMyAyMiA1LjQxIDIyIDguNWMwIDMuNzctMy40IDYuODYtOC41NSAxMS41M0wxMiAyMS4zNVoiLz48L3N2Zz4=)](https://github.com/xoopscube)
+![X-Updare Store](https://img.shields.io/website?down_color=red&down_message=Offline&label=X-Update%20Store&labelColor=203244&style=for-the-badge&up_color=308311&up_message=online&url=https%3A%2F%2Fxoopscube.xyz%2Fuploads%2Fxupdatemaster%2Fstores_json_V1.txt)
+[![XOOPSCube powered-by-electricity](https://img.shields.io/badge/Powered%20by-Electricity-face74?style=for-the-badge&labelColor=203244&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IiNmYWNlNzQiIGQ9Ik0xNC42OSAyLjIxTDQuMzMgMTEuNDljLS42NC41OC0uMjggMS42NS41OCAxLjczTDEzIDE0bC00Ljg1IDYuNzZjLS4yMi4zMS0uMTkuNzQuMDggMS4wMWMuMy4zLjc3LjMxIDEuMDguMDJsMTAuMzYtOS4yOGMuNjQtLjU4LjI4LTEuNjUtLjU4LTEuNzNMMTEgMTBsNC44NS02Ljc2Yy4yMi0uMzEuMTktLjc0LS4wOC0xLjAxYS43Ny43NyAwIDAgMC0xLjA4LS4wMnoiLz48L3N2Zz4=)](https://github.com/xoopscube) [![DEV](https://img.shields.io/badge/Developed%20in%20Japan-bc0027?style=for-the-badge&labelColor=fff&logoWidth=21&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSIjYmMwMDI3IiBkPSJNOCA0YTQgNCAwIDEgMSAwIDhhNCA0IDAgMCAxIDAtOFoiLz48L3N2Zz4=)](https://github.com/xoopscube) [![DESIGN](https://img.shields.io/badge/Enhanced%20in%20Switzerland-bc0027?style=for-the-badge&labelColor=bc0027&color=f1f2f3&logoWidth=27&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSJ3aGl0ZSIgZD0iTTIwIDE0aC02djZoLTR2LTZINHYtNGg2VjRoNHY2aDZ2NFoiLz48L3N2Zz4=)](https://github.com/xoopscube)
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/2.0.0/active.svg)](https://github.com/xoopscube/altsys)
 ![License GPL](https://img.shields.io/badge/License-GPL-green)
 ![X-Updare Store](https://img.shields.io/badge/XOOPSCube%20Package-XCL-blue)
 
-## ///// — AltSys UI Component Library
+## ///// — AltSys Library - UI Components
 
 ![alt text](https://repository-images.githubusercontent.com/8041517/16f372e9-91e2-4ff8-8d79-ccbb6b2ad0d9)
 
@@ -17,7 +16,7 @@ Description | UI Component Library to create and manage Blocks, Templates, Local
 Render Engine | Smarty v2 and XCube Layout
 Version | 2.33.0
 Author | Nobuhiro Yasutomi @nbuy XCL PHP8  
-Author | Nuno Luciano @gigamaster XCL PHP7  
+Author | Nuno Luciano @gigamaster XCL PHP7/8  
 Author | GiJoe ( peak.ne.jp ) Original work
 Copyright | 2005-2023 Authors
 License | GPL
@@ -40,42 +39,44 @@ License | GPL
 
 ## SUMMARY
 
-UI Common Library to create custom Blocks and Templates.  
-Manage modules Blocks, Templates, and translations.  
-GUI for Localization.  
+Utility module **Components** (Alternative System Library, AltSys) provides GUI quick access to common tasks and general management of custom components, blocks, templates, language internationalization (i18n) and localization (l10n)
 
 
 ### INSTALL
 
-- set XOOPS_TRUST_PATH into mainfile.php
-- copy xoops_trus_path/libs/ in the archive into XOOPS_TRUST_PATH/
-- copy html/modules/altsys in the archive into XOOPS_ROOT_PATH/modules/
-- install it
+Install manually (FTP/SSH) :  
+- Upload html/modules/altsys to your documentRoot (html)/modules/
+- Upload truspath/libs in the archive to your trus_path/libs/
+- install with Modules Management
 
 
 ### FEATURES
 
-- easy block administration 
-- easy permission adminstration
-- easy copy/delete/edit any DB templates
-- easy import/export any DB templates
-- displaying diff between each version of templates
-- finding the template you want to edit easily
-- making an Extension for Dreamweaver to edit templates
-- modifying adminmenu in the left side of XOOPS 2.0.x easier
-- displaying admin controll panels in any conventional themes
-- supporting three types of template auto-updating into the DB
-- modifying operations/developments of any versions of core (X2,XCL2.1,ImpressCMS etc.) efficient
+Graphical user interface management system :  
+- Blocks administration
+- Custom Blocks
+- Custom Components
+- Custom Templates 
+  copy/delete/edit any DB templates  
+  import/export any DB templates  
+- Diff between each version of templates
+- Permission adminstration
+
+- Easily find the template you want to customize  
+- Helpers for designers
+- Generates an Extension for Dreamweaver with templates vars
+- Displays the admin control panel in the front end
+- Supports three types of template auto-updating into the DB
 
 
 #### DB template auto-updating feature
 
-This feature make your customization/development of DB templates much efficient.
-Altsys supports three types of auto-updating the templates stored in Database.
+This feature streamlines the customization and template development process.
+Altsys supports three types of automatic updating of templates stored in the database.
 
 1. auto-updating templates under ```theme/templates/module-name```
-This feature is useful for developper of site/theme.
-Insert a line just after including common.php of mainfile.php.  
+This feature is useful for theme design and template customization.  
+Insert just a line after including common.php in mainfile.php.  
   
 ```diff
 include XOOPS_ROOT_PATH."/include/common.php";
@@ -89,14 +90,15 @@ will be automatically updated into your Database.
 
 2. auto-updating template under ```module/templates```  
 This feature is useful for developper of modules.  
-Insert two lines just after including common.php of mainfile.php  
+Insert two lines after including common.php in mainfile.php  
 
 ```diff
 include XOOPS_ROOT_PATH."/include/common.php";
 
 +	$tplsadmin_autoupdate_dirnames = array( '(your_module)' ) ;
 +	include XOOPS_TRUST_PATH."/libs/altsys/include/autoupdate_from_module.inc.php" ;
-```
+```  
+
 Then, any modification to templates in ```/modules/(your_module)/templates/```  
 will be automatically updated into your Database.  
 
@@ -104,7 +106,7 @@ You can specify multiple modules e.g.: ```array( 'piCal' , 'pico', 'd3forum' )``
 
 3. auto-updating template under TRUST_PATH  
 This feature is useful for developper of D3 modules.  
-Insert two lines just after including common.php of mainfile.php  
+Insert two lines after including common.php in mainfile.php  
 
 ```diff
 include XOOPS_ROOT_PATH."/include/common.php";
@@ -120,19 +122,19 @@ will be automatically updated into your Database.
 
 ### Admin in theme
 
-You can display admin side in the theme for XOOPS.
-This must be useful for accessibility or mobile.
+You can display admin side in the front-end theme.  
+This can be useful for accessibility on mobile.
 
 You have to make some patch for enabling this feature.
 
 1. XOOPS2.x.x  
-Insert a line just after including common.php of mainfile.php.
+Insert a line after including common.php in mainfile.php.
 ```php
-		include XOOPS_TRUST_PATH.'/libs/altsys/include/admin_in_theme.inc.php' ;
+	include XOOPS_TRUST_PATH.'/libs/altsys/include/admin_in_theme.inc.php' ;
 ```
 
 2. XOOPSCube Legacy 2.1.x  
-Insert some lines into settings/site_custom.ini.php (this should be already available)  
+Insert the following lines into settings/site_custom.ini.php (this should be already available)  
 
 ```
 [RenderSystems]
@@ -149,33 +151,34 @@ Not supported yet
 ### Usage  
 
 Specify the theme for the admin theme in the preferences of altsys.  
-This means that you can specify different themes between public and admin.  
-If you disable "admin in theme", just left it blank here.  
+This means that you can specify different themes for the front-end and back-end.  
+If you disable "admin in topic", just leave this field blank. 
 
 If you want to show a block in the admin, set the target to "ALTSYS"  
 
 
 ### Admin menu hack 
   
-Even if you turn "admin in theme" disabled, you can modify the admin menu  
+Even if you disable "administration in theme", you can change the admin menu   
 in the left side of admin area - only for versions 2.0.x
 
 Just change "Rewrite admin menu" in altsys's preferences.  
 This is not a core hack but a cache hack.  
-If your admin area is broken, just remove cache/adminmenu.  
+If your admin is not working just delete cache/adminmenu. 
 
 
-### Language constants override system 
+### Language constants override 
 
-mylangadmin allows you to override the language constants of each module.
+The administrative view "Language" allows you to override the language constants of each module.  
 
-But, there are a hardle to enable this feature.
+But enabling this feature in older versions of Xoops is tricky. So, to ensure backwards compatibility, follow the instructions below:
 
-- You always override constants of module using D3LanguageManager natively.
+- You always override module constants using D3LanguageManager natively.
 
-- With core XoopsCube Legacy2.1.x, you can use this feature with conventional modules just by copying preload/SetupAltsysLangMgr.class.php
+- Core versions of XoopsCube Legacy 2.1.x, XCL 2.3.x, XCube3 you can use this feature with conventional modules using the preload mechanism :  
+  just by copying preload/SetupAltsysLangMgr.class.php
 
-- With conventinal core of XOOPS2, you have to hack the core. (follow the instruction in mylangadmin)
+- Core versions of XOOPS 2.x.x require you to hack the core files. (follow the instruction in mylangadmin)
 
 
 ## ALTSYS - 代替システムモジュール＆ライブラリ
